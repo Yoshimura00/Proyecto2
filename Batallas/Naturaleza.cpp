@@ -85,6 +85,11 @@ string Naturaleza::getNombre()
 	return nombre;
 }
 
+bool Naturaleza::getTipo()
+{
+	return tipo;
+}
+
 string Naturaleza::toString()
 {
 	stringstream s; 

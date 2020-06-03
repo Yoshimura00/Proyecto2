@@ -1,6 +1,6 @@
 #include "Caballero.h"
 
-Caballero::Caballero(string nombre, int salud, int PHYATK, int PHYDEF, int MAGATK, int MAGDEF, int SPD) : Luchador(nombre, salud, PHYATK, PHYDEF, MAGATK, MAGDEF, SPD)
+Caballero::Caballero(string nombre, Naturaleza* naturaleza, int salud, int PHYATK, int PHYDEF, int MAGATK, int MAGDEF, int SPD) : Luchador(nombre, naturaleza, salud, PHYATK, PHYDEF, MAGATK, MAGDEF, SPD)
 {
 
 }
@@ -21,18 +21,18 @@ int Caballero::random2()
 	return random;
 }
 
-void Caballero::especial()
+void Caballero::especial(Luchador* uno, Luchador* dos)
 {
-	if (random() == 1) {
+	if (random() == 1) { //50%
 		cout << "Habilidad especial de caballero" << endl;
-		setPHYDEF(getPHYDEF()+35);
+		uno->setPHYDEF(getPHYDEF()+35);
 		cout << "PHYDEF + 35%" << endl;
 
 
 	}
-	if ((random2() == 1) || (random2() == 2)) {
+	if ((random2() == 1) || (random2() == 2)) { //40%
 		cout << "Habilidad especial de caballero" << endl;
-		setPHYATK(getPHYATK() + 30);
+		uno->setPHYATK(getPHYATK() + 30);
 		cout << "PHYATK + 30%" << endl;
 	}
 }
@@ -40,7 +40,7 @@ void Caballero::especial()
 string Caballero::toString()
 {
 	stringstream s;
-	s << "luchador caballero" << endl;
+	s << "Luchador caballero" << endl;
 	s << Luchador::toString()<<endl;
 	return s.str();
 }

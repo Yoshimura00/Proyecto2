@@ -18,6 +18,7 @@ public:
 	bool comprobarResistentes(Naturaleza* naturaleza);
 	bool comprobarInmunes(Naturaleza* naturaleza);
 	string getNombre();
+	bool getTipo();
 	string toString();
 	
 

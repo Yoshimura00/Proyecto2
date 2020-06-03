@@ -1,6 +1,6 @@
 #include "Ataque.h"
 
-Ataque::Ataque(string nombre, int uso, int daño) : Habilidad (nombre, uso)
+Ataque::Ataque(string nombre, Naturaleza* naturaleza, int uso, int daño) : Habilidad (nombre, naturaleza, uso)
 {
 	this->daño = daño;
 }
@@ -48,4 +48,12 @@ void Ataque::ejecutar(Luchador* uno, Luchador* dos)
 
 
 
+}
+
+string Ataque::toString()
+{
+	stringstream s;
+	s << "Habilidad de ataque" << endl;
+	s << Habilidad::toString() << endl;
+	return s.str();
 }

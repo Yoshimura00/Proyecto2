@@ -1,6 +1,6 @@
 #include "Mago.h"
 
-Mago::Mago(string nombre, int salud, int PHYATK, int PHYDEF, int MAGATK, int MAGDEF, int SPD) : Luchador(nombre, salud, PHYATK, PHYDEF, MAGATK, MAGDEF, SPD)
+Mago::Mago(string nombre, Naturaleza* naturaleza, int salud, int PHYATK, int PHYDEF, int MAGATK, int MAGDEF, int SPD) : Luchador(nombre, naturaleza, salud, PHYATK, PHYDEF, MAGATK, MAGDEF, SPD)
 {
 }
 
@@ -20,18 +20,18 @@ int Mago::random2()
 	return random;
 }
 
-void Mago::especial()
+void Mago::especial(Luchador* uno, Luchador* dos)
 {
-	if (random() == 1) {
+	if (random() == 1) { //50%
 		cout << "Habilidad especial de mago" << endl;
-		setMAGDEF(getMAGDEF() + 35);
+		uno->setMAGDEF(getMAGDEF() + 35);
 		cout << "MAGDEF + 35%" << endl;
 
 
 	}
-	if ((random2() == 1) || (random2() == 2)) {
+	if ((random2() == 1) || (random2() == 2)) { //40%
 		cout << "Habilidad especial de mago" << endl;
-		setMAGATK(getMAGATK() + 30);
+		uno->setMAGATK(getMAGATK() + 30);
 		cout << "MAGATK + 30%" << endl;
 	}
 }
@@ -39,7 +39,7 @@ void Mago::especial()
 string Mago::toString()
 {
 	stringstream s;
-	s << "luchador caballero" << endl;
+	s << "Luchador mago" << endl;
 	s << Luchador::toString() << endl;
 	return s.str();
 }

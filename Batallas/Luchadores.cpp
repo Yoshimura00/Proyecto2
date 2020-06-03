@@ -3,6 +3,7 @@
 Luchador::Luchador()
 {
 	this->nombre = "";
+	this->naturaleza = nullptr;
 	this->salud = 0;
 	this->PHYATK = 0;
 	this->PHYDEF = 0;
@@ -11,9 +12,10 @@ Luchador::Luchador()
 	this->SPD = 0;
 }
 
-Luchador::Luchador(string nombre, int salud, int PHYATK, int PHYDEF, int MAGATK, int MAGDEF, int SPD)
+Luchador::Luchador(string nombre, Naturaleza* naturaleza, int salud, int PHYATK, int PHYDEF, int MAGATK, int MAGDEF, int SPD)
 {
 	this->nombre = nombre;
+	this->naturaleza = naturaleza;
 	this->salud = salud;
 	this->PHYATK = PHYATK;
 	this->PHYDEF = PHYDEF;
@@ -87,12 +89,18 @@ int Luchador::getSPD()
 	return SPD;
 }
 
+Naturaleza* Luchador::getNaturaleza()
+{
+	return naturaleza;
+}
+
 string Luchador::toString()
 {
 	stringstream s;
 	s << "Informacion del luchador: " << endl;
 	s << "Nombre: " <<nombre<< endl;
 	s << "Salud: " <<salud<<" %"<< endl;
+	s << "Naturaleza asociada: " << naturaleza << endl;
 	s << "PHYATK: " << PHYATK << " %" << endl;
 	s << "PHYDEF: " << PHYDEF << " %" << endl;
 	s << "MAGATK: " << MAGATK << " %" << endl;

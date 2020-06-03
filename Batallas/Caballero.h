@@ -3,10 +3,10 @@
 #include "Luchadores.h"
 class Caballero: public Luchador {
 public:
-	Caballero(string nombre, int salud, int PHYATK, int PHYDEF, int MAGATK, int MAGDEF, int SPD);
+	Caballero(string nombre, Naturaleza* naturaleza, int salud, int PHYATK, int PHYDEF, int MAGATK, int MAGDEF, int SPD);
 	int random();
 	int random2();
-	void especial();
+	void especial(Luchador* uno, Luchador* dos);
 	string toString();
 
 

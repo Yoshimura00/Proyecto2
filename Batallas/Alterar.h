@@ -4,7 +4,8 @@ class Alteracion : public Habilidad {
 private: 
 	bool elegido; 
 public: 
-	Alteracion(string nombre, int uso, bool elegido);
+	Alteracion(string nombre, Naturaleza* naturaleza, int uso, bool elegido);
 	int random();
 	void ejecutar(Luchador* uno, Luchador* dos);
+	string toString();
 };

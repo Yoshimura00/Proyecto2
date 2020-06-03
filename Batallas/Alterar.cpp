@@ -1,6 +1,6 @@
 #include "Alterar.h"
 
-Alteracion::Alteracion(string nombre, int uso, bool elegido) : Habilidad(nombre, uso)
+Alteracion::Alteracion(string nombre, Naturaleza* naturaleza, int uso, bool elegido) : Habilidad(nombre, naturaleza, uso)
 {
 	this->elegido = elegido;
 }
@@ -41,4 +41,12 @@ void Alteracion::ejecutar(Luchador* uno, Luchador* dos)
 		luchador->setSPD(luchador->getSPD() + alt5);
 	}
 	else { cout << "La alteracion ha fallado" << endl; }
+}
+
+string Alteracion::toString()
+{
+	stringstream s;
+	s << "Habilidad de alteracion" << endl;
+	s << Habilidad::toString() << endl;
+	return s.str();
 }

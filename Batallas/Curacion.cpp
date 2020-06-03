@@ -1,6 +1,6 @@
 #include "Curacion.h"
 
-Curacion::Curacion(string nombre, int uso, int intervalo) : Habilidad(nombre, uso)
+Curacion::Curacion(string nombre, Naturaleza* naturaleza, int uso, int intervalo) : Habilidad(nombre, naturaleza, uso)
 {
 	this->intervalo = intervalo;
 }
@@ -57,6 +57,14 @@ void Curacion::ejecutar(Luchador* uno, Luchador* dos)
   }
   else { cout << "La recuperacion ha fallado" << endl; }
  
+}
+
+string Curacion::toString()
+{
+	stringstream s;
+	s << "Habilidad de curacion" << endl;
+	s << Habilidad::toString() << endl;
+	return s.str();
 }
 
 	
