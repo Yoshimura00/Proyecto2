@@ -1,4 +1,5 @@
 #include "Mago.h"
+//prueba de cambio en el proyecto
 
 Mago::Mago(string nombre, int salud, int PHYATK, int PHYDEF, int MAGATK, int MAGDEF, int SPD) : Luchador(nombre, salud, PHYATK, PHYDEF, MAGATK, MAGDEF, SPD)
 {
