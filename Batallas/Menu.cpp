@@ -1,9 +1,17 @@
 #include "Menu.h"
+#include "servicioNaturaleza.h"
 
 void Menu::mostrar()
 {
 	cout << "Bienvenido al emulador de batallas" << endl;
 	int opcion, opcion1, opcion2, opcion3, opcionGC;
+	char op1='x', op2 = 'x';
+	servicioNaturaleza* servivicioN = new servicioNaturaleza();
+	string nombreNaturaleza, buscarN, nDebil, nResistente, nInmune;
+	Naturaleza* actual;
+	Naturaleza* nat;
+	int opcionDeN;
+	bool tipoNaturaleza;
 	do {
 		system("cls");
 		opcion = opcionesPrincipales();
@@ -13,12 +21,85 @@ void Menu::mostrar()
 				opcion1 = adminNaturalezas();
 				switch (opcion1) {
 				case 1:
+					while (op1 != 'n') {
+						cout << "Digite el nombre de la naturaleza que desea ingresar" << endl;
+						cin >> nombreNaturaleza;
+						cout << "Digite el tipo de la naturaleza" << endl;
+						cout << "1 = Fisica" << endl;
+						cout << "0 = Magica" << endl;
+						cin >> tipoNaturaleza;
+						Naturaleza* naturaleza = new Naturaleza(nombreNaturaleza, tipoNaturaleza);
+						servivicioN->ingresarNaturaleza(naturaleza);
+						cout << "Desea agregar otra naturaleza?" << endl;
+						cout << "s = Si" << endl;
+						cout << "n = NO" << endl;
+						cin >> op1;
+					}
 					break;
 				case 2:
+					cout << "Digite el nombre de la naturaleza que desea administrar" << endl;
+					cin >> buscarN;
+					actual = servivicioN->consultarNaturaleza(buscarN);
+					
+					while (op2 != 'n') {
+						cout << "Digite la lista de naturalezas que le desea agregar" << endl;
+						cout << "1 = Debiles" << endl;
+						cout << "2 = Resistentes" << endl;
+						cout << "3 = Inmunes" << endl;
+						cin >> opcionDeN;
+
+						switch (opcionDeN) {
+						case 1:
+							cout << "Digite el nombre de la naturaleza con la que" << actual->getNombre() << " sea debil" << endl;
+							cin >> nDebil;
+							for (int i = 0; i < servivicioN->cantidad(); i++) {
+								nat = servivicioN->consultarNaturaleza(nDebil);
+								if (nat->getNombre() == nDebil) {
+									if (actual->adminDebiles(nat) == true) { cout << "Se inserto con exito" << endl; }
+									else { cout << "No se pudo insertar porque ya existe en otra lista de esta naturaleza" << endl; }
+								}
+							}
+							break;
+						case 2:
+							cout << "Digite el nombre de la naturaleza con la que" << actual->getNombre() << " sea resistente" << endl;
+							cin >> nResistente;
+							for (int i = 0; i < servivicioN->cantidad(); i++) {
+								nat = servivicioN->consultarNaturaleza(nResistente);
+								if (nat->getNombre() == nResistente) {
+									if (actual->adminDebiles(nat) == true) { cout << "Se inserto con exito" << endl; }
+									else { cout << "No se pudo insertar porque ya existe en otra lista de esta naturaleza" << endl; }
+								}
+							}
+							break;
+						case 3:
+							cout << "Digite el nombre de la naturaleza con la que" << actual->getNombre() << " sea inmune" << endl;
+							cin >> nInmune;
+							for (int i = 0; i < servivicioN->cantidad(); i++) {
+								nat = servivicioN->consultarNaturaleza(nInmune);
+								if (nat->getNombre() == nInmune) {
+									if (actual->adminDebiles(nat) == true) { cout << "Se inserto con exito" << endl; }
+									else { cout << "No se pudo insertar porque ya existe en otra lista de esta naturaleza" << endl; }
+								}
+							}
+							break;
+							
+						default:
+							cout << "Opcion invalida" << endl;
+						}
+						cout << "Desea agregar mas naturalezas a las listas?" << endl;
+						cout << "s = Si" << endl;
+						cout << "n = NO" << endl;
+						cin >> op2;
+					}
 					break;
+
 				case 3:
+					cout<<servivicioN->toString()<<endl;
+					system("PAUSE");
 					break;
+
 				case 4:
+					cout << "saliendo..." << endl;
 					break;
 				default:
 					cout << "Opcion invalida" << endl;

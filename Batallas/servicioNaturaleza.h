@@ -8,6 +8,8 @@ public:
 	servicioNaturaleza();
 	void ingresarNaturaleza(Naturaleza* nuevo);
 	Naturaleza* consultarNaturaleza(string nombre);
+	int cantidad();
+	string toString();
 	~servicioNaturaleza();
 
 };

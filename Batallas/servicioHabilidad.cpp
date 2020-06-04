@@ -20,6 +20,7 @@ string servicioHabilidad::consultarHabilidades(Naturaleza* naturaleza)
 			s << actual->toString() << endl;
 		}
 	}
+	return s.str();
 }
 
 servicioHabilidad::~servicioHabilidad()

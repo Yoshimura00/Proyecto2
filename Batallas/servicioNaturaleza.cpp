@@ -23,6 +23,21 @@ Naturaleza* servicioNaturaleza::consultarNaturaleza(string nombre)
 	return nullptr;
 }
 
+int servicioNaturaleza::cantidad()
+{
+	return Naturalezas->cantidad();
+}
+
+string servicioNaturaleza::toString()
+{
+	stringstream s;
+	for (int i = 0; i < cantidad(); i++) {
+		Naturaleza* actual = dynamic_cast <Naturaleza*>(Naturalezas->consultar(i));
+		s<<actual->toString()<<endl;
+	}
+	return s.str();
+}
+
 servicioNaturaleza::~servicioNaturaleza()
 {
 	Naturalezas->clearData();
