@@ -18,7 +18,7 @@ void Alteracion::ejecutar(Luchador* uno, Luchador* dos)
 	Luchador* luchador;
 	int alt1, alt2, alt3, alt4, alt5;
 	if ((random() == 1) || (random() == 2)) {
-		if (elegido = true) { luchador = uno; }
+		if (elegido == true) { luchador = uno; }
 		else { luchador = dos; }
 
 		cout << "Habilidad de alteracion activada" << endl;
