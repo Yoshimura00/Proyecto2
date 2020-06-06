@@ -1,7 +1,6 @@
 #pragma once
 #include "LIstaEnlazada.h"
 #include "Naturaleza.h"
-#include "Habilidad.h"
 
 class Luchador: public ObjetoBase {
 private:
@@ -17,7 +16,7 @@ private:
 
 public:
 	Luchador();
-	Luchador(string nombre, Naturaleza* naturaleza, int salud, int PHYATK, int PHYDEF, int MAGATK, int MAGDEF, int SPD, ListaEnlazada* habilidades);
+	Luchador(string nombre, Naturaleza* naturaleza, int salud, int PHYATK, int PHYDEF, int MAGATK, int MAGDEF, int SPD);
 	void setSalud(int salud);
 	void setPHYATK(int PHYATK);
 	void setPHYDEF(int PHYDEF);

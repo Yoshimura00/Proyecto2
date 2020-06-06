@@ -4,6 +4,9 @@ Naturaleza::Naturaleza()
 {
 	this->nombre = "";
 	this->tipo = 0;
+	this->debiles = new ListaEnlazada();
+	this->resistentes = new ListaEnlazada();
+	this->inmunes = new ListaEnlazada();
 }
 
 Naturaleza::Naturaleza(string nombre, bool tipo)

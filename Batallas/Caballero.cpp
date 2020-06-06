@@ -1,6 +1,6 @@
 #include "Caballero.h"
 
-Caballero::Caballero(string nombre, Naturaleza* naturaleza, int salud, int PHYATK, int PHYDEF, int MAGATK, int MAGDEF, int SPD, ListaEnlazada* habilidades) : Luchador(nombre, naturaleza, salud, PHYATK, PHYDEF, MAGATK, MAGDEF, SPD, habilidades)
+Caballero::Caballero(string nombre, Naturaleza* naturaleza, int salud, int PHYATK, int PHYDEF, int MAGATK, int MAGDEF, int SPD) : Luchador(nombre, naturaleza, salud, PHYATK, PHYDEF, MAGATK, MAGDEF, SPD)
 {
 
 }
@@ -43,4 +43,5 @@ string Caballero::toString()
 	s << "Luchador caballero" << endl;
 	s << Luchador::toString()<<endl;
 	return s.str();
+	
 }
