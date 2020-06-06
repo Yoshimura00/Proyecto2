@@ -14,12 +14,16 @@ Naturaleza::Naturaleza(string nombre, bool tipo)
 
 bool Naturaleza::adminDebiles(Naturaleza* naturaleza)
 {
-	for (int i = 0; i < resistentes->cantidad(); i++) {
-		if (resistentes->consultar(i) == naturaleza) { return false; }
+	if (resistentes->contiene(naturaleza) == true) 
+	 { 
+		return false; 
+	 }
+	
+	if (inmunes->contiene(naturaleza) == true)
+	{
+		return false;
 	}
-	for (int i = 0; i < inmunes->cantidad(); i++) {
-		if (inmunes->consultar(i) == naturaleza) { return false; }
-	}
+	
 	debiles->insertarAlFinal(naturaleza);
 	return true;
 
@@ -28,54 +32,59 @@ bool Naturaleza::adminDebiles(Naturaleza* naturaleza)
 
 bool Naturaleza::adminResistentes(Naturaleza* naturaleza)
 {
-	for (int i = 0; i < debiles->cantidad(); i++) {
-		if (debiles->consultar(i) == naturaleza) { return false; }
+	if (debiles->contiene(naturaleza) == true)
+	{
+		return false;
 	}
-	for (int i = 0; i < inmunes->cantidad(); i++) {
-		if (inmunes->consultar(i) == naturaleza) { return false; }
+
+	if (inmunes->contiene(naturaleza) == true)
+	{
+		return false;
 	}
+
 	resistentes->insertarAlFinal(naturaleza);
 	return true;
 }
 
 bool Naturaleza::adminInmunes(Naturaleza* naturaleza)
 {
-	for (int i = 0; i < debiles->cantidad(); i++) {
-		if (debiles->consultar(i) == naturaleza) { return false; }
+	if (resistentes->contiene(naturaleza) == true)
+	{
+		return false;
 	}
-	for (int i = 0; i < resistentes->cantidad(); i++) {
-		if (resistentes->consultar(i) == naturaleza) { return false; }
+
+	if (debiles->contiene(naturaleza) == true)
+	{
+		return false;
 	}
+
 	inmunes->insertarAlFinal(naturaleza);
 	return true;
 }
 
 bool Naturaleza::comprobarDebiles(Naturaleza* naturaleza)
 {
-	for (int i = 0; i < debiles->cantidad(); i++) {
-		if (debiles->consultar(i) == naturaleza) {
-			return true;
-		}
+	if (debiles->contiene(naturaleza) == true) 
+	{
+		return true;
 	}
 	return false;
 }
 
 bool Naturaleza::comprobarResistentes(Naturaleza* naturaleza)
 {
-	for (int i = 0; i < resistentes->cantidad(); i++) {
-		if (resistentes->consultar(i) == naturaleza) {
-			return true;
-		}
+	if (resistentes->contiene(naturaleza) == true)
+	{
+		return true;
 	}
 	return false;
 }
 
 bool Naturaleza::comprobarInmunes(Naturaleza* naturaleza)
 {
-	for (int i = 0; i < inmunes->cantidad(); i++) {
-		if (inmunes->consultar(i) == naturaleza) {
-			return true;
-		}
+	if (inmunes->contiene(naturaleza) == true)
+	{
+		return true;
 	}
 	return false;
 }

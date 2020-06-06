@@ -10,9 +10,10 @@ Luchador::Luchador()
 	this->MAGATK = 0;
 	this->MAGDEF = 0;
 	this->SPD = 0;
+	this->habilidades = nullptr;
 }
 
-Luchador::Luchador(string nombre, Naturaleza* naturaleza, int salud, int PHYATK, int PHYDEF, int MAGATK, int MAGDEF, int SPD)
+Luchador::Luchador(string nombre, Naturaleza* naturaleza, int salud, int PHYATK, int PHYDEF, int MAGATK, int MAGDEF, int SPD, ListaEnlazada* habilidades)
 {
 	this->nombre = nombre;
 	this->naturaleza = naturaleza;
@@ -22,6 +23,7 @@ Luchador::Luchador(string nombre, Naturaleza* naturaleza, int salud, int PHYATK,
 	this->MAGATK = MAGATK;
 	this->MAGDEF = MAGDEF;
 	this->SPD = SPD;
+	this->habilidades = habilidades;
 }
 
 void Luchador::setSalud(int salud)
@@ -92,6 +94,11 @@ int Luchador::getSPD()
 Naturaleza* Luchador::getNaturaleza()
 {
 	return naturaleza;
+}
+
+ListaEnlazada* Luchador::getHabilidades()
+{
+	return habilidades;
 }
 
 string Luchador::toString()

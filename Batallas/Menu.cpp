@@ -66,7 +66,7 @@ void Menu::mostrar()
 							for (int i = 0; i < servivicioN->cantidad(); i++) {
 								nat = servivicioN->consultarNaturaleza(nResistente);
 								if (nat->getNombre() == nResistente) {
-									if (actual->adminDebiles(nat) == true) { cout << "Se inserto con exito" << endl; }
+									if (actual->adminResistentes(nat) == true) { cout << "Se inserto con exito" << endl; }
 									else { cout << "No se pudo insertar porque ya existe en otra lista de esta naturaleza" << endl; }
 								}
 							}
@@ -77,7 +77,7 @@ void Menu::mostrar()
 							for (int i = 0; i < servivicioN->cantidad(); i++) {
 								nat = servivicioN->consultarNaturaleza(nInmune);
 								if (nat->getNombre() == nInmune) {
-									if (actual->adminDebiles(nat) == true) { cout << "Se inserto con exito" << endl; }
+									if (actual->adminInmunes(nat) == true) { cout << "Se inserto con exito" << endl; }
 									else { cout << "No se pudo insertar porque ya existe en otra lista de esta naturaleza" << endl; }
 								}
 							}

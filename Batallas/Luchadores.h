@@ -1,6 +1,7 @@
 #pragma once
 #include "LIstaEnlazada.h"
 #include "Naturaleza.h"
+#include "Habilidad.h"
 
 class Luchador: public ObjetoBase {
 private:
@@ -12,9 +13,11 @@ private:
 	int MAGATK;
 	int MAGDEF;
 	int SPD;
+	ListaEnlazada* habilidades;
+
 public:
 	Luchador();
-	Luchador(string nombre, Naturaleza* naturaleza, int salud, int PHYATK, int PHYDEF, int MAGATK, int MAGDEF, int SPD);
+	Luchador(string nombre, Naturaleza* naturaleza, int salud, int PHYATK, int PHYDEF, int MAGATK, int MAGDEF, int SPD, ListaEnlazada* habilidades);
 	void setSalud(int salud);
 	void setPHYATK(int PHYATK);
 	void setPHYDEF(int PHYDEF);
@@ -29,6 +32,7 @@ public:
 	int getMAGDEF();
 	int getSPD();
 	Naturaleza* getNaturaleza();
+	ListaEnlazada* getHabilidades();
 	virtual int random() = 0;
 	virtual int random2() = 0;
 	virtual void especial(Luchador* uno, Luchador* dos) = 0;
