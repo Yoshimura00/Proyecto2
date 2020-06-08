@@ -7,6 +7,7 @@ private:
 public:
 	servicioHabilidad();
 	void ingresarHabilidad(Habilidad* nuevo);
-	string consultarHabilidades(Naturaleza* naturaleza);
+	string consultarHabilidadesPorNaturaleza(Naturaleza* naturaleza);
+	Habilidad* obtenerHabilidad(int n);
 	~servicioHabilidad();
 };

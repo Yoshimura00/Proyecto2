@@ -10,7 +10,7 @@ void servicioHabilidad::ingresarHabilidad(Habilidad* nuevo)
 	Habilidades->insertarAlFinal(nuevo);
 }
 
-string servicioHabilidad::consultarHabilidades(Naturaleza* naturaleza)
+string servicioHabilidad::consultarHabilidadesPorNaturaleza(Naturaleza* naturaleza)
 {
 	stringstream s;
 	s << "Habilidades con esta naturaleza: " << endl;
@@ -21,6 +21,12 @@ string servicioHabilidad::consultarHabilidades(Naturaleza* naturaleza)
 		}
 	}
 	return s.str();
+}
+
+Habilidad* servicioHabilidad::obtenerHabilidad(int n)
+{
+	Habilidad* actual = dynamic_cast <Habilidad*>(Habilidades->consultar(n));
+	return actual;
 }
 
 servicioHabilidad::~servicioHabilidad()

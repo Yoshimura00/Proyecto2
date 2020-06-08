@@ -7,14 +7,14 @@ Habilidad::Habilidad()
 	this->uso = true; 
 }
 
-Habilidad::Habilidad(string nombre, Naturaleza* naturaleza, bool uso)
+Habilidad::Habilidad(string nombre, Naturaleza* naturaleza, int uso)
 {
 	this->nombre = nombre;
 	this->naturaleza = naturaleza;
 	this->uso = uso;
 }
 
-void Habilidad::setUso(bool uso)
+void Habilidad::setUso(int uso)
 {
 	this->uso = uso;
 }

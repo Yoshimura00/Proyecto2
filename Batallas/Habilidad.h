@@ -1,5 +1,4 @@
 #pragma once
-#include "ObjetoBase.h"
 #include "Luchadores.h"
 #include "Naturaleza.h"
 class Habilidad : public ObjetoBase {
@@ -10,8 +9,8 @@ private:
 	
 public: 
 	Habilidad();
-	Habilidad(string nombre, Naturaleza* naturaleza, bool uso);
-	void setUso(bool uso);
+	Habilidad(string nombre, Naturaleza* naturaleza, int uso);
+	void setUso(int uso);
 	int getUso();
 	Naturaleza* getNaturaleza();
 	virtual int random() = 0;
