@@ -7,7 +7,9 @@ private:
 public: 
 	servicioNaturaleza();
 	void ingresarNaturaleza(Naturaleza* nuevo);
+	void pedirDatos();
 	Naturaleza* consultarNaturaleza(string nombre);
+	void mostrarNaturalezas();
 	~servicioNaturaleza();
 
 };

@@ -9,7 +9,18 @@ void servicioNaturaleza::ingresarNaturaleza(Naturaleza* nuevo)
 {
 	Naturalezas->insertarAlFinal(nuevo);
 }
-
+void servicioNaturaleza::pedirDatos() {
+	Naturaleza* nueva = new Naturaleza;
+	string nombre, tipo;
+	cout << "Ingrese a continuacion los datos de la nueva naturaleza!! " << endl;
+	cout << "Nombre" << endl;
+	cin >> nombre;
+	cout << "Tipo" << endl;
+	cin >> tipo;
+	nueva->setNombre(nombre);
+	nueva->setTipo(tipo);
+	ingresarNaturaleza(nueva);
+}
 Naturaleza* servicioNaturaleza::consultarNaturaleza(string nombre)
 {
 	for (int i = 0; i < Naturalezas->cantidad(); i++)
@@ -22,7 +33,11 @@ Naturaleza* servicioNaturaleza::consultarNaturaleza(string nombre)
 	}
 	return nullptr;
 }
-
+void servicioNaturaleza::mostrarNaturalezas() {
+	for (int i = 0; i < Naturalezas->cantidad(); i++) {
+		cout << Naturalezas->toString();
+	}
+}
 servicioNaturaleza::~servicioNaturaleza()
 {
 	Naturalezas->clearData();

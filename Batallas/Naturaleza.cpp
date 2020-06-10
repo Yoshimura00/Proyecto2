@@ -3,10 +3,13 @@
 Naturaleza::Naturaleza()
 {
 	this->nombre = "";
-	this->tipo = 0;
+	this->tipo = "";
+	debiles = new ListaEnlazada;
+	resistentes = new ListaEnlazada;
+	inmunes = new ListaEnlazada;
 }
 
-Naturaleza::Naturaleza(string nombre, bool tipo)
+Naturaleza::Naturaleza(string nombre, string tipo)
 {
 	this->nombre = nombre;
 	this->tipo = tipo;
@@ -92,26 +95,77 @@ string Naturaleza::toString()
 	s << "Nombre: " <<nombre<<endl;
 	s << "Tipo: " <<tipo<<endl;
 	s << "La naturaleza " << nombre << "tiene las siguientes interacciones: " << endl;
-
-	s << "Naturalezas debiles: " << endl;
-	for (int i = 0; i < debiles->cantidad(); i++) {
-		Naturaleza* actual = dynamic_cast <Naturaleza*>(debiles->consultar(i));
-		s << actual->getNombre() << endl;
+	if (!(debiles->listaVacia())) {
+		s << "Naturalezas debiles: " << endl;
+		for (int i = 0; i < debiles->cantidad(); i++) {
+			Naturaleza* actual = dynamic_cast <Naturaleza*>(debiles->consultar(i));
+			s << actual->getNombre() << endl;
+		}
+		s << endl;
 	}
-    s << endl;
+	else { cout << "Aun no se han agregado Naturalezas Debiles " << endl; }
+	
 
-	s << "Naturalezas resistentes" << endl;
-	for (int i = 0; i < resistentes->cantidad(); i++) {
-		Naturaleza* actual2 = dynamic_cast <Naturaleza*>(resistentes->consultar(i));
-		s << actual2->getNombre() << endl;
+	if (!(resistentes->listaVacia())) {
+		s << "Naturalezas resistentes" << endl;
+		for (int i = 0; i < resistentes->cantidad(); i++) {
+			Naturaleza* actual2 = dynamic_cast <Naturaleza*>(resistentes->consultar(i));
+			s << actual2->getNombre() << endl;
+		}
+		s << endl;
 	}
-	s << endl;
-
-	s << "Naturalezas inmunes" << endl;
-	for (int i = 0; i < inmunes->cantidad(); i++) {
-		Naturaleza* actual3 = dynamic_cast <Naturaleza*>(inmunes->consultar(i));
-		s << actual3->getNombre() << endl;
+	else { cout << "Aun no se han agregado Naturalezas Debiles " << endl; }
+	
+	if (!(inmunes->listaVacia())) {
+		s << "Naturalezas inmunes" << endl;
+		for (int i = 0; i < inmunes->cantidad(); i++) {
+			Naturaleza* actual3 = dynamic_cast <Naturaleza*>(inmunes->consultar(i));
+			s << actual3->getNombre() << endl;
+		}
+		s << endl;
 	}
-	s << endl;
+	else { cout << "Aun no se han agregado Naturalezas Debiles " << endl; }
 	return s.str();
 }
+
+void Naturaleza::setNombre(string nombre)
+{
+    this->nombre = nombre;
+}
+
+void Naturaleza::setTipo(string tipo)
+{
+    this->tipo = tipo;
+}
+
+
+ListaEnlazada* Naturaleza::getDebiles() const
+{
+    return debiles;
+}
+
+void Naturaleza::setDebiles(ListaEnlazada* debiles)
+{
+    this->debiles = debiles;
+}
+
+ListaEnlazada* Naturaleza::getResistentes() const
+{
+    return resistentes;
+}
+
+void Naturaleza::setResistentes(ListaEnlazada* resistentes)
+{
+    this->resistentes = resistentes;
+}
+
+ListaEnlazada* Naturaleza::getInmunes() const
+{
+    return inmunes;
+}
+
+void Naturaleza::setInmunes(ListaEnlazada* inmunes)
+{
+    this->inmunes = inmunes;
+}
+

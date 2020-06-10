@@ -15,6 +15,7 @@ public:
   void eliminarNodo(int n);
   void eliminarUltimo();
   int cantidad();
+  bool listaVacia();
   bool contiene(ObjetoBase* elemento);
   void clearData();
 

@@ -31,7 +31,7 @@ string ListaEnlazada::toString()
 
 	while (actual != nullptr)
 	{
-		s << actual->getDato() << endl;
+		s << actual->getDato()->toString() << endl;
 		actual = actual->getSiguiente();
 	}
 
@@ -157,7 +157,10 @@ int ListaEnlazada::cantidad()
 	}
 	return total;
 }
+bool ListaEnlazada::listaVacia() {
 
+	return (primero == nullptr) ?  true : false;
+}
 bool ListaEnlazada::contiene(ObjetoBase* elemento)
 {
 	Nodo* actual = this->primero;

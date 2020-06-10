@@ -1,5 +1,6 @@
 #pragma once
 #include "LIstaEnlazada.h"
+#include "servicioNaturaleza.h"
 class Menu {
 public:
 	void mostrar();

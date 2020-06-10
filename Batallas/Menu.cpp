@@ -1,22 +1,24 @@
 #include "Menu.h"
-
+servicioNaturaleza* s1 = new servicioNaturaleza;
 void Menu::mostrar()
 {
 	cout << "Bienvenido al emulador de batallas" << endl;
 	int opcion, opcion1, opcion2, opcion3, opcionGC;
 	do {
 		system("cls");
-		opcion = opcionesPrincipales();
+		opcion = opcionesPrincipales();//Muestra las opc disponibles del menu principal y las guarda
 		switch (opcion) {
 		case 1:
 			do {
 				opcion1 = adminNaturalezas();
 				switch (opcion1) {
 				case 1:
+					s1->pedirDatos();
 					break;
 				case 2:
 					break;
 				case 3:
+					s1->mostrarNaturalezas();
 					break;
 				case 4:
 					break;
