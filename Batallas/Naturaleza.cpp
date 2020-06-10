@@ -103,7 +103,7 @@ string Naturaleza::toString()
 		}
 		s << endl;
 	}
-	else { cout << "Aun no se han agregado Naturalezas Debiles " << endl; }
+	else { cout << "Aun no se han agregado Naturalezas debiles " << endl; }
 	
 
 	if (!(resistentes->listaVacia())) {
@@ -114,7 +114,7 @@ string Naturaleza::toString()
 		}
 		s << endl;
 	}
-	else { cout << "Aun no se han agregado Naturalezas Debiles " << endl; }
+	else { cout << "Aun no se han agregado Naturalezas resistentes " << endl; }
 	
 	if (!(inmunes->listaVacia())) {
 		s << "Naturalezas inmunes" << endl;
@@ -124,7 +124,7 @@ string Naturaleza::toString()
 		}
 		s << endl;
 	}
-	else { cout << "Aun no se han agregado Naturalezas Debiles " << endl; }
+	else { cout << "Aun no se han agregado Naturalezas inmunes " << endl; }
 	return s.str();
 }
 
