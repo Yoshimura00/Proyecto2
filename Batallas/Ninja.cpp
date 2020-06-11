@@ -31,7 +31,7 @@ void Ninja::especial(Luchador* uno, Luchador* dos)
 	}
 		if (random2() == 1) { //5%
 			cout << "Habilidad especial de ninja" << endl;
-			if (dos->getNaturaleza()->getTipo()==true) {
+			if (dos->getNaturaleza()->getTipo()=="fisico") {
 				uno->setPHYDEF(uno->getPHYDEF() + 80);
 				cout << "PHYDEF + 80" << endl;
 			}

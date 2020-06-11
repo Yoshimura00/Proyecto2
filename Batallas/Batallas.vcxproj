@@ -152,6 +152,7 @@
     <ClCompile Include="Batallas.cpp" />
     <ClCompile Include="Caballero.cpp" />
     <ClCompile Include="Curacion.cpp" />
+    <ClCompile Include="Enfrentamientos.cpp" />
     <ClCompile Include="Habilidad.cpp" />
     <ClCompile Include="ListaEnlazada.cpp" />
     <ClCompile Include="Luchadores.cpp" />
@@ -169,6 +170,7 @@
     <ClInclude Include="Ataque.h" />
     <ClInclude Include="Caballero.h" />
     <ClInclude Include="Curacion.h" />
+    <ClInclude Include="Enfrentamientos.h" />
     <ClInclude Include="Habilidad.h" />
     <ClInclude Include="LIstaEnlazada.h" />
     <ClInclude Include="Luchadores.h" />

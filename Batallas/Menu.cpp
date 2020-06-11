@@ -22,7 +22,7 @@ void Menu::mostrar()
 	bool alterado;
 
 	int opcionDeN, opcionDeH;
-	bool tipoNaturaleza;
+	string tipoNaturaleza;
 	do {
 		system("cls");
 		opcion = opcionesPrincipales();
@@ -140,7 +140,7 @@ void Menu::mostrar()
 							cout << "Digite un daño que este en las opciones" << endl;
 						}
 					}
-					habilidad = new Ataque(nombreHabilidad, naturalezaDeHabilidad, 2, daño);
+					habilidad = new Ataque(nombreHabilidad, naturalezaDeHabilidad, 0, daño);
 					servicioH->ingresarHabilidad(habilidad);
 					break;
 
@@ -159,7 +159,7 @@ void Menu::mostrar()
 							cout << "Digite un intervalo que este en las opciones" << endl;
 						}
 					}
-					habilidad = new Curacion(nombreHabilidad, naturalezaDeHabilidad, 3, intervalo);
+					habilidad = new Curacion(nombreHabilidad, naturalezaDeHabilidad, 0, intervalo);
 					servicioH->ingresarHabilidad(habilidad);
 					break;
 
@@ -171,7 +171,7 @@ void Menu::mostrar()
 					cout << "0 = luchador elegido" << endl;
 					cout << "1 = luchador rival" << endl;
 					cin >> alterado;
-					habilidad = new Alteracion(nombreHabilidad, naturalezaDeHabilidad, 4, alterado);
+					habilidad = new Alteracion(nombreHabilidad, naturalezaDeHabilidad, 0, alterado);
 					servicioH->ingresarHabilidad(habilidad);
 					break;
 				default:
