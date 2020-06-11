@@ -17,7 +17,7 @@ public:
   int cantidad();
   bool contiene(ObjetoBase* elemento);
   void clearData();
-
+  bool listaVacia();
   ~ListaEnlazada();
 
 };
