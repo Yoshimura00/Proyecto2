@@ -1,6 +1,6 @@
 #include "Alterar.h"
 
-Alteracion::Alteracion(string nombre, Naturaleza* naturaleza, int uso, bool elegido) : Habilidad(nombre, naturaleza, uso)
+Alteracion::Alteracion(string nombre, Naturaleza* naturaleza, int uso, bool elegido) : Habilidad(nombre, naturaleza, uso ,4)
 {
 	this->elegido = elegido;
 }

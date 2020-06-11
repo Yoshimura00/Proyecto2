@@ -3,13 +3,15 @@
 Naturaleza::Naturaleza()
 {
 	this->nombre = "";
-	this->tipo = 0;
+	this->tipo = "";
 	this->debiles = new ListaEnlazada();
 	this->resistentes = new ListaEnlazada();
 	this->inmunes = new ListaEnlazada();
 }
 
-Naturaleza::Naturaleza(string nombre, bool tipo)
+
+
+Naturaleza::Naturaleza(string nombre, string tipo)
 {
 	this->nombre = nombre;
 	this->tipo = tipo;
@@ -97,7 +99,7 @@ string Naturaleza::getNombre()
 	return nombre;
 }
 
-bool Naturaleza::getTipo()
+string Naturaleza::getTipo()
 {
 	return tipo;
 }
@@ -132,3 +134,4 @@ string Naturaleza::toString()
 	s << endl;
 	return s.str();
 }
+

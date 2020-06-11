@@ -4,13 +4,13 @@
 class Naturaleza: public ObjetoBase {
 private: 
 	string nombre;
-	bool tipo; 
+	string tipo; 
 	ListaEnlazada* debiles;
 	ListaEnlazada* resistentes;
 	ListaEnlazada* inmunes;
 public: 
 	Naturaleza();
-	Naturaleza(string nombre, bool tipo);
+	Naturaleza(string nombre, string tipo);
 	bool adminDebiles(Naturaleza* naturaleza); 
 	bool adminResistentes(Naturaleza* naturaleza);
 	bool adminInmunes(Naturaleza* naturaleza);
@@ -18,7 +18,7 @@ public:
 	bool comprobarResistentes(Naturaleza* naturaleza);
 	bool comprobarInmunes(Naturaleza* naturaleza);
 	string getNombre();
-	bool getTipo();
+	string getTipo();
 	string toString();
 	
 

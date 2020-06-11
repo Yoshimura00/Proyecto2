@@ -1,6 +1,6 @@
 #include "Ataque.h"
 
-Ataque::Ataque(string nombre, Naturaleza* naturaleza, int uso, int daño) : Habilidad (nombre, naturaleza, uso)
+Ataque::Ataque(string nombre, Naturaleza* naturaleza, int uso, int daño) : Habilidad (nombre, naturaleza, uso, 2)
 {
 	this->daño = daño;
 }
