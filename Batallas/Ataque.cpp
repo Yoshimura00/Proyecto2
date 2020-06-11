@@ -1,8 +1,8 @@
 #include "Ataque.h"
 
-Ataque::Ataque(string nombre, Naturaleza* naturaleza, int uso, int daño) : Habilidad (nombre, naturaleza, uso, 2)
+Ataque::Ataque(string nombre, Naturaleza* naturaleza, int uso, int dañoBase) : Habilidad (nombre, naturaleza, uso, 2)
 {
-	this->daño = daño;
+	this->dañoBase = dañoBase;
 }
 
 int Ataque::random()
@@ -13,32 +13,76 @@ int Ataque::random()
 	return random;
 }
 
+float Ataque::random2()
+{
+	//calcular aleatorio
+	return 1;
+}
+
+float Ataque::calcDaño(Luchador* uno, Luchador* dos)
+{
+	
+	float r = random2();
+	float dañoTotal;
+	int ataque, defensa;
+	if (getNaturaleza()->getTipo() == "fisica") { ataque = uno->getPHYATK(); defensa = dos->getPHYDEF(); }
+	if (getNaturaleza()->getTipo() == "magica") { ataque = uno->getMAGATK(); defensa = dos->getMAGDEF(); }
+	dañoTotal = dañoBase * (ataque / defensa) * r;
+	return dañoTotal;
+}
+
+float Ataque::dañoFinal(Luchador* uno, Luchador* dos)
+{
+	float dañoFinal = calcDaño(uno, dos);
+	Naturaleza* nat = getNaturaleza();
+
+	if (dos->getNaturaleza()->comprobarDebiles(nat) == true) {
+		dañoFinal = dañoFinal * 2;
+		cout << "Daño aumentado por interaccion de naturalezas" << endl;
+	}
+	if (dos->getNaturaleza()->comprobarResistentes(nat) == true) {
+		dañoFinal = dañoFinal / 2;
+		cout << "Daño reducido por interaccion de naturalezas" << endl;
+	}
+	if (dos->getNaturaleza()->comprobarInmunes(nat) == true) {
+		dañoFinal = dañoFinal = 0;
+		cout << "Daño neutralizado por interaccion de naturalezas" << endl;
+	}
+	
+      return dañoFinal;
+}
+
+
+
 void Ataque::ejecutar(Luchador* uno, Luchador* dos)
 {
-	if (daño == 50) {
+	float daño = dañoFinal(uno, dos);
+
+	if (dañoBase == 50) {
+		
 		if ((random() == 1) || (random() == 2) || (random() == 3) || (random() == 4)) {  
-			dos->setSalud(dos->getSalud() - 50);
+			dos->setSalud(dos->getSalud() - daño);
 			cout << "Ataque ejecutado" << endl;
 		}
 		else { cout << "El ataque ha fallado" << endl; }
 	}
-	if (daño == 100) {
+	if (dañoBase == 100) {
 		if ((random() == 1) || (random() == 2) || (random() == 3)) {
-			dos->setSalud(dos->getSalud() - 100);
+			dos->setSalud(dos->getSalud() - daño);
 			cout << "Ataque ejecutado" << endl;
 		}
 		else { cout << "El ataque ha fallado" << endl; }
 	}
-	if (daño == 150) {
+	if (dañoBase == 150) {
 		if ((random() == 1) || (random() == 2)) {
-			dos->setSalud(dos->getSalud() - 150);
+			dos->setSalud(dos->getSalud() - daño);
 			cout << "Ataque ejecutado" << endl;
 		}
 		else { cout << "El ataque ha fallado" << endl; }
 	}
-	if (daño == 200) {
+	if (dañoBase == 200) {
 		if ((random() == 1)) {
-			dos->setSalud(dos->getSalud() - 200);
+			dos->setSalud(dos->getSalud() - daño);
 			cout << "Ataque ejecutado" << endl;
 		}
 		else { cout << "El ataque ha fallado" << endl; }

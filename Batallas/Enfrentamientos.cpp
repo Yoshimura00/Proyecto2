@@ -45,17 +45,19 @@ void Enfrentamientos::Batalla(Luchador* uno, Luchador* dos)
 {
 	Habilidad* h1;
 	Habilidad* h2;
-	Habilidad* primero;
+	Habilidad* actual;
 
 	h1 = seleccionarHabilidades(uno);
 	h2 = seleccionarHabilidades(dos);
     
 	if (uno->getSPD() > dos->getSPD()) {
-		primero = h1;
+		actual = h1;
 	}
-
+	else {
+		actual = h2;
+	}
 	if (h1 != nullptr) {
-
+		actual->ejecutar(uno, dos);
 	}
 	
 
