@@ -2,26 +2,20 @@
 #include "servicioNaturaleza.h"
 #include "servicioHabilidad.h"
 #include "ServicioLuchador.h"
-#include "Ataque.h"
-#include "Curacion.h"
-#include "Alterar.h"
+
 
 void Menu::mostrar()
 {
 	cout << "Bienvenido al emulador de batallas" << endl;
-	int uso, daño = 0, intervalo = 0;
+	
 	int opcion, opcion1, opcion2, opcion3, opcionGC;
 	char op1 = 'x', op2 = 'x', op3 = 'x';
-	servicioNaturaleza* servivicioN = new servicioNaturaleza();
+	servicioNaturaleza* servicioN = new servicioNaturaleza();
 	servicioHabilidad* servicioH = new servicioHabilidad();
-	ServicioLuchador *s1 = new ServicioLuchador();
-	string nombreNaturaleza, buscarN, nDebil, nResistente, nInmune, naturaleza;
-	string nombreHabilidad;
-	Naturaleza* actual;
+	ServicioLuchador *servicioL = new ServicioLuchador();
 	Naturaleza* nat;
-	Naturaleza* naturalezaDeHabilidad;
-	Habilidad* habilidad;
-	bool alterado;
+	
+	
 
 	int opcionDeN, opcionDeH;
 	string tipoNaturaleza;
@@ -35,14 +29,7 @@ void Menu::mostrar()
 				switch (opcion1) {
 				case 1:
 					while (op1 != 'n') {
-						cout << "Digite el nombre de la naturaleza que desea ingresar" << endl;
-						cin >> nombreNaturaleza;
-						cout << "Digite el tipo de la naturaleza" << endl;
-						cout << "1 = Fisica" << endl;
-						cout << "0 = Magica" << endl;
-						cin >> tipoNaturaleza;
-						Naturaleza* naturaleza = new Naturaleza(nombreNaturaleza, tipoNaturaleza);
-						servivicioN->ingresarNaturaleza(naturaleza);
+						servicioN->pedirDatos();
 						cout << "Desea agregar otra naturaleza?" << endl;
 						cout << "s = Si" << endl;
 						cout << "n = NO" << endl;
@@ -50,45 +37,9 @@ void Menu::mostrar()
 					}
 					break;
 				case 2:
-					cout << "Digite el nombre de la naturaleza que desea administrar" << endl;
-					cin >> buscarN;
-					actual = servivicioN->consultarNaturaleza(buscarN);
 					
 					while (op2 != 'n') {
-						cout << "Digite la lista de naturalezas que le desea agregar" << endl;
-						cout << "1 = Debiles" << endl;
-						cout << "2 = Resistentes" << endl;
-						cout << "3 = Inmunes" << endl;
-						cin >> opcionDeN;
-
-						switch (opcionDeN) {
-						case 1:
-							cout << "Digite el nombre de la naturaleza con la que" << actual->getNombre() << " sea debil" << endl;
-							cin >> nDebil;
-							nat = servivicioN->consultarNaturaleza(nDebil);
-							if (actual->adminDebiles(nat) == true) { cout << "Se inserto con exito" << endl; }
-								else { cout << "No se pudo insertar porque ya existe en otra lista de esta naturaleza" << endl; }
-							break;
-
-						case 2:
-							cout << "Digite el nombre de la naturaleza con la que" << actual->getNombre() << " sea resistente" << endl;
-							cin >> nResistente;
-							nat = servivicioN->consultarNaturaleza(nResistente);
-							if (actual->adminResistentes(nat) == true) { cout << "Se inserto con exito" << endl; }
-								else { cout << "No se pudo insertar porque ya existe en otra lista de esta naturaleza" << endl; }
-							break;
-
-						case 3:
-							cout << "Digite el nombre de la naturaleza con la que" << actual->getNombre() << " sea inmune" << endl;
-							cin >> nInmune;
-						    nat = servivicioN->consultarNaturaleza(nInmune);
-							if (actual->adminInmunes(nat) == true) { cout << "Se inserto con exito" << endl; }
-								else { cout << "No se pudo insertar porque ya existe en otra lista de esta naturaleza" << endl; }	
-							break;
-							
-						default:
-							cout << "Opcion invalida" << endl;
-						}
+						servicioN->administrarNaturalezas();
 						cout << "Desea agregar mas naturalezas a las listas?" << endl;
 						cout << "s = Si" << endl;
 						cout << "n = NO" << endl;
@@ -97,7 +48,7 @@ void Menu::mostrar()
 					break;
 
 				case 3:
-					cout<<servivicioN->toString()<<endl;
+					cout<<servicioN->toString()<<endl;
 					system("PAUSE");
 					break;
 
@@ -116,69 +67,8 @@ void Menu::mostrar()
 			opcion2 = adminHabilidades();
 			switch (opcion2) {
 				while (op3 != 'n') {
-			case 1:
-				cout << "Digite el tipo de habilidad que desea ingresar" << endl;
-				cout << "1 = Ofensiva (necesita 2 turnos de recuperacion)" << endl;
-				cout << "2 = Sanadora (necesita 3 turnos de recuperacion)" << endl;
-				cout << "3 = Alteradora (necesita 4 turnos de recuperacion)" << endl;
-				cin >> opcionDeH;
-				cout << "Digite el nombre de la habilidad" << endl;
-				cin >> nombreHabilidad;
-				cout << "Digite la naturaleza de la habilidad" << endl;
-				cin >> naturaleza;
-				naturalezaDeHabilidad = servivicioN->consultarNaturaleza(naturaleza);
-				switch (opcionDeH) {
-				case 1:
-					while (daño != 50 && daño != 100 && daño != 150 && daño != 200) {
-						cout << "Digite el daño del ataque" << endl;
-						cout << "Digite una de las siguientes cuatro opciones: " << endl;
-						cout << "(Mientras mas daño tenga, menos posibilidad tendra de acierto)" << endl;
-						cout << "50" << endl;
-						cout << "100" << endl;
-						cout << "150" << endl;
-						cout << "200" << endl;
-						cin >> daño;
-						if (daño != 50 && daño != 100 && daño != 150 && daño != 200) {
-							cout << "Digite un daño que este en las opciones" << endl;
-						}
-					}
-					habilidad = new Ataque(nombreHabilidad, naturalezaDeHabilidad, 0, daño);
-					servicioH->ingresarHabilidad(habilidad);
-					break;
-
-				case 2:
-					while (intervalo != 1 && intervalo != 2 && intervalo != 3 && intervalo != 4) {
-						cout << "Digite el intervalo de curacion" << endl;
-						cout << "El luchador recuperara un porcentaje de salud al azar dentro de dicho intervalo" << endl;
-						cout << "Digite una de las siguientes cuatro opciones: " << endl;
-						cout << "(Mientras mas alto el intervalo, menos posibilidad tendra de acierto)" << endl;
-						cout << " 1 = (0 - 50)" << endl;
-						cout << " 2 = (50 - 100)" << endl;
-						cout << " 3 = (100 - 150)" << endl;
-						cout << " 4 = (150 - 200)" << endl;
-						cin >> intervalo;
-						if (intervalo != 1 && intervalo != 2 && intervalo != 3 && intervalo != 4) {
-							cout << "Digite un intervalo que este en las opciones" << endl;
-						}
-					}
-					habilidad = new Curacion(nombreHabilidad, naturalezaDeHabilidad, 0, intervalo);
-					servicioH->ingresarHabilidad(habilidad);
-					break;
-
-				case 3:
-					cout << "Las habilidades de alteracion poseen menor probabilidad de ser acertadas" << endl;
-					cout << "Puede alterar estadisticas del luchador elegido o el del rival" << endl;
-					cout << "El limite para alterar cada estadistica es de 30%" << endl;
-					cout << "Digite a quien desea aplicarle las alteraciones" << endl;
-					cout << "0 = luchador elegido" << endl;
-					cout << "1 = luchador rival" << endl;
-					cin >> alterado;
-					habilidad = new Alteracion(nombreHabilidad, naturalezaDeHabilidad, 0, alterado);
-					servicioH->ingresarHabilidad(habilidad);
-					break;
-				default:
-					cout << "Opcion invalida" << endl;
-				}
+			
+					servicioH->pedirDatos(servicioN);
 				cout << "Desea agregar mas habilidades a las listas?" << endl;
 				cout << "s = Si" << endl;
 				cout << "n = NO" << endl;
@@ -187,10 +77,7 @@ void Menu::mostrar()
 					break;
 
 				case 2:
-					cout << "Digite la naturaleza de la que desea ver habilidades" << endl;
-					cin >> buscarN;
-					nat = servivicioN->consultarNaturaleza(buscarN);
-					cout << "Las habilidades asociadas a dicha naturaleza son: " << endl;
+					nat = servicioH->pedirNaturaleza(servicioN);
 					cout<<servicioH->consultarHabilidadesPorNaturaleza(nat)<<endl;
 					system("PAUSE");
 					break;
@@ -209,7 +96,7 @@ void Menu::mostrar()
 				opcion3 = adminLuchadores();
 				switch (opcion3) {
 				case 1:
-					s1->pedirDatos(servivicioN);
+					servicioL->pedirDatos(servicioN);
 					break;
 				case 2:
 					break;
