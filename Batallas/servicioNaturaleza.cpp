@@ -1,5 +1,6 @@
 #include "servicioNaturaleza.h"
 
+
 servicioNaturaleza::servicioNaturaleza()
 {
 	this->Naturalezas = new ListaEnlazada();
@@ -21,6 +22,10 @@ Naturaleza* servicioNaturaleza::consultarNaturaleza(string nombre)
 		}
 	}
 	return nullptr;
+}
+bool servicioNaturaleza::naturalezaVacia()
+{
+	return (Naturalezas->listaVacia() == true) ? true : false;
 }
 
 int servicioNaturaleza::cantidad()

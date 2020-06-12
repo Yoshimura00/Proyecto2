@@ -103,6 +103,7 @@ ListaEnlazada* Luchador::getHabilidades()
 	return habilidades;
 }
 
+
 string Luchador::toString()
 {
 	stringstream s;

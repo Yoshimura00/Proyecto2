@@ -1,7 +1,7 @@
 #pragma once
 #include "LIstaEnlazada.h"
 #include "Naturaleza.h"
-
+//REVISAR
 class Luchador: public ObjetoBase {
 private:
 	string nombre;
@@ -32,8 +32,8 @@ public:
 	int getSPD();
 	Naturaleza* getNaturaleza();
 	ListaEnlazada* getHabilidades();
-	virtual int random() = 0;
-	virtual int random2() = 0;
-	virtual void especial(Luchador* uno, Luchador* dos) = 0;
+	virtual int random() =0 ;
+	virtual int random2()=0 ;
+	virtual void especial(Luchador* uno, Luchador* dos)=0;
 	string toString();
 };

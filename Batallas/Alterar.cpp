@@ -15,12 +15,12 @@ int Alteracion::random()
 
 void Alteracion::ejecutar(Luchador* uno, Luchador* dos)
 {    
-	int operacion;
+	int operacion=0;
 	int alteracion;
 	Luchador* luchador;
 	
 	if ((random() == 1) || (random() == 2)) {
-		if (elegido = true) { luchador = uno; }
+		if (elegido == true) { luchador = uno; }
 		else { luchador = dos; }
 
 		cout << "Habilidad de alteracion activada" << endl;
@@ -30,7 +30,7 @@ void Alteracion::ejecutar(Luchador* uno, Luchador* dos)
 		cout << " 2 = restar" << endl;
 		cout << "Digite la alteracion de las estadisticas" << endl;
 		cout << "el valor alterador no puede ser mayor a 30" << endl;
-		if (operacion = 1) {
+		if (operacion == 1) {
 			do {
 				cout << "PHYATK: " << endl;
 				cin >> alteracion;

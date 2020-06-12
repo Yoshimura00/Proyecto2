@@ -1,8 +1,6 @@
+#include "Luchadores.h"
 #include "Mago.h"
 
-Mago::Mago(string nombre, Naturaleza* naturaleza, int salud, int PHYATK, int PHYDEF, int MAGATK, int MAGDEF, int SPD) : Luchador(nombre, naturaleza, salud, PHYATK, PHYDEF, MAGATK, MAGDEF, SPD)
-{
-}
 
 int Mago::random()
 {
@@ -10,6 +8,10 @@ int Mago::random()
 	srand(time(0));
 	random = rand() % 2 + 1;
 	return random;
+}
+
+Mago::Mago(string nombre, Naturaleza* naturaleza, int salud, int PHYATK, int PHYDEF, int MAGATK, int MAGDEF, int SPD):Luchador( nombre,naturaleza,salud,PHYATK,  PHYDEF,MAGATK,MAGDEF,SPD)
+{
 }
 
 int Mago::random2()

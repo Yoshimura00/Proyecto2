@@ -11,5 +11,5 @@ public:
 	int cantidad();
 	string toString();
 	~servicioNaturaleza();
-
+	bool naturalezaVacia();
 };

@@ -1,6 +1,7 @@
 #include "Menu.h"
 #include "servicioNaturaleza.h"
 #include "servicioHabilidad.h"
+#include "ServicioLuchador.h"
 #include "Ataque.h"
 #include "Curacion.h"
 #include "Alterar.h"
@@ -13,6 +14,7 @@ void Menu::mostrar()
 	char op1 = 'x', op2 = 'x', op3 = 'x';
 	servicioNaturaleza* servivicioN = new servicioNaturaleza();
 	servicioHabilidad* servicioH = new servicioHabilidad();
+	ServicioLuchador *s1 = new ServicioLuchador();
 	string nombreNaturaleza, buscarN, nDebil, nResistente, nInmune, naturaleza;
 	string nombreHabilidad;
 	Naturaleza* actual;
@@ -207,6 +209,7 @@ void Menu::mostrar()
 				opcion3 = adminLuchadores();
 				switch (opcion3) {
 				case 1:
+					s1->pedirDatos(servivicioN);
 					break;
 				case 2:
 					break;
