@@ -23,14 +23,17 @@ int Caballero::random2()
 
 void Caballero::especial(Luchador* uno, Luchador* dos)
 {
-	if (random() == 1) { //50%
+	int Random = random();
+	int Random2 = random2();
+
+	if (Random == 1) { //50%
 		cout << "Habilidad especial de caballero" << endl;
 		uno->setPHYDEF(getPHYDEF()+35);
 		cout << "PHYDEF + 35%" << endl;
 
 
 	}
-	if ((random2() == 1) || (random2() == 2)) { //40%
+	if ((Random2 == 1) || (Random2 == 2)) { //40%
 		cout << "Habilidad especial de caballero" << endl;
 		uno->setPHYATK(getPHYATK() + 30);
 		cout << "PHYATK + 30%" << endl;

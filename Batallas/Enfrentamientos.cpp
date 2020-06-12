@@ -45,19 +45,33 @@ void Enfrentamientos::Batalla(Luchador* uno, Luchador* dos)
 {
 	Habilidad* h1;
 	Habilidad* h2;
-	Habilidad* actual;
+	Habilidad* primero;
+	Habilidad* segundo;
 
 	h1 = seleccionarHabilidades(uno);
 	h2 = seleccionarHabilidades(dos);
     
 	if (uno->getSPD() > dos->getSPD()) {
-		actual = h1;
+		primero = h1;
+		segundo = h2;
 	}
 	else {
-		actual = h2;
+		primero = h2;
+		segundo = h1;
 	}
-	if (h1 != nullptr) {
-		actual->ejecutar(uno, dos);
+	if (primero != nullptr) {
+		if (primero = h1) { primero->ejecutar(uno, dos); }
+		if (primero = h2) { primero->ejecutar(dos, uno); }
+	}
+	else {
+		cout << "El luchador " << primero->getNombre() << "salta este turno" << endl;
+	}
+	if (segundo != nullptr) {
+		if (segundo = h1) { segundo->ejecutar(uno, dos); }
+		if (segundo = h2) { segundo->ejecutar(dos, uno); }
+	}
+	else {
+		cout << "El luchador " << primero->getNombre() << "salta este turno" << endl;
 	}
 	
 

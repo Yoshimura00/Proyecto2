@@ -6,6 +6,7 @@
 
 void Menu::mostrar()
 {
+	
 	cout << "Bienvenido al emulador de batallas" << endl;
 	
 	int opcion, opcion1, opcion2, opcion3, opcionGC;

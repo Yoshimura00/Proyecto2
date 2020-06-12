@@ -56,32 +56,33 @@ float Ataque::dañoFinal(Luchador* uno, Luchador* dos)
 
 void Ataque::ejecutar(Luchador* uno, Luchador* dos)
 {
+	int Random = random();
 	float daño = dañoFinal(uno, dos);
 
 	if (dañoBase == 50) {
 		
-		if ((random() == 1) || (random() == 2) || (random() == 3) || (random() == 4)) {  
+		if ((Random == 1) || (Random == 2) || (Random == 3) || (Random == 4)) {   //80% prob
 			dos->setSalud(dos->getSalud() - daño);
 			cout << "Ataque ejecutado" << endl;
 		}
 		else { cout << "El ataque ha fallado" << endl; }
 	}
 	if (dañoBase == 100) {
-		if ((random() == 1) || (random() == 2) || (random() == 3)) {
+		if ((Random == 1) || (Random == 2) || (Random == 3)) {            //60% prob
 			dos->setSalud(dos->getSalud() - daño);
 			cout << "Ataque ejecutado" << endl;
 		}
 		else { cout << "El ataque ha fallado" << endl; }
 	}
 	if (dañoBase == 150) {
-		if ((random() == 1) || (random() == 2)) {
+		if ((Random == 1) || (Random == 2)) {                       //40% prob
 			dos->setSalud(dos->getSalud() - daño);
 			cout << "Ataque ejecutado" << endl;
 		}
 		else { cout << "El ataque ha fallado" << endl; }
 	}
 	if (dañoBase == 200) {
-		if ((random() == 1)) {
+		if ((Random == 1)) {                                //20% prob
 			dos->setSalud(dos->getSalud() - daño);
 			cout << "Ataque ejecutado" << endl;
 		}
