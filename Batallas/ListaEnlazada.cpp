@@ -31,7 +31,7 @@ string ListaEnlazada::toString()
 
 	while (actual != nullptr)
 	{
-		s << actual->getDato() << endl;
+		s << actual->getDato()->toString() << endl;
 		actual = actual->getSiguiente();
 	}
 

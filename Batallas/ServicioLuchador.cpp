@@ -1,5 +1,6 @@
 #include "ServicioLuchador.h"
 #include "servicioNaturaleza.h"
+#include "servicioHabilidad.h"
 #include "Mago.h"
 #include "Ninja.h"
 #include "Caballero.h"
@@ -27,7 +28,21 @@ Luchador* ServicioLuchador::ConsultarLuchador(string nombre)
 	}
 	return nullptr;
 }
+void ServicioLuchador :: consultarDatosLuchador() {
+	string nombre;
+	cout << "Digite el nombre de luchador a consultar !! " << endl;
+	cin >> nombre;
 
+	Luchador* consultado = ConsultarLuchador(nombre);
+
+	if (consultado!=nullptr) {
+		cout << consultado->toString();
+	}
+	else {
+		cout << "El luchador "<<" : " << nombre <<"consultado no se ha encontrado " << endl;
+	}
+
+}
 void ServicioLuchador::pedirDatos(servicioNaturaleza* s1)
 {
 
@@ -112,6 +127,79 @@ bool ServicioLuchador::EliminarLuchador(string nombre)
 	}
 	return false;
 }
+void ServicioLuchador::eliminarLuchadorpNombre() {
+	string nombre = "";
+	cout << "Digite el nombre del Luchador a eliminar!! " << endl;
+	cin >> nombre;
+
+	if (ConsultarLuchador(nombre)!=nullptr) {
+		EliminarLuchador(nombre);
+		cout << "Se ha elminado el luchador " << ":" << nombre << endl;
+	}
+	else {
+		cout << "El luchador Ingresado no se ha encontrado!! " << endl;
+	}
+}
+void ServicioLuchador::administrarHabilidades(servicioHabilidad* s1)
+{
+	string nombre = "";
+	string hab = "";
+	int numMax = 0;
+	Habilidad* h = nullptr;
+	ListaEnlazada* list = new ListaEnlazada;
+	if (Luchadores->listaVacia() == false) {
+		cout << "Mostrando Luchadores disponibles" << endl;
+		cout << Luchadores->toString();
+		cout << " Digite el nombre del luchador deseado " << endl;
+		cin >> nombre;
+		Luchador* l1 = ConsultarLuchador(nombre);
+		if (l1 != nullptr) {
+			cout << " Agregando las habilidades del luchador:   " << l1->getNombre() << " " << endl;
+			if (s1->habilidadVacia()==false) {
+				cout << "Habilidades disponibles : " << endl;
+				cout << s1->toString();
+				cout << "A continuacion elija cuantas habilidades desea aniadir, MIN 1 , MAX 4"<<endl;
+				cin >> numMax;
+
+				if (numMax >= 1 && numMax<= 4) {
+
+
+					for (int i = 1; i <= numMax;) {
+						cout << "Digite el nombre de la habilidad que desee agregar al luchador " << endl;
+						cin >> hab;
+						h = s1->consultarHabilidad(hab);
+						if (h!=nullptr) {
+							list->insertarAlFinal(h);
+							i++;
+						}
+						else {
+							cout << "ERR::La habilidad buscada  NO existe!!" << endl;
+						}
+						l1->setHabilidades(list);
+					}
+
+
+				}
+				else {
+					cout << "ERR::Ha digitado un valor incorrecto para el numero de habilidades (MIN=1 MAX=4)" << endl;
+				}
+			}
+			else {
+				cout << "ERR::Aun no se han agragado habilidades al sistema " << endl;
+			}
+
+			}
+			
+		
+		
+		else {
+			cout << "El luchador ingresado no existe!! " << endl;
+		}
+
+	}
+}
+
+
 
 ServicioLuchador::~ServicioLuchador()
 {

@@ -9,5 +9,8 @@ public:
 	void ingresarHabilidad(Habilidad* nuevo);
 	string consultarHabilidadesPorNaturaleza(Naturaleza* naturaleza);
 	Habilidad* obtenerHabilidad(int n);
+	string toString();
+	bool habilidadVacia();
+	Habilidad* consultarHabilidad(string nombre);
 	~servicioHabilidad();
 };

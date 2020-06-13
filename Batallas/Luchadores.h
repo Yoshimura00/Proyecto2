@@ -36,4 +36,5 @@ public:
 	virtual int random2()=0 ;
 	virtual void especial(Luchador* uno, Luchador* dos)=0;
 	string toString();
+	void setHabilidades(ListaEnlazada*l);
 };

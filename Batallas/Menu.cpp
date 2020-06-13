@@ -212,10 +212,13 @@ void Menu::mostrar()
 					s1->pedirDatos(servivicioN);
 					break;
 				case 2:
+					s1->administrarHabilidades(servicioH);
 					break;
 				case 3:
+					s1->eliminarLuchadorpNombre();
 					break;
 				case 4:
+					s1->consultarDatosLuchador();
 					break;
 				case 5:
 					break;

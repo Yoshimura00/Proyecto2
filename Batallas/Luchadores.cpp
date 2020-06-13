@@ -110,11 +110,16 @@ string Luchador::toString()
 	s << "Informacion del luchador: " << endl;
 	s << "Nombre: " <<nombre<< endl;
 	s << "Salud: " <<salud<<" %"<< endl;
-	s << "Naturaleza asociada: " << naturaleza << endl;
+	s << "Naturaleza asociada: " << naturaleza->getNombre() << endl;
 	s << "PHYATK: " << PHYATK << " %" << endl;
 	s << "PHYDEF: " << PHYDEF << " %" << endl;
 	s << "MAGATK: " << MAGATK << " %" << endl;
 	s << "MAGDEF: " << MAGDEF << " %" << endl;
 	s << "SPD: " << SPD << " %" << endl;
 	return s.str();
+}
+
+void Luchador::setHabilidades(ListaEnlazada* l)
+{
+	this->habilidades = l;
 }
