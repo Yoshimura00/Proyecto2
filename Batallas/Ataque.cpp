@@ -1,6 +1,6 @@
 #include "Ataque.h"
 
-Ataque::Ataque(string nombre, Naturaleza* naturaleza, int uso, int dañoBase) : Habilidad (nombre, naturaleza, uso, 2)
+Ataque::Ataque(string nombre, Naturaleza* naturaleza, int uso, int dañoBase) : Habilidad (nombre, naturaleza, uso, 1)
 {
 	this->dañoBase = dañoBase;
 }
@@ -88,9 +88,6 @@ void Ataque::ejecutar(Luchador* uno, Luchador* dos)
 		}
 		else { cout << "El ataque ha fallado" << endl; }
 	}
-
-
-
 
 
 }

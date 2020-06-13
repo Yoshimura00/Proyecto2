@@ -45,9 +45,9 @@ void servicioHabilidad::pedirDatos(servicioNaturaleza* servicioN)
 	Habilidad* habilidad;
 
 		cout << "Digite el tipo de habilidad que desea ingresar" << endl;
-		cout << "1 = Ofensiva (necesita 2 turnos de recuperacion)" << endl;
-		cout << "2 = Sanadora (necesita 3 turnos de recuperacion)" << endl;
-		cout << "3 = Alteradora (necesita 4 turnos de recuperacion)" << endl;
+		cout << "1 = Ofensiva (necesita 1 turno de recuperacion)" << endl;
+		cout << "2 = Sanadora (necesita 2 turnos de recuperacion)" << endl;
+		cout << "3 = Alteradora (necesita 3 turnos de recuperacion)" << endl;
 		cin >> opcion;
 		cout << "Digite el nombre de la habilidad" << endl;
 		cin >> nombreHabilidad;

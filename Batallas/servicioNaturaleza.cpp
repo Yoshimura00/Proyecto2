@@ -49,8 +49,8 @@ void servicioNaturaleza::pedirDatos()
 	cout << "Digite el nombre de la naturaleza que desea ingresar" << endl;
 	cin >> nombreNaturaleza;
 	cout << "Digite el tipo de la naturaleza" << endl;
-	cout << "1 = Fisica" << endl;
-	cout << "0 = Magica" << endl;
+	cout << "fisica" << endl;
+	cout << "magica" << endl;
 	cin >> tipoNaturaleza;
 	Naturaleza* naturaleza = new Naturaleza(nombreNaturaleza, tipoNaturaleza);
 	ingresarNaturaleza(naturaleza);

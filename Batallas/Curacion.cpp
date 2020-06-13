@@ -1,6 +1,6 @@
 #include "Curacion.h"
 
-Curacion::Curacion(string nombre, Naturaleza* naturaleza, int uso, int intervalo) : Habilidad(nombre, naturaleza, uso, 3)
+Curacion::Curacion(string nombre, Naturaleza* naturaleza, int uso, int intervalo) : Habilidad(nombre, naturaleza, uso, 2)
 {
 	this->intervalo = intervalo;
 }
