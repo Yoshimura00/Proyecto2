@@ -43,6 +43,65 @@ string servicioNaturaleza::toString()
 	return s.str();
 }
 
+void servicioNaturaleza::pedirDatos()
+{
+	string nombreNaturaleza, tipoNaturaleza;
+	cout << "Digite el nombre de la naturaleza que desea ingresar" << endl;
+	cin >> nombreNaturaleza;
+	cout << "Digite el tipo de la naturaleza" << endl;
+	cout << "fisica" << endl;
+	cout << "magica" << endl;
+	cin >> tipoNaturaleza;
+	Naturaleza* naturaleza = new Naturaleza(nombreNaturaleza, tipoNaturaleza);
+	ingresarNaturaleza(naturaleza);
+}
+
+void servicioNaturaleza::administrarNaturalezas()
+{
+	string buscarN, nDebil, nResistente, nInmune;
+	Naturaleza* actual;
+	Naturaleza* nat;
+	int opcion;
+	cout << "Digite el nombre de la naturaleza que desea administrar" << endl;
+	cin >> buscarN;
+	actual = consultarNaturaleza(buscarN);
+
+	cout << "Digite la lista de naturalezas que le desea agregar" << endl;
+	cout << "1 = Debiles" << endl;
+	cout << "2 = Resistentes" << endl;
+	cout << "3 = Inmunes" << endl;
+	cin >> opcion;
+
+	switch (opcion) {
+	case 1:
+		cout << "Digite el nombre de la naturaleza con la que" << actual->getNombre() << " sea debil" << endl;
+		cin >> nDebil;
+		nat = consultarNaturaleza(nDebil);
+		if (actual->adminDebiles(nat) == true) { cout << "Se inserto con exito" << endl; }
+		else { cout << "No se pudo insertar porque ya existe en otra lista de esta naturaleza" << endl; }
+		break;
+
+	case 2:
+		cout << "Digite el nombre de la naturaleza con la que" << actual->getNombre() << " sea resistente" << endl;
+		cin >> nResistente;
+		nat = consultarNaturaleza(nResistente);
+		if (actual->adminResistentes(nat) == true) { cout << "Se inserto con exito" << endl; }
+		else { cout << "No se pudo insertar porque ya existe en otra lista de esta naturaleza" << endl; }
+		break;
+
+	case 3:
+		cout << "Digite el nombre de la naturaleza con la que" << actual->getNombre() << " sea inmune" << endl;
+		cin >> nInmune;
+		nat = consultarNaturaleza(nInmune);
+		if (actual->adminInmunes(nat) == true) { cout << "Se inserto con exito" << endl; }
+		else { cout << "No se pudo insertar porque ya existe en otra lista de esta naturaleza" << endl; }
+		break;
+
+	default:
+		cout << "Opcion invalida" << endl;
+	}
+}
+
 servicioNaturaleza::~servicioNaturaleza()
 {
 	Naturalezas->clearData();

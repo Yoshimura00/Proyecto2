@@ -6,6 +6,7 @@ private:
 public: 
 	Curacion(string nombre, Naturaleza* naturaleza, int uso, int intervalo);
 	int random();
+	int calcRecuperacion();
 	void ejecutar(Luchador* uno, Luchador* dos);
 	string toString();
 

@@ -10,6 +10,8 @@ public:
 	Naturaleza* consultarNaturaleza(string nombre);
 	int cantidad();
 	string toString();
+	void pedirDatos();
+	void administrarNaturalezas();
 	~servicioNaturaleza();
 	bool naturalezaVacia();
 };
