@@ -183,6 +183,7 @@
     <ClInclude Include="servicioHabilidad.h" />
     <ClInclude Include="ServicioLuchador.h" />
     <ClInclude Include="servicioNaturaleza.h" />
+    <ClInclude Include="Utiles.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
