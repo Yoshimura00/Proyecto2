@@ -29,6 +29,7 @@ void Menu::mostrar()
 				opcion1 = adminNaturalezas();
 				switch (opcion1) {
 				case 1:
+					op1 = 'x';
 					while (op1 != 'n') {
 						servicioN->pedirDatos();
 						cout << "Desea agregar otra naturaleza?" << endl;
@@ -38,7 +39,7 @@ void Menu::mostrar()
 					}
 					break;
 				case 2:
-					
+					op2 = 'x';
 					while (op2 != 'n') {
 						servicioN->administrarNaturalezas();
 						cout << "Desea agregar mas naturalezas a las listas?" << endl;
@@ -67,6 +68,7 @@ void Menu::mostrar()
 			do {
 			opcion2 = adminHabilidades();
 			switch (opcion2) {
+				op3 = 'x';
 				while (op3 != 'n') {
 			
 					servicioH->pedirDatos(servicioN);

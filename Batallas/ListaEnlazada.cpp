@@ -158,7 +158,12 @@ int ListaEnlazada::cantidad()
 	return total;
 }
 bool ListaEnlazada::listaVacia() {
-	return (primero == nullptr) ? true : false;
+	if (primero == nullptr) {
+		return true;
+	}
+	else {
+		return false;
+	}
 }
 bool ListaEnlazada::contiene(ObjetoBase* elemento)
 {

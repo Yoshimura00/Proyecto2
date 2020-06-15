@@ -49,9 +49,11 @@ void servicioNaturaleza::pedirDatos()
 	cout << "Digite el nombre de la naturaleza que desea ingresar" << endl;
 	cin >> nombreNaturaleza;
 	cout << "Digite el tipo de la naturaleza" << endl;
-	cout << "fisica" << endl;
-	cout << "magica" << endl;
+	cout << "1)fisica" << endl;
+	cout << "2)magica" << endl;
 	cin >> tipoNaturaleza;
+	if (tipoNaturaleza == "1") { tipoNaturaleza = "fisica"; }
+	if (tipoNaturaleza == "2") { tipoNaturaleza = "magica"; }
 	Naturaleza* naturaleza = new Naturaleza(nombreNaturaleza, tipoNaturaleza);
 	ingresarNaturaleza(naturaleza);
 }
@@ -64,7 +66,12 @@ void servicioNaturaleza::administrarNaturalezas()
 	int opcion;
 	cout << "Digite el nombre de la naturaleza que desea administrar" << endl;
 	cin >> buscarN;
+	if (consultarNaturaleza(buscarN) == nullptr) {
+		cout << "ERROR: Debe ingresar una naturaleza que exista en el sistema" << endl;
+		return;
+	}
 	actual = consultarNaturaleza(buscarN);
+
 
 	cout << "Digite la lista de naturalezas que le desea agregar" << endl;
 	cout << "1 = Debiles" << endl;
@@ -74,27 +81,39 @@ void servicioNaturaleza::administrarNaturalezas()
 
 	switch (opcion) {
 	case 1:
-		cout << "Digite el nombre de la naturaleza con la que" << actual->getNombre() << " sea debil" << endl;
+		cout << "Digite el nombre de la naturaleza con la que " << actual->getNombre() << " sea debil" << endl;
 		cin >> nDebil;
 		nat = consultarNaturaleza(nDebil);
+		if (nat == nullptr) {
+			cout << "ERROR: Esta naturaleza no existe" << endl;
+			return;
+		}
 		if (actual->adminDebiles(nat) == true) { cout << "Se inserto con exito" << endl; }
-		else { cout << "No se pudo insertar porque ya existe en otra lista de esta naturaleza" << endl; }
+		else { cout << " ERROR: No se pudo insertar porque ya existe en alguna lista de esta naturaleza" << endl; }
 		break;
 
 	case 2:
-		cout << "Digite el nombre de la naturaleza con la que" << actual->getNombre() << " sea resistente" << endl;
+		cout << "Digite el nombre de la naturaleza con la que " << actual->getNombre() << " sea resistente" << endl;
 		cin >> nResistente;
 		nat = consultarNaturaleza(nResistente);
+		if (nat == nullptr) {
+			cout << "ERROR: Esta naturaleza no existe" << endl;
+			return;
+		}
 		if (actual->adminResistentes(nat) == true) { cout << "Se inserto con exito" << endl; }
-		else { cout << "No se pudo insertar porque ya existe en otra lista de esta naturaleza" << endl; }
+		else { cout << " ERROR: No se pudo insertar porque ya existe en alguna lista de esta naturaleza" << endl; }
 		break;
 
 	case 3:
-		cout << "Digite el nombre de la naturaleza con la que" << actual->getNombre() << " sea inmune" << endl;
+		cout << "Digite el nombre de la naturaleza con la que " << actual->getNombre() << " sea inmune" << endl;
 		cin >> nInmune;
 		nat = consultarNaturaleza(nInmune);
+		if (nat == nullptr) {
+			cout << "ERROR: Esta naturaleza no existe" << endl;
+			return;
+		}
 		if (actual->adminInmunes(nat) == true) { cout << "Se inserto con exito" << endl; }
-		else { cout << "No se pudo insertar porque ya existe en otra lista de esta naturaleza" << endl; }
+		else { cout << " ERROR: No se pudo insertar porque ya existe en alguna lista de esta naturaleza" << endl; }
 		break;
 
 	default:
