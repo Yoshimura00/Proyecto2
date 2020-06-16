@@ -18,7 +18,7 @@ void Nodo::setDato(ObjetoBase* dato)
 
 Nodo* Nodo::getSiguiente()
 {
-	return nullptr;
+	return siguiente;
 }
 
 void Nodo::setSiguiente(Nodo* siguiente)
