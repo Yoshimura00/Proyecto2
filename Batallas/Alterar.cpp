@@ -21,7 +21,7 @@ void Alteracion::ejecutar(Luchador* uno, Luchador* dos)
 	Luchador* luchador;
 	
 	if ((Random == 1) || (Random == 2)) {                    //40%
-		if (elegido == true) { luchador = uno; }
+		if (elegido == false) { luchador = uno; }
 		else { luchador = dos; }
 
 		cout << "Habilidad de alteracion activada" << endl;
@@ -116,6 +116,12 @@ string Alteracion::toString()
 {
 	stringstream s;
 	s << "Habilidad de alteracion" << endl;
-	s << Habilidad::toString() << endl;
+	s << Habilidad::toString();
+	if (elegido == 1) {
+		s << "El luchador a alterar es el del rival (jugador 2)" << endl;
+	}
+	if (elegido == 0) {
+		s << "El luchador a alterar es el del usuario (jugador 1)" << endl;
+	}
 	return s.str();
 }

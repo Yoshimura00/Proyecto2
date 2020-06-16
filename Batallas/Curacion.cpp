@@ -73,7 +73,19 @@ string Curacion::toString()
 {
 	stringstream s;
 	s << "Habilidad de curacion" << endl;
-	s << Habilidad::toString() << endl;
+	s << Habilidad::toString();
+	if (intervalo == 1) {
+		s << "El intervalo de la habilidad es (1-50)" << endl;
+	}
+	if (intervalo == 2) {
+		s << "El intervalo de la habilidad es (50-100)" << endl;
+	}
+	if (intervalo == 3) {
+		s << "El intervalo de la habilidad es (100-150)" << endl;
+	}
+	if (intervalo == 4) {
+		s << "El intervalo de la habilidad es (150-200)" << endl;
+	}
 	return s.str();
 }
 

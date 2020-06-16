@@ -38,6 +38,7 @@ string ListaEnlazada::toString()
 	return s.str();
 }
 
+
 ObjetoBase* ListaEnlazada::consultar(int n)
 {
 	if (primero == nullptr)

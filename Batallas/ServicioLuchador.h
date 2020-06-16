@@ -3,8 +3,7 @@
 #include "servicioNaturaleza.h"
 #include "LIstaEnlazada.h"
 #include "Luchadores.h"
-class servicioNaturaleza;
-class Luchador;
+
 class ServicioLuchador {
 private: 
 	ListaEnlazada* Luchadores; 
@@ -17,7 +16,8 @@ public:
 	bool EliminarLuchador(string nombre);
 	void eliminarLuchadorpNombre();
 	void administrarHabilidades(servicioHabilidad* s);
-	
+	string toString();
+	string mostrarNombres(ListaEnlazada* lista);
 	~ServicioLuchador();
 
 

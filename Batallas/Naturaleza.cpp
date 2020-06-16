@@ -138,7 +138,7 @@ string Naturaleza::toString()
 		}
 		if (resistentes->listaVacia() == true) { s << "No existen naturalezas resistentes para esta naturaleza" << endl; }
 		else {
-			s << "Naturalezas resistentes" << endl;
+			s << "Naturalezas resistentes: " << endl;
 			for (int i = 0; i < resistentes->cantidad(); i++) {
 				Naturaleza* actual2 = dynamic_cast <Naturaleza*>(resistentes->consultar(i));
 				s << actual2->getNombre() << endl;
@@ -147,7 +147,7 @@ string Naturaleza::toString()
 		}
 		if (inmunes->listaVacia() == true) { s << "No existen naturalezas inmunes para esta naturaleza" << endl; }
 		else {
-			s << "Naturalezas inmunes" << endl;
+			s << "Naturalezas inmunes: " << endl;
 			for (int i = 0; i < inmunes->cantidad(); i++) {
 				Naturaleza* actual3 = dynamic_cast <Naturaleza*>(inmunes->consultar(i));
 				s << actual3->getNombre() << endl;

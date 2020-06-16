@@ -26,6 +26,7 @@ void Menu::mostrar()
 		switch (opcion) {
 		case 1:
 			do {
+				system("cls");
 				opcion1 = adminNaturalezas();
 				switch (opcion1) {
 				case 1:
@@ -39,13 +40,13 @@ void Menu::mostrar()
 					}
 					break;
 				case 2:
-					op2 = 'x';
-					while (op2 != 'n') {
+					op1 = 'x';
+					while (op1 != 'n') {
 						servicioN->administrarNaturalezas();
 						cout << "Desea agregar mas naturalezas a las listas?" << endl;
 						cout << "s = Si" << endl;
 						cout << "n = NO" << endl;
-						cin >> op2;
+						cin >> op1;
 					}
 					break;
 
@@ -66,27 +67,30 @@ void Menu::mostrar()
 			
 		case 2: 
 			do {
+			system("cls");
 			opcion2 = adminHabilidades();
 			switch (opcion2) {
-				op3 = 'x';
-				while (op3 != 'n') {
-			
-					servicioH->pedirDatos(servicioN);
-				cout << "Desea agregar mas habilidades a las listas?" << endl;
+			case 1:
+				op2 = 'x';
+				while (op2 != 'n') {
+				servicioH->pedirDatos(servicioN);
+				cout << "Desea agregar otra habilidad?" << endl;
 				cout << "s = Si" << endl;
 				cout << "n = NO" << endl;
-				cin >> op3;
+				cin >> op2;
 				}
-					break;
+				break;
 
 				case 2:
 					nat = servicioH->pedirNaturaleza(servicioN);
-					cout<<servicioH->consultarHabilidadesPorNaturaleza(nat)<<endl;
+					cout<<servicioH->consultarHabilidadesPorNaturaleza(servicioN, nat)<<endl;
 					system("PAUSE");
-					break;
+					break; 
+
 				case 3:
 					cout<<"Saliendo..."<<endl;
 					break;
+
 				default:
 					cout << "Opcion invalida" << endl;
 				}
@@ -96,19 +100,44 @@ void Menu::mostrar()
 
 		case 3:
 			do {
+			system("cls");
 				opcion3 = adminLuchadores();
 				switch (opcion3) {
 				case 1:
-					servicioL->pedirDatos(servicioN);
-					break;
+					op3 = 'x';
+					while (op3 != 'n') {
+						servicioL->pedirDatos(servicioN);
+						cout << "Desea agregar otro luchador?" << endl;
+						cout << "s = Si" << endl;
+						cout << "n = NO" << endl;
+						cin >> op3;
+					}
+					break; 
+
 				case 2:
-					servicioL->administrarHabilidades(servicioH);
+					op3 = 'x';
+					while (op3 != 'n') {
+						servicioL->administrarHabilidades(servicioH);
+						cout << "Desea seguir administrando habilidades?" << endl;
+						cout << "s = Si" << endl;
+						cout << "n = NO" << endl;
+						cin >> op3;
+					}
 					break;
 				case 3:
-					servicioL->eliminarLuchadorpNombre();
+					op3 = 'x';
+					while (op3 != 'n') {
+					    servicioL->eliminarLuchadorpNombre();
+						cout << "Desea eliminar otro luchador?" << endl;
+						cout << "s = Si" << endl;
+						cout << "n = NO" << endl;
+						cin >> op3;
+					}
+
 					break;
 				case 4:
 					servicioL->consultarDatosLuchador();
+					system("PAUSE");
 					break;
 				case 5:
 					break;

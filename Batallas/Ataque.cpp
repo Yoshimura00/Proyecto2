@@ -96,6 +96,7 @@ string Ataque::toString()
 {
 	stringstream s;
 	s << "Habilidad de ataque" << endl;
-	s << Habilidad::toString() << endl;
+	s << Habilidad::toString();
+	s << "Daño base de la habilidad: "<<dañoBase<< endl;
 	return s.str();
 }

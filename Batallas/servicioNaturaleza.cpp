@@ -23,9 +23,35 @@ Naturaleza* servicioNaturaleza::consultarNaturaleza(string nombre)
 	}
 	return nullptr;
 }
+bool servicioNaturaleza::contieneNaturaleza(Naturaleza* nat)
+{
+	if (Naturalezas->contiene(nat) == true) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
 bool servicioNaturaleza::naturalezaVacia()
 {
-	return (Naturalezas->listaVacia() == true) ? true : false;
+	if (Naturalezas->listaVacia() == true) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
+string servicioNaturaleza::naturalezasEnLIsta()
+{
+    stringstream s;
+	for (int i = 0; i < cantidad(); i++) {
+		Naturaleza* actual = dynamic_cast <Naturaleza*>(Naturalezas->consultar(i));
+		s << "Naturaleza " << actual->getNombre() << " de tipo " <<actual->getTipo()<< endl;
+		
+	}
+	return s.str();
+	
 }
 
 int servicioNaturaleza::cantidad()
@@ -52,10 +78,15 @@ void servicioNaturaleza::pedirDatos()
 	cout << "1)fisica" << endl;
 	cout << "2)magica" << endl;
 	cin >> tipoNaturaleza;
+	if (tipoNaturaleza != "1" && tipoNaturaleza != "2") {
+		cout << "ERROR: digite una opcion valida" << endl;
+		return;
+	}
 	if (tipoNaturaleza == "1") { tipoNaturaleza = "fisica"; }
 	if (tipoNaturaleza == "2") { tipoNaturaleza = "magica"; }
-	Naturaleza* naturaleza = new Naturaleza(nombreNaturaleza, tipoNaturaleza);
-	ingresarNaturaleza(naturaleza);
+	ingresarNaturaleza(new Naturaleza(nombreNaturaleza, tipoNaturaleza));
+	cout << "Se agrego con exito" << endl;
+	
 }
 
 void servicioNaturaleza::administrarNaturalezas()
@@ -64,6 +95,8 @@ void servicioNaturaleza::administrarNaturalezas()
 	Naturaleza* actual;
 	Naturaleza* nat;
 	int opcion;
+	cout << "MOSTRANDO NATURALEZAS DISPONIBLES " << endl;
+	cout << naturalezasEnLIsta() << endl;
 	cout << "Digite el nombre de la naturaleza que desea administrar" << endl;
 	cin >> buscarN;
 	if (consultarNaturaleza(buscarN) == nullptr) {

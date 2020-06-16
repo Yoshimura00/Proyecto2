@@ -11,7 +11,7 @@ public:
 	servicioHabilidad();
 	void ingresarHabilidad(Habilidad* nuevo);
 	Naturaleza* pedirNaturaleza(servicioNaturaleza* naturaleza);
-	string consultarHabilidadesPorNaturaleza(Naturaleza* naturaleza);
+	string consultarHabilidadesPorNaturaleza(servicioNaturaleza* servicioN, Naturaleza* naturaleza);
 	void pedirDatos(servicioNaturaleza* servicioN);
 	Habilidad* obtenerHabilidad(int n);
 	string toString();

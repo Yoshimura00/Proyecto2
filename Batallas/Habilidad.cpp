@@ -45,9 +45,9 @@ string Habilidad::toString()
 	stringstream s;
 	s << "Datos de habilidad: " << endl;
 	s << "Nombre: "<<nombre<< endl;
-	s << "Rondas necesarias para volverse a usar" <<limiteDeUso<< endl;
-	s << "Rondas restantes para utilizarse: "<<uso<< endl;
-	s << "Naturaleza asociada: " <<naturaleza<< endl;
+	s << "Rondas necesarias para que la habilidad se vuelva a habilitar: " <<limiteDeUso<< endl;
+	s << "Rondas restantes para utilizarse actualmente: "<<uso<< endl;
+	s << "Naturaleza asociada: " <<naturaleza->getNombre()<< endl;
 	return s.str();
 }
 
