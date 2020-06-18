@@ -164,6 +164,7 @@
     <ClCompile Include="servicioHabilidad.cpp" />
     <ClCompile Include="ServicioLuchador.cpp" />
     <ClCompile Include="servicioNaturaleza.cpp" />
+    <ClCompile Include="servicioNaturalezasConPersistencia.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Alterar.h" />
@@ -183,6 +184,7 @@
     <ClInclude Include="servicioHabilidad.h" />
     <ClInclude Include="ServicioLuchador.h" />
     <ClInclude Include="servicioNaturaleza.h" />
+    <ClInclude Include="servicioNaturalezasConPersistencia.h" />
     <ClInclude Include="Utiles.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

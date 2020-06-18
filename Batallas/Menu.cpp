@@ -2,7 +2,7 @@
 #include "servicioNaturaleza.h"
 #include "servicioHabilidad.h"
 #include "ServicioLuchador.h"
-
+#include "Enfrentamientos.h"
 
 void Menu::mostrar()
 {
@@ -13,8 +13,12 @@ void Menu::mostrar()
 	char op1 = 'x', op2 = 'x', op3 = 'x';
 	servicioNaturaleza* servicioN = new servicioNaturaleza();
 	servicioHabilidad* servicioH = new servicioHabilidad();
-	ServicioLuchador *servicioL = new ServicioLuchador();
+	ServicioLuchador* servicioL = new ServicioLuchador();
+	Enfrentamientos* batalla = new Enfrentamientos();
+	
 	Naturaleza* nat;
+	Luchador* uno = nullptr;
+	Luchador* dos = nullptr;
 	
 	
 
@@ -149,6 +153,17 @@ void Menu::mostrar()
 			break;
 
 		case 4:
+			cout << "¡Preparandose la batalla!" << endl;
+			cout << "NOTA: En cualquier ronda se pueden activar las habilidaades especiales de cada luchador" << endl;
+			uno = batalla->seleccionarLuchadores(servicioL, 1);
+			dos = batalla->seleccionarLuchadores(servicioL, 2);
+			system("cls");
+			if (uno == nullptr || dos == nullptr) {
+				cout << "ERROR: la batalla no se puede dar por falta de luchadores" << endl;
+				return;
+			}
+			cout << "¡¡COMIENZA LA BATALLA!!" << endl;
+			batalla->Batalla(uno, dos);
 			break;
 
 		case 5:

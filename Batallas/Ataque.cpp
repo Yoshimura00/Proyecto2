@@ -15,8 +15,10 @@ int Ataque::random()
 
 float Ataque::random2()
 {
-	//calcular aleatorio
-	return 1;
+	float random;
+	srand(time(0));
+	random = 85 + (rand() % (100 + 1 - 85));
+	return random / 100;
 }
 
 float Ataque::calcDaño(Luchador* uno, Luchador* dos)

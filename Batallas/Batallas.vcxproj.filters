@@ -66,6 +66,9 @@
     <ClCompile Include="Enfrentamientos.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
+    <ClCompile Include="servicioNaturalezasConPersistencia.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ObjetoBase.h">
@@ -120,6 +123,9 @@
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="Utiles.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="servicioNaturalezasConPersistencia.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>

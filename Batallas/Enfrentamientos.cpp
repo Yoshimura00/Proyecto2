@@ -7,6 +7,23 @@ Enfrentamientos::Enfrentamientos()
 	rondas = 1;
 }
 
+Luchador* Enfrentamientos::seleccionarLuchadores(ServicioLuchador* servicio, int n)
+{
+	Luchador* luchador;
+	string nombre;
+	cout << "Mostrando luchadores disponibles" << endl;
+	cout << servicio->mostrarNombres(servicio->getLuchadores()) << endl;
+
+	cout << "Seleccione el luchador a utilizar para la batalla (Jugador "<<n<<")" << endl;
+	cin >> nombre;
+	luchador = servicio->consultarLuchador(nombre);
+	if (luchador = nullptr) {
+		cout << "ERROR: el luchador seleccionado no existe" << endl;
+	}
+    
+	return luchador;
+}
+
 void Enfrentamientos::actualizarDatos(ListaEnlazada* uno, ListaEnlazada* dos)
 {
 	rondas = rondas + 1;
@@ -78,6 +95,9 @@ void Enfrentamientos::Batalla(Luchador* uno, Luchador* dos)
 		h2 = seleccionarHabilidades(dos);
 		system("cls");
 
+		uno->especial(uno, dos);
+		dos->especial(dos, uno);
+
 		if (uno->getSPD() > dos->getSPD()) {
 			primera = h1;
 			segunda = h2;
@@ -88,8 +108,8 @@ void Enfrentamientos::Batalla(Luchador* uno, Luchador* dos)
 		}
 		if (primera != nullptr) {
 			primera->setUso(primera->getLimiteDeUso() + 1);
-			if (primera = h1) { primera->ejecutar(uno, dos); }
-			if (primera = h2) { primera->ejecutar(dos, uno); }
+			if (primera == h1) { primera->ejecutar(uno, dos); }
+			if (primera == h2) { primera->ejecutar(dos, uno); }
 			system("cls");
 		}
 		else {
@@ -97,8 +117,8 @@ void Enfrentamientos::Batalla(Luchador* uno, Luchador* dos)
 		}
 		if (segunda != nullptr) {
 			segunda->setUso(segunda->getLimiteDeUso() + 1);
-			if (segunda = h1) { segunda->ejecutar(uno, dos); }
-			if (segunda = h2) { segunda->ejecutar(dos, uno); }
+			if (segunda == h1) { segunda->ejecutar(uno, dos); }
+			if (segunda == h2) { segunda->ejecutar(dos, uno); }
 			system("cls");
 		}
 		else {

@@ -10,7 +10,7 @@ private:
 public: 
 	ServicioLuchador();
 	void ingresarLuchador(Luchador* nuevo);
-	Luchador* ConsultarLuchador(string nombre);
+	Luchador* consultarLuchador(string nombre);
 	void consultarDatosLuchador();
 	void pedirDatos(servicioNaturaleza*l);
 	bool EliminarLuchador(string nombre);
@@ -18,6 +18,7 @@ public:
 	void administrarHabilidades(servicioHabilidad* s);
 	string toString();
 	string mostrarNombres(ListaEnlazada* lista);
+	ListaEnlazada* getLuchadores();
 	~ServicioLuchador();
 
 

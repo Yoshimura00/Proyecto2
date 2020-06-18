@@ -20,6 +20,12 @@ Naturaleza::Naturaleza(string nombre, string tipo)
 	this->inmunes = new ListaEnlazada();
 }
 
+Naturaleza::Naturaleza(istream& input)
+{
+	getline(input, nombre, ',');
+	getline(input, nombre);
+}
+
 bool Naturaleza::adminDebiles(Naturaleza* naturaleza)
 {
 	if (resistentes->contiene(naturaleza) == true) 
@@ -107,6 +113,12 @@ bool Naturaleza::comprobarInmunes(Naturaleza* naturaleza)
 		return true;
 	}
 	return false;
+}
+
+void Naturaleza::serializar(ostream& out)
+{
+	out << nombre << ",";
+	out << tipo;
 }
 
 string Naturaleza::getNombre()

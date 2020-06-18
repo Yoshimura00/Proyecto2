@@ -15,7 +15,7 @@ void ServicioLuchador::ingresarLuchador(Luchador* nuevo)
 }
 
 
-Luchador* ServicioLuchador::ConsultarLuchador(string nombre)
+Luchador* ServicioLuchador::consultarLuchador(string nombre)
 {
 	
 	for (int i = 0; i < Luchadores->cantidad(); i++)
@@ -35,7 +35,7 @@ void ServicioLuchador :: consultarDatosLuchador() {
 	cout << "Digite el nombre de luchador a consultar " << endl;
 	cin >> nombre;
 
-	Luchador* consultado = ConsultarLuchador(nombre);
+	Luchador* consultado = consultarLuchador(nombre);
 
 	if (consultado!=nullptr) {
 		cout << consultado->toString();
@@ -139,7 +139,7 @@ void ServicioLuchador::eliminarLuchadorpNombre() {
 	cout << "Digite el nombre del Luchador a eliminar" << endl;
 	cin >> nombre;
 
-	if (ConsultarLuchador(nombre)!=nullptr) {
+	if (consultarLuchador(nombre)!=nullptr) {
 		EliminarLuchador(nombre);
 		cout << "Se ha eliminado el luchador " << ":" << nombre << endl;
 	}
@@ -159,7 +159,7 @@ void ServicioLuchador::administrarHabilidades(servicioHabilidad* s1)
 		cout << mostrarNombres(Luchadores) << endl;
 		cout << "Digite el nombre del luchador deseado " << endl;
 		cin >> nombre;
-		Luchador* l1 = ConsultarLuchador(nombre);
+		Luchador* l1 = consultarLuchador(nombre);
 		if (l1 != nullptr) {
 			cout << "Agregando las habilidades del luchador:   " << l1->getNombre() << " " << endl;
 			if (s1->habilidadVacia()==false) {
@@ -226,6 +226,11 @@ string ServicioLuchador::mostrarNombres(ListaEnlazada* lista)
 		s << actual->getNombre() << endl;
 	}
 	return s.str();
+}
+
+ListaEnlazada* ServicioLuchador::getLuchadores()
+{
+	return Luchadores;
 }
 
 

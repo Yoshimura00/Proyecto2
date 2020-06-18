@@ -28,12 +28,12 @@ void Ninja::especial(Luchador* uno, Luchador* dos)
 	int Random2 = random2();
 
 	if ((Random == 1) || (Random == 2) || (Random == 3) || (Random == 4) || (Random == 5) || (Random == 6) || (Random == 7)) { //35%
-		cout << "Habilidad especial de ninja" << endl;
+		cout << "HABILIDAD ESPECIAL DE NINJA ACTIVADA" << endl;
 		uno->setSPD(getSPD() + 80);  
 		cout << "SPD + 80%" << endl;
 	}
 		if (Random2 == 1) { //5%
-			cout << "Habilidad especial de ninja" << endl;
+			cout << "HABILIDAD ESPECIAL 2 DE NINJA ACTIVADA" << endl;
 			if (dos->getNaturaleza()->getTipo()=="fisica") {
 				uno->setPHYDEF(uno->getPHYDEF() + 80);
 				cout << "PHYDEF + 80" << endl;
