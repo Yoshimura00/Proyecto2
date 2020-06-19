@@ -116,8 +116,12 @@ string Luchador::toString()
 	s << "MAGATK: " << MAGATK << " %" << endl;
 	s << "MAGDEF: " << MAGDEF << " %" << endl;
 	s << "SPD: " << SPD << " %" << endl;
-	if (habilidades->listaVacia() == true) {
-		
+	if (habilidades==nullptr) {
+		s << "NO posee habilidades" << endl;
+	}
+	else {
+		s << "Habilidades del luchador: " << endl;
+		s << habilidades->toString() << endl;
 	}
 	return s.str();
 }

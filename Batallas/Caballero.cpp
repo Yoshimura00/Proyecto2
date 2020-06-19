@@ -30,13 +30,14 @@ void Caballero::especial(Luchador* uno, Luchador* dos)
 		cout << "HABILIDAD ESPECIAL DE CABALLERO ACTIVADA" << endl;
 		uno->setPHYDEF(getPHYDEF()+35);
 		cout << "PHYDEF + 35%" << endl;
-
+		system("PAUSE");
 
 	}
-	if ((Random2 == 1) || (Random2 == 2)) { //40%
+	if ((Random2 == 2) || (Random2 == 3)) { //40%
 		cout << "HABILIDAD 2 ESPECIAL DE CABALLERO ACTIVADA" << endl;
 		uno->setPHYATK(getPHYATK() + 30);
 		cout << "PHYATK + 30%" << endl;
+		system("PAUSE");
 	}
 }
 

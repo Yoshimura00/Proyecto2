@@ -38,13 +38,15 @@ void Alteracion::ejecutar(Luchador* uno, Luchador* dos)
 				if (alteracion > 30) { cout << "La alteracion no puede ser mayor a 30" << endl; }
 			} while (alteracion > 30);
 	        luchador->setPHYATK(luchador->getPHYATK() + alteracion);
-			
+			cout << "PHYATK + :"<<alteracion << endl;
+
 			do {
 				cout << "PHYDEF: " << endl;
 				cin >> alteracion;
 				if (alteracion > 30) { cout << "La alteracion no puede ser mayor a 30" << endl; }
 			} while (alteracion > 30);
 			luchador->setPHYDEF(luchador->getPHYDEF() + alteracion);
+			cout << "PHYDEF + :" << alteracion << endl;
 
 			do {
 				cout << "MAGATK: " << endl;
@@ -52,6 +54,7 @@ void Alteracion::ejecutar(Luchador* uno, Luchador* dos)
 				if (alteracion > 30) { cout << "La alteracion no puede ser mayor a 30" << endl; }
 			} while (alteracion > 30);
 			luchador->setMAGATK(luchador->getMAGATK() + alteracion);
+			cout << "MAGATK + :" << alteracion << endl;
 
 			do{
 				cout << "MAGDEF: " << endl;
@@ -59,6 +62,7 @@ void Alteracion::ejecutar(Luchador* uno, Luchador* dos)
 				if (alteracion > 30) { cout << "La alteracion no puede ser mayor a 30" << endl; }
 			} while (alteracion > 30);
 			luchador->setMAGDEF(luchador->getMAGDEF() + alteracion);
+			cout << "MAGDEF + :" << alteracion << endl;
 
 			do{
 				cout << "SPD: " << endl;
@@ -66,6 +70,7 @@ void Alteracion::ejecutar(Luchador* uno, Luchador* dos)
 				if (alteracion > 30) { cout << "La alteracion no puede ser mayor a 30" << endl; }
 			} while (alteracion > 30);
 			luchador->setSPD(luchador->getSPD() + alteracion);
+			cout << "SPD + :" << alteracion << endl;
 
 		}
 
@@ -76,6 +81,7 @@ void Alteracion::ejecutar(Luchador* uno, Luchador* dos)
 				if (alteracion > 30) { cout << "La alteracion no puede ser mayor a 30" << endl; }
 			} while (alteracion > 30);
 			luchador->setPHYATK(luchador->getPHYATK() - alteracion);
+			cout << "PHYATK - :" << alteracion << endl;
 
 			do {
 				cout << "PHYDEF: " << endl;
@@ -83,6 +89,7 @@ void Alteracion::ejecutar(Luchador* uno, Luchador* dos)
 				if (alteracion > 30) { cout << "La alteracion no puede ser mayor a 30" << endl; }
 			} while (alteracion > 30);
 			luchador->setPHYDEF(luchador->getPHYDEF() - alteracion);
+			cout << "PHYATK - :" << alteracion << endl;
 
 			do {
 				cout << "MAGATK: " << endl;
@@ -90,6 +97,7 @@ void Alteracion::ejecutar(Luchador* uno, Luchador* dos)
 				if (alteracion > 30) { cout << "La alteracion no puede ser mayor a 30" << endl; }
 			} while (alteracion > 30);
 			luchador->setMAGATK(luchador->getMAGATK() - alteracion);
+			cout << "PHYATK - :" << alteracion << endl;
 
 			do {
 				cout << "MAGDEF: " << endl;
@@ -97,6 +105,7 @@ void Alteracion::ejecutar(Luchador* uno, Luchador* dos)
 				if (alteracion > 30) { cout << "La alteracion no puede ser mayor a 30" << endl; }
 			} while (alteracion > 30);
 			luchador->setMAGDEF(luchador->getMAGDEF() - alteracion);
+			cout << "PHYATK - :" << alteracion << endl;
 
 			do {
 				cout << "SPD: " << endl;
@@ -104,6 +113,7 @@ void Alteracion::ejecutar(Luchador* uno, Luchador* dos)
 				if (alteracion > 30) { cout << "La alteracion no puede ser mayor a 30" << endl; }
 			} while (alteracion > 30);
 			luchador->setSPD(luchador->getSPD() - alteracion);
+			cout << "PHYATK - :" << alteracion << endl;
 
 
 		}

@@ -17,20 +17,21 @@ Luchador* Enfrentamientos::seleccionarLuchadores(ServicioLuchador* servicio, int
 	cout << "Seleccione el luchador a utilizar para la batalla (Jugador "<<n<<")" << endl;
 	cin >> nombre;
 	luchador = servicio->consultarLuchador(nombre);
-	if (luchador = nullptr) {
+	if (luchador == nullptr) {
 		cout << "ERROR: el luchador seleccionado no existe" << endl;
+		system("PAUSE");
 	}
     
 	return luchador;
 }
 
-void Enfrentamientos::actualizarDatos(ListaEnlazada* uno, ListaEnlazada* dos)
+void Enfrentamientos::actualizarDatos(ListaEnlazada* lista)
 {
 	rondas = rondas + 1;
 	Habilidad* actual;
 
-	for (int i = 0; i < uno->cantidad(); i++) {
-		actual = dynamic_cast <Habilidad*>(uno->consultarPorPosicion(i));
+	for (int i = 0; i < lista->cantidad(); i++) {
+		actual = dynamic_cast <Habilidad*>(lista->consultarPorPosicion(i));
 		if (actual->getUso() > 0) {
 			actual->setUso(actual->getUso() - 1);
 		}
@@ -42,10 +43,10 @@ void Enfrentamientos::mostrarInformacion(Luchador* uno, Luchador* dos)
 {
 	cout << "Ronda numero " << rondas << endl;
 	cout << "Jugador 1: " << endl;
-	cout << "El luchador "<<uno->getNombre() <<"tiene una salud de: "<<uno->getSalud()<< endl;
+	cout << "El luchador "<<uno->getNombre() <<" tiene una salud de: "<<uno->getSalud()<< endl;
 	cout << "Jugador 2: " << endl;
-	cout << "El luchador " <<dos->getNombre() << "tiene una salud de: " << dos->getSalud() << endl;
-
+	cout << "El luchador " <<dos->getNombre() << " tiene una salud de: " << dos->getSalud() << endl;
+	cout << endl;
 }
 
 Habilidad* Enfrentamientos::seleccionarHabilidades(Luchador* luchador)
@@ -56,6 +57,7 @@ Habilidad* Enfrentamientos::seleccionarHabilidades(Luchador* luchador)
 	Habilidad* h1 = nullptr;
 
 	do {
+		cout << "SELECCIONANDO HABLIDADES" << endl;
 		cout << "Habilidades disponibles de este luchador" << endl;
 		cout << luchador->getHabilidades()->toString() << endl;
 		cout << "Seleccione el nombre la habilidad para utilizar" << endl;
@@ -77,6 +79,7 @@ Habilidad* Enfrentamientos::seleccionarHabilidades(Luchador* luchador)
 		if (h1->getUso() > 0) {
 			cout << "La habilidad necesita mas rondas de recuperacion" << endl;
 			cout << "Utilice otra o si no tiene pase de turno" << endl;
+			cout << endl;
 		}
 	} while (h1->getUso() > 0);
 }
@@ -87,12 +90,17 @@ void Enfrentamientos::Batalla(Luchador* uno, Luchador* dos)
 	Habilidad* h2;
 	Habilidad* primera;
 	Habilidad* segunda;
+	int identificador;
 
-	while (uno->getSalud() > 0 || dos->getSalud() > 0) {
+	while (uno->getSalud() > 0 && dos->getSalud() > 0) {
 		mostrarInformacion(uno, dos);
+		cout << "JUGADOR 1" << endl;
 		h1 = seleccionarHabilidades(uno);
+		system("PAUSE");
 		system("cls");
+		cout << "JUGADOR 2" << endl;
 		h2 = seleccionarHabilidades(dos);
+		system("PAUSE");
 		system("cls");
 
 		uno->especial(uno, dos);
@@ -101,31 +109,44 @@ void Enfrentamientos::Batalla(Luchador* uno, Luchador* dos)
 		if (uno->getSPD() > dos->getSPD()) {
 			primera = h1;
 			segunda = h2;
+			identificador = 1;
+			cout << "Jugador 1 ataca primero" << endl;
 		}
 		else {
 			primera = h2;
 			segunda = h1;
+			identificador = 2;
+			cout << "Jugador 2 ataca primero" << endl;
 		}
 		if (primera != nullptr) {
 			primera->setUso(primera->getLimiteDeUso() + 1);
-			if (primera == h1) { primera->ejecutar(uno, dos); }
-			if (primera == h2) { primera->ejecutar(dos, uno); }
+			if (primera == h1) { cout << "Turno del jugador 1" << endl; primera->ejecutar(uno, dos); }
+			if (primera == h2) { cout << "Turno del jugador 2" << endl; primera->ejecutar(dos, uno); }
+			system("PAUSE");
 			system("cls");
 		}
 		else {
-			cout << "El luchador " << primera->getNombre() << "salta este turno" << endl;
+			cout << "El jugador "<<identificador<<" salta este turno" << endl;
+			system("PAUSE");
+			system("cls");
 		}
 		if (segunda != nullptr) {
 			segunda->setUso(segunda->getLimiteDeUso() + 1);
-			if (segunda == h1) { segunda->ejecutar(uno, dos); }
-			if (segunda == h2) { segunda->ejecutar(dos, uno); }
+			if (segunda == h1) { cout << "Turno del jugador 1" << endl; segunda->ejecutar(uno, dos); }
+			if (segunda == h2) { cout << "Turno del jugador 2" << endl; segunda->ejecutar(dos, uno); }
+			system("PAUSE");
 			system("cls");
 		}
 		else {
-			cout << "El luchador " << segunda->getNombre() << "salta este turno" << endl;
+			if (identificador == 1) { identificador = 2; }
+			else { identificador = 1; }
+			cout << "El jugador " << identificador << " salta este turno" << endl;
+			system("PAUSE");
+			system("cls");
 		}
 
-		actualizarDatos(uno->getHabilidades(), dos->getHabilidades());
+		actualizarDatos(uno->getHabilidades());
+		actualizarDatos(dos->getHabilidades());
 	}
 	if (uno->getSalud() <= 0) {
 		cout << uno->getNombre()<<" ha perdido toda su salud" << endl;

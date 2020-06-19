@@ -41,14 +41,17 @@ float Ataque::dañoFinal(Luchador* uno, Luchador* dos)
 	if (dos->getNaturaleza()->comprobarDebiles(nat) == true) {
 		dañoFinal = dañoFinal * 2;
 		cout << "Daño aumentado por interaccion de naturalezas" << endl;
+		system("PAUSE");
 	}
 	if (dos->getNaturaleza()->comprobarResistentes(nat) == true) {
 		dañoFinal = dañoFinal / 2;
 		cout << "Daño reducido por interaccion de naturalezas" << endl;
+		system("PAUSE");
 	}
 	if (dos->getNaturaleza()->comprobarInmunes(nat) == true) {
 		dañoFinal = dañoFinal = 0;
 		cout << "Daño neutralizado por interaccion de naturalezas" << endl;
+		system("PAUSE");
 	}
 	
       return dañoFinal;
@@ -66,6 +69,7 @@ void Ataque::ejecutar(Luchador* uno, Luchador* dos)
 		if ((Random == 1) || (Random == 2) || (Random == 3) || (Random == 4)) {   //80% prob
 			dos->setSalud(dos->getSalud() - daño);
 			cout << "Ataque ejecutado" << endl;
+			cout << "Salud del oponente - :" << daño << endl;
 		}
 		else { cout << "El ataque ha fallado" << endl; }
 	}
@@ -73,6 +77,7 @@ void Ataque::ejecutar(Luchador* uno, Luchador* dos)
 		if ((Random == 1) || (Random == 2) || (Random == 3)) {            //60% prob
 			dos->setSalud(dos->getSalud() - daño);
 			cout << "Ataque ejecutado" << endl;
+			cout << "Salud del oponente - :" << daño << endl;
 		}
 		else { cout << "El ataque ha fallado" << endl; }
 	}
@@ -80,6 +85,7 @@ void Ataque::ejecutar(Luchador* uno, Luchador* dos)
 		if ((Random == 1) || (Random == 2)) {                       //40% prob
 			dos->setSalud(dos->getSalud() - daño);
 			cout << "Ataque ejecutado" << endl;
+			cout << "Salud del oponente - :" << daño << endl;
 		}
 		else { cout << "El ataque ha fallado" << endl; }
 	}
@@ -87,6 +93,7 @@ void Ataque::ejecutar(Luchador* uno, Luchador* dos)
 		if ((Random == 1)) {                                //20% prob
 			dos->setSalud(dos->getSalud() - daño);
 			cout << "Ataque ejecutado" << endl;
+			cout << "Salud del oponente - :" << daño << endl;
 		}
 		else { cout << "El ataque ha fallado" << endl; }
 	}

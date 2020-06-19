@@ -160,7 +160,7 @@ void Menu::mostrar()
 			system("cls");
 			if (uno == nullptr || dos == nullptr) {
 				cout << "ERROR: la batalla no se puede dar por falta de luchadores" << endl;
-				return;
+				break;
 			}
 			cout << "¡¡COMIENZA LA BATALLA!!" << endl;
 			batalla->Batalla(uno, dos);

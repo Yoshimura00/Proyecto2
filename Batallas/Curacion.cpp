@@ -35,7 +35,7 @@ void Curacion::ejecutar(Luchador* uno, Luchador* dos)
 	 if ((Random == 1) || (Random == 2) || (Random == 3) || (Random == 4)) {  //80 prob%
 		 uno->setSalud(uno->getSalud() + recuperacion);
 		cout << "Recuperacion ejecutada" << endl;
-		cout << "+ " << recuperacion << "de salud" << endl;
+		cout << "+ " << recuperacion << " de salud" << endl;
 	}
 	else { cout << "La recuperacion ha fallado" << endl; }
   }
@@ -44,7 +44,7 @@ void Curacion::ejecutar(Luchador* uno, Luchador* dos)
 	if ((Random == 1) || (Random == 2) || (Random == 3)) {      //60 prob%
 		uno->setSalud(uno->getSalud() + recuperacion);
 		cout << "Recuperacion ejecutada" << endl;
-		cout << "+ "<<recuperacion << "de salud"<< endl;
+		cout << "+ "<<recuperacion << " de salud"<< endl;
 	}
 	else { cout << "La recuperacion ha fallado" << endl; }
   }
@@ -53,7 +53,7 @@ void Curacion::ejecutar(Luchador* uno, Luchador* dos)
 	 if ((Random == 1) || (Random == 2)) {                     //40 prob%
 		 uno->setSalud(uno->getSalud() + recuperacion);
 		 cout << "Recuperacion ejecutada" << endl;
-		 cout << "+ " << recuperacion << "de salud" << endl;
+		 cout << "+ " << recuperacion << " de salud" << endl;
 	 }
 	 else { cout << "La recuperacion ha fallado" << endl; }
   }
@@ -62,7 +62,7 @@ void Curacion::ejecutar(Luchador* uno, Luchador* dos)
 	  if (Random == 1) {                                      //20 prob%
 		  uno->setSalud(uno->getSalud() + recuperacion);
 		  cout << "Recuperacion ejecutada" << endl;
-		  cout << "+ " << recuperacion << "de salud" << endl;
+		  cout << "+ " << recuperacion << " de salud" << endl;
 	  }
 	  else { cout << "La recuperacion ha fallado" << endl; }
   }

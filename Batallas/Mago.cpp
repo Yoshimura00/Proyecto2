@@ -31,13 +31,16 @@ void Mago::especial(Luchador* uno, Luchador* dos)
 		cout << "HABILIDAD ESPECIAL DE MAGO ACTIVADA" << endl;
 		uno->setMAGDEF(getMAGDEF() + 35);
 		cout << "MAGDEF + 35%" << endl;
+		system("PAUSE");
+
 
 
 	}
-	if ((Random2 == 1) || (Random2 == 2)) { //40%
+	if ((Random2 == 2) || (Random2 == 3)) { //40%
 		cout << "HABILIDAD ESPECIAL 2 DE MAGO ACTIVADA" << endl;
 		uno->setMAGATK(getMAGATK() + 30);
 		cout << "MAGATK + 30%" << endl;
+		system("PAUSE");
 	}
 }
 
