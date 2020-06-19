@@ -15,7 +15,7 @@ Naturaleza* servicioNaturaleza::consultarNaturaleza(string nombre)
 {
 	for (int i = 0; i < Naturalezas->cantidad(); i++)
 	{
-		Naturaleza* actual = dynamic_cast<Naturaleza*>(Naturalezas->consultar(i));
+		Naturaleza* actual = dynamic_cast<Naturaleza*>(Naturalezas->consultarPorPosicion(i));
 		if (actual->getNombre() == nombre)
 		{
 			return actual;
@@ -46,7 +46,7 @@ string servicioNaturaleza::naturalezasEnLIsta()
 {
     stringstream s;
 	for (int i = 0; i < cantidad(); i++) {
-		Naturaleza* actual = dynamic_cast <Naturaleza*>(Naturalezas->consultar(i));
+		Naturaleza* actual = dynamic_cast <Naturaleza*>(Naturalezas->consultarPorPosicion(i));
 		s << "Naturaleza " << actual->getNombre() << " de tipo " <<actual->getTipo()<< endl;
 		
 	}
@@ -63,7 +63,7 @@ string servicioNaturaleza::toString()
 {
 	stringstream s;
 	for (int i = 0; i < cantidad(); i++) {
-		Naturaleza* actual = dynamic_cast <Naturaleza*>(Naturalezas->consultar(i));
+		Naturaleza* actual = dynamic_cast <Naturaleza*>(Naturalezas->consultarPorPosicion(i));
 		s<<actual->toString()<<endl;
 	}
 	return s.str();
@@ -152,6 +152,11 @@ void servicioNaturaleza::administrarNaturalezas()
 	default:
 		cout << "Opcion invalida" << endl;
 	}
+}
+
+ListaEnlazada* servicioNaturaleza::getNaturalezas()
+{
+	return Naturalezas;
 }
 
 servicioNaturaleza::~servicioNaturaleza()

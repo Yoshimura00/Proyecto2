@@ -143,7 +143,7 @@ string Naturaleza::toString()
 		else {
 			s << "Naturalezas debiles: " << endl;
 			for (int i = 0; i < debiles->cantidad(); i++) {
-				Naturaleza* actual = dynamic_cast <Naturaleza*>(debiles->consultar(i));
+				Naturaleza* actual = dynamic_cast <Naturaleza*>(debiles->consultarPorPosicion(i));
 				s << actual->getNombre() << endl;
 			}
 			s << endl;
@@ -152,7 +152,7 @@ string Naturaleza::toString()
 		else {
 			s << "Naturalezas resistentes: " << endl;
 			for (int i = 0; i < resistentes->cantidad(); i++) {
-				Naturaleza* actual2 = dynamic_cast <Naturaleza*>(resistentes->consultar(i));
+				Naturaleza* actual2 = dynamic_cast <Naturaleza*>(resistentes->consultarPorPosicion(i));
 				s << actual2->getNombre() << endl;
 			}
 			s << endl;
@@ -161,7 +161,7 @@ string Naturaleza::toString()
 		else {
 			s << "Naturalezas inmunes: " << endl;
 			for (int i = 0; i < inmunes->cantidad(); i++) {
-				Naturaleza* actual3 = dynamic_cast <Naturaleza*>(inmunes->consultar(i));
+				Naturaleza* actual3 = dynamic_cast <Naturaleza*>(inmunes->consultarPorPosicion(i));
 				s << actual3->getNombre() << endl;
 			}
 		}

@@ -20,7 +20,7 @@ Luchador* ServicioLuchador::consultarLuchador(string nombre)
 	
 	for (int i = 0; i < Luchadores->cantidad(); i++)
 	{
-		Luchador* actual = dynamic_cast<Luchador*>(Luchadores->consultar(i));
+		Luchador* actual = dynamic_cast<Luchador*>(Luchadores->consultarPorPosicion(i));
 		if (actual->getNombre() == nombre)
 		{
 			return actual;
@@ -123,10 +123,10 @@ bool ServicioLuchador::EliminarLuchador(string nombre)
 {
 	for (int i = 0; i < Luchadores->cantidad(); i++)
 	{
-		Luchador* actual = dynamic_cast<Luchador*>(Luchadores->consultar(i));
+		Luchador* actual = dynamic_cast<Luchador*>(Luchadores->consultarPorPosicion(i));
 		if (actual->getNombre() == nombre)
 		{
-			Luchadores->eliminarNodo(i);
+			Luchadores->eliminarDato(i);
 			return true;
 		}
 	}
@@ -212,7 +212,7 @@ string ServicioLuchador::toString()
 { 
 	stringstream s;
 	for (int i = 0; i < Luchadores->cantidad(); i++) {
-		Luchador* actual = dynamic_cast <Luchador*>(Luchadores->consultar(i));
+		Luchador* actual = dynamic_cast <Luchador*>(Luchadores->consultarPorPosicion(i));
 		s << actual->toString() << endl;
 	}
 	return s.str();
@@ -222,7 +222,7 @@ string ServicioLuchador::mostrarNombres(ListaEnlazada* lista)
 {
 	stringstream s;
 	for (int i = 0; i < lista->cantidad(); i++) {
-		Luchador* actual = dynamic_cast <Luchador*>(lista->consultar(i));
+		Luchador* actual = dynamic_cast <Luchador*>(lista->consultarPorPosicion(i));
 		s << actual->getNombre() << endl;
 	}
 	return s.str();

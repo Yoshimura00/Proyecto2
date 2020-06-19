@@ -32,7 +32,7 @@ string servicioHabilidad::consultarHabilidadesPorNaturaleza(servicioNaturaleza* 
 
 	s << "Habilidades con esta naturaleza: " << endl;
 	for (int i = 0; i < Habilidades->cantidad(); i++) {
-		Habilidad* actual = dynamic_cast <Habilidad*>(Habilidades->consultar(i));
+		Habilidad* actual = dynamic_cast <Habilidad*>(Habilidades->consultarPorPosicion(i));
 		if (actual->getNaturaleza() == naturaleza) {
 			s << actual->toString() << endl;
 		}
@@ -137,13 +137,13 @@ void servicioHabilidad::pedirDatos(servicioNaturaleza* servicioN)
 
 Habilidad* servicioHabilidad::obtenerHabilidad(int n)
 {
-	Habilidad* actual = dynamic_cast <Habilidad*>(Habilidades->consultar(n));
+	Habilidad* actual = dynamic_cast <Habilidad*>(Habilidades->consultarPorPosicion(n));
 	return actual;
 }
 string servicioHabilidad::toString() {
 	stringstream s;
 	for (int i = 0; i < Habilidades->cantidad(); i++) {
-		Habilidad* actual = dynamic_cast <Habilidad*>(Habilidades->consultar(i));
+		Habilidad* actual = dynamic_cast <Habilidad*>(Habilidades->consultarPorPosicion(i));
 			s << actual->toString() << endl;
 	}
 	return s.str();
@@ -159,7 +159,7 @@ Habilidad* servicioHabilidad::consultarHabilidad(string nombre)
 
 	for (int i = 0; i < Habilidades->cantidad(); i++)
 	{
-		Habilidad* actual = dynamic_cast<Habilidad*>(Habilidades->consultar(i));
+		Habilidad* actual = dynamic_cast<Habilidad*>(Habilidades->consultarPorPosicion(i));
 		if (actual->getNombre() == nombre)
 		{
 			return actual;

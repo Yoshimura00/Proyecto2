@@ -13,6 +13,7 @@ public:
 	string toString();
 	void pedirDatos();
 	void administrarNaturalezas();
+	ListaEnlazada* getNaturalezas();
 	~servicioNaturaleza();
 	bool naturalezaVacia();
 	string naturalezasEnLIsta();

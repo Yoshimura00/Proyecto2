@@ -30,7 +30,7 @@ void Enfrentamientos::actualizarDatos(ListaEnlazada* uno, ListaEnlazada* dos)
 	Habilidad* actual;
 
 	for (int i = 0; i < uno->cantidad(); i++) {
-		actual = dynamic_cast <Habilidad*>(uno->consultar(i));
+		actual = dynamic_cast <Habilidad*>(uno->consultarPorPosicion(i));
 		if (actual->getUso() > 0) {
 			actual->setUso(actual->getUso() - 1);
 		}
@@ -65,7 +65,7 @@ Habilidad* Enfrentamientos::seleccionarHabilidades(Luchador* luchador)
 			return nullptr;
 		}
 		for (int i = 0; i < cantidad; i++) {
-			actual = dynamic_cast <Habilidad*>  (luchador->getHabilidades()->consultar(i));
+			actual = dynamic_cast <Habilidad*>  (luchador->getHabilidades()->consultarPorPosicion(i));
 			if (actual->getNombre() == nombre) {
 				h1 = actual;
 			}

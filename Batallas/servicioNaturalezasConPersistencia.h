@@ -1,10 +1,14 @@
 #pragma once
-#include "ServicioLuchador.h"
+#include "servicioNaturaleza.h"
 #include<fstream>
-class servicioNaturalezasConPersistencia : public ServicioLuchador {
+class servicioNaturalezasConPersistencia : public servicioNaturaleza {
 private: 
 	string rutaArchivo;
 public: 
-	void deserializarPersonas();
-	void serializarPersonas();
+	servicioNaturalezasConPersistencia(string rutaArchivo);
+	void deserializarNaturalezas();
+	void serializarNaturalezas();
+	~servicioNaturalezasConPersistencia();
+	
+
 };

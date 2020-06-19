@@ -163,6 +163,7 @@
     <ClCompile Include="Nodo.cpp" />
     <ClCompile Include="servicioHabilidad.cpp" />
     <ClCompile Include="ServicioLuchador.cpp" />
+    <ClCompile Include="servicioLuchadorConPersistencia.cpp" />
     <ClCompile Include="servicioNaturaleza.cpp" />
     <ClCompile Include="servicioNaturalezasConPersistencia.cpp" />
   </ItemGroup>
@@ -183,6 +184,7 @@
     <ClInclude Include="ObjetoBase.h" />
     <ClInclude Include="servicioHabilidad.h" />
     <ClInclude Include="ServicioLuchador.h" />
+    <ClInclude Include="servicioLuchadorConPersistencia.h" />
     <ClInclude Include="servicioNaturaleza.h" />
     <ClInclude Include="servicioNaturalezasConPersistencia.h" />
     <ClInclude Include="Utiles.h" />

@@ -39,7 +39,7 @@ string ListaEnlazada::toString()
 }
 
 
-ObjetoBase* ListaEnlazada::consultar(int n)
+ObjetoBase* ListaEnlazada::consultarPorPosicion(int n)
 {
 	if (primero == nullptr)
 	{
@@ -78,7 +78,7 @@ void ListaEnlazada::eliminarPrimero()
 	}
 }
 
-void ListaEnlazada::eliminarNodo(int n)
+void ListaEnlazada::eliminarDato(int n)
 {
 	if (this->primero == nullptr) 
 	{
