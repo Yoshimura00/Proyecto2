@@ -47,7 +47,7 @@ void Menu::mostrar()
 					op1 = 'x';
 					while (op1 != 'n') {
 						servicioN->administrarNaturalezas();
-						cout << "Desea agregar mas naturalezas a las listas?" << endl;
+						cout << "Desea agregar mas interacciones entre las naturalezas de las listas?" << endl;
 						cout << "s = Si" << endl;
 						cout << "n = NO" << endl;
 						cin >> op1;
