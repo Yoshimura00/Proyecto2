@@ -5,6 +5,12 @@ Curacion::Curacion(string nombre, Naturaleza* naturaleza, int uso, int intervalo
 	this->intervalo = intervalo;
 }
 
+Curacion::Curacion(istream& input) : Habilidad (input)
+{
+	input >> intervalo;
+	input.ignore();
+}
+
 int Curacion::random()
 {
 	int random;
@@ -87,6 +93,13 @@ string Curacion::toString()
 		s << "El intervalo de la habilidad es (150-200)" << endl;
 	}
 	return s.str();
+}
+
+void Curacion::serializar(ostream& out)
+{
+	out << "Curacion" << ",";
+	Habilidad::serializar(out);
+	out << intervalo;
 }
 
 	

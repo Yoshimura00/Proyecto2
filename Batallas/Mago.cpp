@@ -14,6 +14,11 @@ Mago::Mago(string nombre, Naturaleza* naturaleza, int salud, int PHYATK, int PHY
 {
 }
 
+Mago::Mago(istream& input) : Luchador (input)
+{
+
+}
+
 int Mago::random2()
 {
 	int random;
@@ -50,4 +55,10 @@ string Mago::toString()
 	s << "Luchador mago" << endl;
 	s << Luchador::toString() << endl;
 	return s.str();
+}
+
+void Mago::serializar(ostream& out)
+{
+	out << "Mago" << ",";
+	Luchador::serializar(out);
 }

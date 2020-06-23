@@ -5,6 +5,12 @@ Ataque::Ataque(string nombre, Naturaleza* naturaleza, int uso, int dañoBase) : H
 	this->dañoBase = dañoBase;
 }
 
+Ataque::Ataque(istream& input) : Habilidad(input)
+{
+	input >> dañoBase;
+	input.ignore();
+}
+
 int Ataque::random()
 { 
 	int random;
@@ -108,4 +114,11 @@ string Ataque::toString()
 	s << Habilidad::toString();
 	s << "Daño base de la habilidad: "<<dañoBase<< endl;
 	return s.str();
+}
+
+void Ataque::serializar(ostream& out)
+{
+	out << "Ataque" << ",";
+	Habilidad::serializar(out);
+	out << dañoBase;
 }

@@ -162,6 +162,7 @@
     <ClCompile Include="Ninja.cpp" />
     <ClCompile Include="Nodo.cpp" />
     <ClCompile Include="servicioHabilidad.cpp" />
+    <ClCompile Include="servicioHabilidadConPersistencia.cpp" />
     <ClCompile Include="ServicioLuchador.cpp" />
     <ClCompile Include="servicioLuchadorConPersistencia.cpp" />
     <ClCompile Include="servicioNaturaleza.cpp" />
@@ -183,6 +184,7 @@
     <ClInclude Include="Nodo.h" />
     <ClInclude Include="ObjetoBase.h" />
     <ClInclude Include="servicioHabilidad.h" />
+    <ClInclude Include="servicioHabilidadConPersistencia.h" />
     <ClInclude Include="ServicioLuchador.h" />
     <ClInclude Include="servicioLuchadorConPersistencia.h" />
     <ClInclude Include="servicioNaturaleza.h" />

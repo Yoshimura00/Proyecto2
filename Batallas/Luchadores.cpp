@@ -24,8 +24,27 @@ Luchador::Luchador(string nombre, Naturaleza* naturaleza, int salud, int PHYATK,
 	this->MAGATK = MAGATK;
 	this->MAGDEF = MAGDEF;
 	this->SPD = SPD;
+	this->habilidades = new ListaEnlazada();
 	
-	
+}
+
+Luchador::Luchador(istream& input)
+{
+	getline(input, nombre, ',');
+   //naturaleza va aqui y se implementa como relacion
+	input >> salud;
+	input.ignore();
+	input >> PHYATK;
+	input.ignore();
+	input >> PHYDEF;
+	input.ignore();
+	input >> MAGATK;
+	input.ignore();
+	input >> MAGDEF;
+	input.ignore();
+	input >> SPD;
+	input.ignore();
+
 }
 
 void Luchador::setSalud(int salud)
@@ -126,7 +145,20 @@ string Luchador::toString()
 	return s.str();
 }
 
-void Luchador::setHabilidades(ListaEnlazada* l)
+void Luchador::setHabilidades(ListaEnlazada* lista)
 {
-	this->habilidades = l;
+	this->habilidades = lista;
+}
+
+ void Luchador::serializar(ostream& out) {
+	 out << nombre << ",";
+	 //naturaleza va aqui y se implementa como relacion
+	 out << nombre << ",";	
+	 out << salud << ",";
+	 out << PHYATK << ",";
+	 out << PHYDEF << ",";
+	 out << MAGATK << ",";
+	 out << MAGDEF << ",";
+	 out << SPD << ",";
+	 
 }

@@ -5,6 +5,11 @@ Caballero::Caballero(string nombre, Naturaleza* naturaleza, int salud, int PHYAT
 
 }
 
+Caballero::Caballero(istream& input) : Luchador (input)
+{
+
+}
+
 int Caballero::random()
 {
 	int random;
@@ -48,4 +53,10 @@ string Caballero::toString()
 	s << Luchador::toString()<<endl;
 	return s.str();
 	
+}
+
+void Caballero::serializar(ostream& out)
+{
+	out << "Caballero" << ",";
+	Luchador::serializar(out);
 }

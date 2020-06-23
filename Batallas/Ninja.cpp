@@ -5,6 +5,11 @@ Ninja::Ninja(string nombre, Naturaleza* naturaleza, int salud, int PHYATK, int P
 
 }
 
+Ninja::Ninja(istream& input) : Luchador (input) 
+{
+	
+}
+
 int Ninja::random()
 {
 	int random;
@@ -54,4 +59,10 @@ string Ninja::toString()
 	s << "Luchador Ninja" << endl;
 	s << Luchador::toString() << endl;
 	return s.str();
+}
+
+void Ninja::serializar(ostream& out)
+{
+	out << "Ninja" << ",";
+	Luchador::serializar(out);
 }

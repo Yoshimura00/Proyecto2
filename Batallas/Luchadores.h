@@ -17,6 +17,7 @@ private:
 public:
 	Luchador();
 	Luchador(string nombre, Naturaleza* naturaleza, int salud, int PHYATK, int PHYDEF, int MAGATK, int MAGDEF, int SPD);
+	Luchador(istream& input);
 	void setSalud(int salud);
 	void setPHYATK(int PHYATK);
 	void setPHYDEF(int PHYDEF);
@@ -37,4 +38,5 @@ public:
 	virtual void especial(Luchador* uno, Luchador* dos)=0;
 	string toString();
 	void setHabilidades(ListaEnlazada*l);
+	virtual void serializar(ostream& out) = 0;
 };

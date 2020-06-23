@@ -5,6 +5,12 @@ Alteracion::Alteracion(string nombre, Naturaleza* naturaleza, int uso, bool eleg
 	this->elegido = elegido;
 }
 
+Alteracion::Alteracion(istream& input) : Habilidad (input)
+{
+	input >> elegido;
+	input.ignore();
+}
+
 int Alteracion::random()
 {
 	int random;
@@ -134,4 +140,11 @@ string Alteracion::toString()
 		s << "El luchador a alterar es el del usuario (jugador 1)" << endl;
 	}
 	return s.str();
+}
+
+void Alteracion::serializar(ostream& out)
+{
+	out << "Alteracion" << ",";
+	Habilidad::serializar(out);
+	out << elegido;
 }

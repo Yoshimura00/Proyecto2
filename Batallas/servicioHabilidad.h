@@ -17,5 +17,6 @@ public:
 	string toString();
 	bool habilidadVacia();
 	Habilidad* consultarHabilidad(string nombre);
+	ListaEnlazada* getHabilidades();
 	~servicioHabilidad();
 };

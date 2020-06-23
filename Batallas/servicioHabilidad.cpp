@@ -167,6 +167,10 @@ Habilidad* servicioHabilidad::consultarHabilidad(string nombre)
 	}
 	return nullptr;
 }
+ListaEnlazada* servicioHabilidad::getHabilidades()
+{
+	return Habilidades;
+}
 servicioHabilidad::~servicioHabilidad()
 {
 	Habilidades->clearData();

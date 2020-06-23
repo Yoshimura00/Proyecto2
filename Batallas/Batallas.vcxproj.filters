@@ -72,6 +72,9 @@
     <ClCompile Include="servicioLuchadorConPersistencia.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
+    <ClCompile Include="servicioHabilidadConPersistencia.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ObjetoBase.h">
@@ -132,6 +135,9 @@
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="servicioLuchadorConPersistencia.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="servicioHabilidadConPersistencia.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>
