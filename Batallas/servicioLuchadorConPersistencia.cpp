@@ -5,7 +5,7 @@ servicioLuchadorConPersistencia::servicioLuchadorConPersistencia(string rutaArch
 	this->rutaArchivo = rutaArchivo;
 }
 
-void servicioLuchadorConPersistencia::deserializarLuchadores()
+void servicioLuchadorConPersistencia::deserializarLuchadores(servicioNaturaleza* lista)
 {
 	ifstream in(rutaArchivo, ios::in);
 	if (in.good())
@@ -17,15 +17,15 @@ void servicioLuchadorConPersistencia::deserializarLuchadores()
 			getline(in, tipo, ',');
 			if (tipo == "Caballero")
 			{
-				nuevo = new Caballero(in);
+				nuevo = new Caballero(in, lista);
 			}
 			else if (tipo == "Ninja")
 			{
-				nuevo = new Ninja(in);
+				nuevo = new Ninja(in, lista);
 			}
 			else if (tipo == "Mago")
 			{
-				nuevo = new Mago(in);
+				nuevo = new Mago(in, lista);
 			}
 			ingresarLuchador(nuevo);
 		}

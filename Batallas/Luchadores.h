@@ -1,6 +1,5 @@
 #pragma once
-#include "LIstaEnlazada.h"
-#include "Naturaleza.h"
+#include "servicioNaturaleza.h"
 //REVISAR
 class Luchador: public ObjetoBase {
 private:
@@ -17,7 +16,7 @@ private:
 public:
 	Luchador();
 	Luchador(string nombre, Naturaleza* naturaleza, int salud, int PHYATK, int PHYDEF, int MAGATK, int MAGDEF, int SPD);
-	Luchador(istream& input);
+	Luchador(istream& input, servicioNaturaleza* lista);
 	void setSalud(int salud);
 	void setPHYATK(int PHYATK);
 	void setPHYDEF(int PHYDEF);
@@ -37,6 +36,6 @@ public:
 	virtual int random2()=0 ;
 	virtual void especial(Luchador* uno, Luchador* dos)=0;
 	string toString();
-	void setHabilidades(ListaEnlazada*l);
+	void setHabilidades(ListaEnlazada*lista);
 	virtual void serializar(ostream& out) = 0;
 };

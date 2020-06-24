@@ -9,7 +9,7 @@ private:
 	string rutaArchivo;
 public:
 	servicioLuchadorConPersistencia(string rutaArchivo);
-	void deserializarLuchadores();
+	void deserializarLuchadores(servicioNaturaleza* lista);
 	void serializarLuchadores();
 	~servicioLuchadorConPersistencia();
 

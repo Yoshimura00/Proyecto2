@@ -28,6 +28,19 @@ Luchador* ServicioLuchador::consultarLuchador(string nombre)
 	}
 	return nullptr;
 }
+bool ServicioLuchador::contieneLuchador(Luchador* luchador)
+{
+	if (Luchadores->contiene(luchador)) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+int ServicioLuchador::cantidad()
+{
+	return Luchadores->cantidad();
+}
 void ServicioLuchador :: consultarDatosLuchador() {
 	cout << "Luchadores disponibles: " << endl;
 	cout << mostrarNombres(Luchadores) << endl;
@@ -56,6 +69,10 @@ void ServicioLuchador::pedirDatos(servicioNaturaleza* s1)
 	if (s1->naturalezaVacia() == true) { cout << "ADVERTENCIA: se recomiendan agregar naturalezas " << endl; }
 		cout << "Nombre: " << endl;
 		cin >> nombre;
+		if (contieneLuchador(consultarLuchador(nombre))) {
+			cout << "Ya existe un luchador con ese nombre, digite otro" << endl;
+			return;
+		}
 		cout << "Introduzca las estadisticas de su luchador" << endl;
 
 		cout << "SALUD" << endl;
@@ -175,13 +192,17 @@ void ServicioLuchador::administrarHabilidades(servicioHabilidad* s1)
 							cout << "Digite el nombre de la habilidad que desee agregar al luchador " << endl;
 							cin >> hab;
 							h = s1->consultarHabilidad(hab);
+							Luchador* l;
 							if (h != nullptr) {
-								if (list->contiene(h)==true) {
-									cout << "ERROR: no se puede agregar esta habilidad porque ya existe en la lista de este luchador" << endl;
-									return;
+								for (i = 0; i < cantidad(); i++) {
+									 Luchador * l = dynamic_cast<Luchador*>(Luchadores->consultarPorPosicion(i));
+									if (l->getHabilidades()->contiene(h)==true ) {
+										cout << "ERROR: no se puede agregar esta habilidad porque ya existe en la lista de algun luchador" << endl;
+										return;
+									}
+									list->insertarAlFinal(h);
+									i++;
 								}
-								list->insertarAlFinal(h);
-								i++;
 							}
 							else {
 								cout << "ERROR: La habilidad buscada  NO existe !" << endl;

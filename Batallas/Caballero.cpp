@@ -5,7 +5,7 @@ Caballero::Caballero(string nombre, Naturaleza* naturaleza, int salud, int PHYAT
 
 }
 
-Caballero::Caballero(istream& input) : Luchador (input)
+Caballero::Caballero(istream& input, servicioNaturaleza* lista) : Luchador (input, lista)
 {
 
 }

@@ -5,7 +5,7 @@ private:
 	int intervalo;
 public: 
 	Curacion(string nombre, Naturaleza* naturaleza, int uso, int intervalo);
-	Curacion(istream& input);
+	Curacion(istream& input, servicioNaturaleza* lista);
 	int random();
 	int calcRecuperacion();
 	void ejecutar(Luchador* uno, Luchador* dos);

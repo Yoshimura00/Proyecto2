@@ -15,10 +15,17 @@ Habilidad::Habilidad(string nombre, Naturaleza* naturaleza, int uso, int limiteD
 	this->limiteDeUso = limiteDeUso;
 }
 
-Habilidad::Habilidad(istream& input)
+Habilidad::Habilidad(istream& input, servicioNaturaleza* lista)
 {
+	string nombreNaturaleza;
 	getline(input, nombre, ',');
-	//la naturaleza va aqui con relaciones
+	getline(input, nombreNaturaleza, ',');
+	if (nombreNaturaleza != "nulo") {
+		naturaleza = lista->consultarNaturaleza(nombreNaturaleza);
+	}
+	else {
+		naturaleza = nullptr;
+	}
 	input >> uso;
 	input.ignore();
 	input >> limiteDeUso;
@@ -64,7 +71,12 @@ string Habilidad::toString()
 void Habilidad::serializar(ostream& out)
 {
 	out << nombre << ",";
-	//la naturaleza va aqui con relaciones
+	if (naturaleza != nullptr) {
+		out << naturaleza->getNombre();
+	}
+	else {
+		out << "nulo";
+	}
 	out << uso << ",";
 	out << limiteDeUso << ",";
 }

@@ -5,7 +5,7 @@ Ninja::Ninja(string nombre, Naturaleza* naturaleza, int salud, int PHYATK, int P
 
 }
 
-Ninja::Ninja(istream& input) : Luchador (input) 
+Ninja::Ninja(istream& input, servicioNaturaleza* lista) : Luchador (input, lista)
 {
 	
 }

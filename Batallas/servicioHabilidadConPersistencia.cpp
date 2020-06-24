@@ -5,7 +5,7 @@ servicioHabilidadConPersistencia::servicioHabilidadConPersistencia(string rutaAr
 	this->rutaArchivo = rutaArchivo;
 }
 
-void servicioHabilidadConPersistencia::deserializarHabilidades()
+void servicioHabilidadConPersistencia::deserializarHabilidades(servicioNaturaleza* lista)
 {
 	ifstream in(rutaArchivo, ios::in);
 	if (in.good())
@@ -17,15 +17,15 @@ void servicioHabilidadConPersistencia::deserializarHabilidades()
 			getline(in, tipo, ',');
 			if (tipo == "Alteracion")
 			{
-				nuevo = new Alteracion(in);
+				nuevo = new Alteracion(in, lista);
 			}
 			else if (tipo == "Ataque")
 			{
-				nuevo = new Ataque(in);
+				nuevo = new Ataque(in, lista);
 			}
 			else if (tipo == "Curacion")
 			{
-				nuevo = new Curacion(in);
+				nuevo = new Curacion(in, lista);
 			}
 
 			this->ingresarHabilidad(nuevo);

@@ -1,6 +1,7 @@
 #pragma once
 #include "Luchadores.h"
 #include "Naturaleza.h"
+#include "servicioNaturaleza.h"
 
 class Habilidad : public ObjetoBase {
 private: 
@@ -12,7 +13,7 @@ private:
 public: 
 	Habilidad();
 	Habilidad(string nombre, Naturaleza* naturaleza, int uso, int limiteDeUso);
-	Habilidad(istream& input);
+	Habilidad(istream& input, servicioNaturaleza* lista);
 	void setUso(int uso);
 	int getUso();
 	int getLimiteDeUso();

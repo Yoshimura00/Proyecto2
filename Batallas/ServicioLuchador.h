@@ -11,6 +11,8 @@ public:
 	ServicioLuchador();
 	void ingresarLuchador(Luchador* nuevo);
 	Luchador* consultarLuchador(string nombre);
+	bool contieneLuchador(Luchador* luchador);
+	int cantidad();
 	void consultarDatosLuchador();
 	void pedirDatos(servicioNaturaleza*l);
 	bool EliminarLuchador(string nombre);

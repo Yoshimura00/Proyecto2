@@ -5,7 +5,7 @@ Curacion::Curacion(string nombre, Naturaleza* naturaleza, int uso, int intervalo
 	this->intervalo = intervalo;
 }
 
-Curacion::Curacion(istream& input) : Habilidad (input)
+Curacion::Curacion(istream& input, servicioNaturaleza* lista) : Habilidad (input, lista)
 {
 	input >> intervalo;
 	input.ignore();

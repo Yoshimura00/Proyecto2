@@ -14,7 +14,7 @@ Mago::Mago(string nombre, Naturaleza* naturaleza, int salud, int PHYATK, int PHY
 {
 }
 
-Mago::Mago(istream& input) : Luchador (input)
+Mago::Mago(istream& input, servicioNaturaleza* lista) : Luchador (input, lista)
 {
 
 }

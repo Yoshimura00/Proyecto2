@@ -5,7 +5,7 @@ private:
 	int dañoBase;
 public: 
 	Ataque(string nombre, Naturaleza* naturaleza, int uso, int daño);
-	Ataque(istream& input);
+	Ataque(istream& input, servicioNaturaleza* lista);
 	int random();
 	float random2();
 	float calcDaño(Luchador* uno, Luchador* dos);

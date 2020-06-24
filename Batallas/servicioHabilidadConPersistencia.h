@@ -10,7 +10,7 @@ private:
 	string rutaArchivo;
 public:
 	servicioHabilidadConPersistencia(string rutaArchivo);
-	void deserializarHabilidades();
+	void deserializarHabilidades(servicioNaturaleza* lista);
 	void serializarHabilidades();
 	~servicioHabilidadConPersistencia();
 

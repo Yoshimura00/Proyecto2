@@ -74,6 +74,10 @@ void servicioNaturaleza::pedirDatos()
 	string nombreNaturaleza, tipoNaturaleza;
 	cout << "Digite el nombre de la naturaleza que desea ingresar" << endl;
 	cin >> nombreNaturaleza;
+	if (contieneNaturaleza(consultarNaturaleza(nombreNaturaleza)) == true) {
+		cout << "Ya existe una naturaleza con este nombre, digite otro" << endl;
+		return;
+	}
 	cout << "Digite el tipo de la naturaleza" << endl;
 	cout << "1)fisica" << endl;
 	cout << "2)magica" << endl;

@@ -3,7 +3,7 @@
 class Ninja : public Luchador {
 public:
 	Ninja(string nombre, Naturaleza* naturaleza, int salud, int PHYATK, int PHYDEF, int MAGATK, int MAGDEF, int SPD);
-	Ninja(istream& input);
+	Ninja(istream& input, servicioNaturaleza* lista);
 	int random();
 	int random2();
 	void especial(Luchador* uno, Luchador* dos);

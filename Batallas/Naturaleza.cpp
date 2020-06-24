@@ -23,7 +23,7 @@ Naturaleza::Naturaleza(string nombre, string tipo)
 Naturaleza::Naturaleza(istream& input)
 {
 	getline(input, nombre, ',');
-	getline(input, nombre);
+	getline(input, tipo);
 }
 
 bool Naturaleza::adminDebiles(Naturaleza* naturaleza)

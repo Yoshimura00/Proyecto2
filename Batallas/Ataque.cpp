@@ -5,7 +5,7 @@ Ataque::Ataque(string nombre, Naturaleza* naturaleza, int uso, int dañoBase) : H
 	this->dañoBase = dañoBase;
 }
 
-Ataque::Ataque(istream& input) : Habilidad(input)
+Ataque::Ataque(istream& input, servicioNaturaleza* lista) : Habilidad(input, lista)
 {
 	input >> dañoBase;
 	input.ignore();

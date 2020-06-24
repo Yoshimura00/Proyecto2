@@ -28,10 +28,16 @@ Luchador::Luchador(string nombre, Naturaleza* naturaleza, int salud, int PHYATK,
 	
 }
 
-Luchador::Luchador(istream& input)
+Luchador::Luchador(istream& input, servicioNaturaleza* lista)
 {
+	string nombreNaturaleza;
 	getline(input, nombre, ',');
-   //naturaleza va aqui y se implementa como relacion
+	if (nombreNaturaleza != "nulo") {
+		naturaleza = lista->consultarNaturaleza(nombreNaturaleza);
+	}
+	else {
+		naturaleza = nullptr;
+	}
 	input >> salud;
 	input.ignore();
 	input >> PHYATK;
@@ -152,7 +158,12 @@ void Luchador::setHabilidades(ListaEnlazada* lista)
 
  void Luchador::serializar(ostream& out) {
 	 out << nombre << ",";
-	 //naturaleza va aqui y se implementa como relacion
+	 if (naturaleza != nullptr) {
+		 out << naturaleza->getNombre();
+	 }
+	 else {
+		 out << "nulo";
+	 }
 	 out << nombre << ",";	
 	 out << salud << ",";
 	 out << PHYATK << ",";

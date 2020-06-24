@@ -5,7 +5,7 @@ private:
 	bool elegido; 
 public: 
 	Alteracion(string nombre, Naturaleza* naturaleza, int uso, bool elegido);
-	Alteracion(istream& input);
+	Alteracion(istream& input, servicioNaturaleza* lista);
 	int random();
 	void ejecutar(Luchador* uno, Luchador* dos);
 	string toString();

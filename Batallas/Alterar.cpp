@@ -5,7 +5,7 @@ Alteracion::Alteracion(string nombre, Naturaleza* naturaleza, int uso, bool eleg
 	this->elegido = elegido;
 }
 
-Alteracion::Alteracion(istream& input) : Habilidad (input)
+Alteracion::Alteracion(istream& input, servicioNaturaleza* lista) : Habilidad (input, lista)
 {
 	input >> elegido;
 	input.ignore();

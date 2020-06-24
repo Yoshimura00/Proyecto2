@@ -60,6 +60,10 @@ void servicioHabilidad::pedirDatos(servicioNaturaleza* servicioN)
 		cin >> opcion;
 		cout << "Digite el nombre de la habilidad" << endl;
 		cin >> nombreHabilidad;
+		if (contieneHabilidad(consultarHabilidad(nombreHabilidad)) == true) {
+			cout << "Ya existe una habilidad con este nombre, digite otro" << endl;
+			return;
+		}
 		cout << "MOSTRANDO NATURALEZAS DISPONIBLES " << endl;
 		cout << servicioN->naturalezasEnLIsta();
 		cout << "Digite la naturaleza de la habilidad" << endl;
@@ -133,6 +137,17 @@ void servicioHabilidad::pedirDatos(servicioNaturaleza* servicioN)
 		default:
 			cout << "Opcion invalida" << endl;
 		}
+}
+
+bool servicioHabilidad::contieneHabilidad(Habilidad* habilidad)
+{
+	if (Habilidades->contiene(habilidad) == true) {
+		return true;
+	}
+	else {
+		return false;
+	}
+
 }
 
 Habilidad* servicioHabilidad::obtenerHabilidad(int n)

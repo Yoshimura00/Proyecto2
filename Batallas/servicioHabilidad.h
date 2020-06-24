@@ -13,6 +13,7 @@ public:
 	Naturaleza* pedirNaturaleza(servicioNaturaleza* naturaleza);
 	string consultarHabilidadesPorNaturaleza(servicioNaturaleza* servicioN, Naturaleza* naturaleza);
 	void pedirDatos(servicioNaturaleza* servicioN);
+	bool contieneHabilidad(Habilidad* habilidad);
 	Habilidad* obtenerHabilidad(int n);
 	string toString();
 	bool habilidadVacia();
