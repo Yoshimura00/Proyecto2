@@ -38,4 +38,5 @@ public:
 	string toString();
 	void setHabilidades(ListaEnlazada*lista);
 	virtual void serializar(ostream& out) = 0;
+	~Luchador();
 };

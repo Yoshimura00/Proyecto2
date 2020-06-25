@@ -171,6 +171,7 @@ void ServicioLuchador::administrarHabilidades(servicioHabilidad* s1)
 	int numMax = 0;
 	Habilidad* h = nullptr;
 	ListaEnlazada* list = new ListaEnlazada;
+	Luchador* l;
 	if (Luchadores->listaVacia() == false) {
 		cout << "Mostrando Luchadores disponibles" << endl;
 		cout << mostrarNombres(Luchadores) << endl;
@@ -187,22 +188,19 @@ void ServicioLuchador::administrarHabilidades(servicioHabilidad* s1)
 
 					if (numMax >= 1 && numMax <= 4) {
 
-
-						for (int i = 1; i <= numMax;) {
+						for (int i = 1; i <= numMax; i++) {
 							cout << "Digite el nombre de la habilidad que desee agregar al luchador " << endl;
 							cin >> hab;
 							h = s1->consultarHabilidad(hab);
-							Luchador* l;
 							if (h != nullptr) {
-								for (i = 0; i < cantidad(); i++) {
-									 Luchador * l = dynamic_cast<Luchador*>(Luchadores->consultarPorPosicion(i));
+								for (int j = 0; j < cantidad(); j++) {
+									 Luchador * l = dynamic_cast<Luchador*>(Luchadores->consultarPorPosicion(j));
 									if (l->getHabilidades()->contiene(h)==true ) {
 										cout << "ERROR: no se puede agregar esta habilidad porque ya existe en la lista de algun luchador" << endl;
 										return;
 									}
-									list->insertarAlFinal(h);
-									i++;
-								}
+						      	}
+								list->insertarAlFinal(h);
 							}
 							else {
 								cout << "ERROR: La habilidad buscada  NO existe !" << endl;

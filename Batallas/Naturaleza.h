@@ -22,5 +22,6 @@ public:
 	string getNombre();
 	string getTipo();
 	string toString();
+	~Naturaleza();
 
 };

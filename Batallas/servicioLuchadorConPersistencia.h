@@ -11,7 +11,7 @@ public:
 	servicioLuchadorConPersistencia(string rutaArchivo);
 	void deserializarLuchadores(servicioNaturaleza* lista);
 	void serializarLuchadores();
-	~servicioLuchadorConPersistencia();
+     ~servicioLuchadorConPersistencia();
 
 
 };

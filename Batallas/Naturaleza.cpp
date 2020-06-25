@@ -171,3 +171,10 @@ string Naturaleza::toString()
 	return s.str();
 }
 
+Naturaleza::~Naturaleza()
+{
+	delete this->debiles;
+	delete this->resistentes;
+	delete this->inmunes;
+}
+

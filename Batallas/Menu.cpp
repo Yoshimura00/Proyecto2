@@ -64,6 +64,7 @@ void Menu::mostrar()
 					break;
 				default:
 					cout << "Opcion invalida" << endl;
+					break;
                  }
 
 			} while (opcion1!=4);
@@ -97,6 +98,7 @@ void Menu::mostrar()
 
 				default:
 					cout << "Opcion invalida" << endl;
+					break;
 				}
 
 			} while (opcion2 != 3);
@@ -147,6 +149,7 @@ void Menu::mostrar()
 					break;
 				default:
 					cout << "Opcion invalida" << endl;
+					break;
                 }
 
             } while (opcion3 != 5);
@@ -194,6 +197,7 @@ void Menu::mostrar()
 				default:
 
 					cout << "Opcion invalida" << endl;
+					break;
                 }
 
 			} while (opcionGC != 3);
@@ -202,12 +206,15 @@ void Menu::mostrar()
 		case 6:
 			break;
 		default: 
-
 			cout << "Opcion invalida" << endl;
+			break;
 		}
 
 	} while (opcion != 6);
 	
+	delete servicioN;
+	delete servicioH;
+	delete servicioL;
 }
 
 int Menu::opcionesPrincipales()

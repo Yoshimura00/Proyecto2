@@ -19,5 +19,5 @@ public:
 	bool habilidadVacia();
 	Habilidad* consultarHabilidad(string nombre);
 	ListaEnlazada* getHabilidades();
-	~servicioHabilidad();
+	virtual ~servicioHabilidad();
 };

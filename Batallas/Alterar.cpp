@@ -15,7 +15,7 @@ int Alteracion::random()
 {
 	int random;
 	srand(time(0));
-	random = rand() % 5 + 1;
+	random = rand() % 6 + 1;
 	return random;
 }
 
@@ -26,7 +26,7 @@ void Alteracion::ejecutar(Luchador* uno, Luchador* dos)
 	int alteracion;
 	Luchador* luchador;
 	
-	if ((Random == 1) || (Random == 2)) {                    //40%
+	if ((Random == 1) || (Random == 2) || (Random==3)) {                    //50%
 		if (elegido == false) { luchador = uno; }
 		else { luchador = dos; }
 
@@ -35,6 +35,7 @@ void Alteracion::ejecutar(Luchador* uno, Luchador* dos)
 		cout << " seleccione" << endl;
 		cout << " 1 = sumar" << endl;
 		cout << " 2 = restar" << endl;
+		cin >> operacion;
 		cout << "Digite la alteracion de las estadisticas" << endl;
 		cout << "el valor alterador no puede ser mayor a 30" << endl;
 		if (operacion == 1) {
@@ -77,6 +78,7 @@ void Alteracion::ejecutar(Luchador* uno, Luchador* dos)
 			} while (alteracion > 30);
 			luchador->setSPD(luchador->getSPD() + alteracion);
 			cout << "SPD + :" << alteracion << endl;
+			cout <<"Alteraciones realizadas" << endl;
 
 		}
 
@@ -120,7 +122,7 @@ void Alteracion::ejecutar(Luchador* uno, Luchador* dos)
 			} while (alteracion > 30);
 			luchador->setSPD(luchador->getSPD() - alteracion);
 			cout << "PHYATK - :" << alteracion << endl;
-
+			cout << "Alteraciones realizadas" << endl;
 
 		}
 	}

@@ -104,7 +104,9 @@ void Enfrentamientos::Batalla(Luchador* uno, Luchador* dos)
 		system("cls");
 
 		uno->especial(uno, dos);
+		system("cls");
 		dos->especial(dos, uno);
+		system("cls");
 
 		if (uno->getSPD() > dos->getSPD()) {
 			primera = h1;
@@ -150,12 +152,16 @@ void Enfrentamientos::Batalla(Luchador* uno, Luchador* dos)
 	}
 	if (uno->getSalud() <= 0) {
 		cout << uno->getNombre()<<" ha perdido toda su salud" << endl;
-		cout<<"El ganador es"<<dos->getNombre()<<endl;
+		cout<<"El ganador es "<<dos->getNombre()<<endl;
 		cout << " ¡Felicidades, jugador dos!" << endl;
+		system("PAUSE");
+		
 	}
 	if (dos->getSalud() <= 0) {
 		cout << dos->getNombre() << " ha perdido toda su salud" << endl;
-		cout << "El ganador es" << uno->getNombre() << endl;
+		cout << "El ganador es " << uno->getNombre() << endl;
 		cout << " ¡Felicidades, jugador uno!" << endl;
+		system("PAUSE");
+		
 	}
 }

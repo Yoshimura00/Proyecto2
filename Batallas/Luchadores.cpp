@@ -52,6 +52,7 @@ Luchador::Luchador(istream& input, servicioNaturaleza* lista)
 	input.ignore();
 	input >> SPD;
 	input.ignore();
+	this->habilidades = new ListaEnlazada();
 
 }
 
@@ -176,3 +177,8 @@ void Luchador::setHabilidades(ListaEnlazada* lista)
 	 //como SPD es el ultimo registro me parece que no lleva la coma al final!
 	 
 }
+
+ Luchador::~Luchador()
+ {
+	 delete this->habilidades;
+ }

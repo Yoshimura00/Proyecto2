@@ -21,7 +21,7 @@ public:
 	string toString();
 	string mostrarNombres(ListaEnlazada* lista);
 	ListaEnlazada* getLuchadores();
-	~ServicioLuchador();
+	virtual ~ServicioLuchador();
 
 
 
