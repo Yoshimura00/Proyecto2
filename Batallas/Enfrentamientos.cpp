@@ -7,7 +7,7 @@ Enfrentamientos::Enfrentamientos()
 	rondas = 1;
 }
 
-Luchador* Enfrentamientos::seleccionarLuchadores(ServicioLuchador* servicio, int n)
+Luchador* Enfrentamientos::seleccionarLuchadores(servicioLuchadorConPersistencia* servicio, int n)
 {
 	Luchador* luchador;
 	string nombre;

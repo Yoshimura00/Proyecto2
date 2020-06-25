@@ -3,7 +3,7 @@
 #include "servicioHabilidad.h"
 #include "ServicioLuchador.h"
 #include "Enfrentamientos.h"
-
+#include "ServicioLuchadorConPersistencia.h"
 void Menu::mostrar()
 {
 	
@@ -13,9 +13,9 @@ void Menu::mostrar()
 	char op1 = 'x', op2 = 'x', op3 = 'x';
 	servicioNaturaleza* servicioN = new servicioNaturaleza();
 	servicioHabilidad* servicioH = new servicioHabilidad();
-	ServicioLuchador* servicioL = new ServicioLuchador();
+	//ServicioLuchador* servicioL = new ServicioLuchador();
 	Enfrentamientos* batalla = new Enfrentamientos();
-	
+	servicioLuchadorConPersistencia *servicioL = new servicioLuchadorConPersistencia("luchadores.csv",servicioN);
 	Naturaleza* nat;
 	Luchador* uno = nullptr;
 	Luchador* dos = nullptr;
@@ -191,6 +191,7 @@ void Menu::mostrar()
 		}
 
 	} while (opcion != 6);
+	delete servicioL;
 }
 
 int Menu::opcionesPrincipales()

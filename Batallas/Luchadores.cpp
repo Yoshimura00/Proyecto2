@@ -30,13 +30,16 @@ Luchador::Luchador(string nombre, Naturaleza* naturaleza, int salud, int PHYATK,
 
 Luchador::Luchador(istream& input, servicioNaturaleza* lista)
 {
+	
 	string nombreNaturaleza;
-	getline(input, nombre, ',');
+	input >> nombre;
+	input.ignore();
+	getline(input, nombreNaturaleza, ',');
 	if (nombreNaturaleza != "nulo") {
-		naturaleza = lista->consultarNaturaleza(nombreNaturaleza);
+		this->naturaleza = lista->consultarNaturaleza(nombreNaturaleza);
 	}
 	else {
-		naturaleza = nullptr;
+		this->naturaleza = nullptr;
 	}
 	input >> salud;
 	input.ignore();
@@ -159,17 +162,18 @@ void Luchador::setHabilidades(ListaEnlazada* lista)
  void Luchador::serializar(ostream& out) {
 	 out << nombre << ",";
 	 if (naturaleza != nullptr) {
-		 out << naturaleza->getNombre();
+		 out << naturaleza->getNombre()<<",";
 	 }
 	 else {
 		 out << "nulo";
 	 }
-	 out << nombre << ",";	
+	 	
 	 out << salud << ",";
 	 out << PHYATK << ",";
 	 out << PHYDEF << ",";
 	 out << MAGATK << ",";
 	 out << MAGDEF << ",";
-	 out << SPD << ",";
+	 out << SPD ;
+	 //como SPD es el ultimo registro me parece que no lleva la coma al final!
 	 
 }

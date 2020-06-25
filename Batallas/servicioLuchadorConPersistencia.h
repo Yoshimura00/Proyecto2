@@ -8,7 +8,7 @@ class servicioLuchadorConPersistencia : public ServicioLuchador {
 private:
 	string rutaArchivo;
 public:
-	servicioLuchadorConPersistencia(string rutaArchivo);
+	servicioLuchadorConPersistencia(string rutaArchivo, servicioNaturaleza* lista);
 	void deserializarLuchadores(servicioNaturaleza* lista);
 	void serializarLuchadores();
 	~servicioLuchadorConPersistencia();

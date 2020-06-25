@@ -1,8 +1,9 @@
 #include "servicioLuchadorConPersistencia.h"
 
-servicioLuchadorConPersistencia::servicioLuchadorConPersistencia(string rutaArchivo)
+servicioLuchadorConPersistencia::servicioLuchadorConPersistencia(string rutaArchivo, servicioNaturaleza* lista)
 {
 	this->rutaArchivo = rutaArchivo;
+	this->deserializarLuchadores(lista);
 }
 
 void servicioLuchadorConPersistencia::deserializarLuchadores(servicioNaturaleza* lista)
@@ -18,16 +19,19 @@ void servicioLuchadorConPersistencia::deserializarLuchadores(servicioNaturaleza*
 			if (tipo == "Caballero")
 			{
 				nuevo = new Caballero(in, lista);
+				ingresarLuchador(nuevo);
 			}
 			else if (tipo == "Ninja")
 			{
 				nuevo = new Ninja(in, lista);
+				ingresarLuchador(nuevo);
 			}
 			else if (tipo == "Mago")
 			{
 				nuevo = new Mago(in, lista);
+				ingresarLuchador(nuevo);
 			}
-			ingresarLuchador(nuevo);
+			//ingresarLuchador(nuevo);
 		}
 		in.close();
 	}
@@ -57,6 +61,6 @@ void servicioLuchadorConPersistencia::serializarLuchadores()
 }
 
 servicioLuchadorConPersistencia::~servicioLuchadorConPersistencia()
-{
-
+{// se llama al serializar aca para aseguranos de que al finalizar se guardan los datos...
+	serializarLuchadores();
 }

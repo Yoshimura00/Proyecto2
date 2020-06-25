@@ -1,14 +1,14 @@
 #pragma once
-
+#include "servicioLuchadorConPersistencia.h"
 #include "Habilidad.h"
-#include "ServicioLuchador.h"
+
 class Enfrentamientos {
 
 private: 
 	int rondas;
 public: 
 	Enfrentamientos();
-	Luchador* seleccionarLuchadores(ServicioLuchador* servicio, int n);
+	Luchador* seleccionarLuchadores(servicioLuchadorConPersistencia* servicio, int n);
 	void actualizarDatos(ListaEnlazada* uno);
 	void mostrarInformacion(Luchador* uno, Luchador* dos);
 	Habilidad* seleccionarHabilidades(Luchador* luchador);
