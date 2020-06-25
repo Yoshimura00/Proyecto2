@@ -8,6 +8,8 @@ int main()
 {
     Menu* menu = new Menu; 
     menu->mostrar();
+
+    delete menu;
     
 }
 
