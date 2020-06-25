@@ -72,10 +72,10 @@ void Habilidad::serializar(ostream& out)
 {
 	out << nombre << ",";
 	if (naturaleza != nullptr) {
-		out << naturaleza->getNombre();
+		out << naturaleza->getNombre()<<",";
 	}
 	else {
-		out << "nulo";
+		out << "nulo"<<",";
 	}
 	out << uso << ",";
 	out << limiteDeUso << ",";

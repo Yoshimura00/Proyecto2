@@ -1,6 +1,6 @@
 #include "servicioLuchadorConPersistencia.h"
 
-servicioLuchadorConPersistencia::servicioLuchadorConPersistencia(string rutaArchivo, servicioNaturaleza* lista)
+servicioLuchadorConPersistencia::servicioLuchadorConPersistencia(string rutaArchivo)
 {
 	this->rutaArchivo = rutaArchivo;
 	

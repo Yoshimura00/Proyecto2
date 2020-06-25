@@ -8,6 +8,7 @@
 class servicioHabilidadConPersistencia : public servicioHabilidad {
 private:
 	string rutaArchivo;
+	servicioNaturaleza* lista;
 public:
 	servicioHabilidadConPersistencia(string rutaArchivo);
 	void deserializarHabilidades(servicioNaturaleza* lista);

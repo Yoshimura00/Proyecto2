@@ -1,9 +1,9 @@
 #include "Menu.h"
-#include "servicioNaturaleza.h"
-#include "servicioHabilidad.h"
-#include "ServicioLuchador.h"
+#include "servicioNaturalezasConPersistencia.h"
+#include "servicioLuchadorConPersistencia.h"
+#include "servicioHabilidadConPersistencia.h"
 #include "Enfrentamientos.h"
-#include "ServicioLuchadorConPersistencia.h"
+
 void Menu::mostrar()
 {
 	
@@ -11,11 +11,11 @@ void Menu::mostrar()
 	
 	int opcion, opcion1, opcion2, opcion3, opcionGC;
 	char op1 = 'x', op2 = 'x', op3 = 'x';
-	servicioNaturaleza* servicioN = new servicioNaturaleza();
-	servicioHabilidad* servicioH = new servicioHabilidad();
-	//ServicioLuchador* servicioL = new ServicioLuchador();
+	servicioNaturalezasConPersistencia* servicioN = new servicioNaturalezasConPersistencia("naturalezas.csv");
+	servicioHabilidadConPersistencia* servicioH = new servicioHabilidadConPersistencia("habilidades.csv");
+	servicioLuchadorConPersistencia* servicioL = new servicioLuchadorConPersistencia("luchadores.csv");
 	Enfrentamientos* batalla = new Enfrentamientos();
-	servicioLuchadorConPersistencia *servicioL = new servicioLuchadorConPersistencia("luchadores.csv",servicioN);
+	
 	Naturaleza* nat;
 	Luchador* uno = nullptr;
 	Luchador* dos = nullptr;
@@ -171,15 +171,28 @@ void Menu::mostrar()
 				opcionGC = CargSalvDatos();
 				switch (opcionGC) {
 				case 1:
+					servicioN->serializarNaturalezas();
+					servicioH->serializarHabilidades();
 					servicioL->serializarLuchadores();
+					cout << "Datos salvados correctamente" << endl;
+					system("PAUSE");
+					system("cls");
 					break;
-				case 2:
 
+				case 2:
+					servicioN->deserializarNaturalezas();
+					servicioH->deserializarHabilidades(servicioN);
 					servicioL->deserializarLuchadores(servicioN);
+					cout << "Datos cargados correctamente" << endl;
+					system("PAUSE");
+					system("cls");
 					break;
+
 				case 3:
+					cout << "saliendo..." << endl;
 					break;
 				default:
+
 					cout << "Opcion invalida" << endl;
                 }
 
@@ -194,7 +207,7 @@ void Menu::mostrar()
 		}
 
 	} while (opcion != 6);
-	delete servicioL;
+	
 }
 
 int Menu::opcionesPrincipales()

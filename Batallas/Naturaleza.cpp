@@ -24,6 +24,9 @@ Naturaleza::Naturaleza(istream& input)
 {
 	getline(input, nombre, ',');
 	getline(input, tipo);
+	this->debiles = new ListaEnlazada();
+	this->resistentes = new ListaEnlazada();
+	this->inmunes = new ListaEnlazada();
 }
 
 bool Naturaleza::adminDebiles(Naturaleza* naturaleza)

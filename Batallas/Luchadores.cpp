@@ -164,7 +164,7 @@ void Luchador::setHabilidades(ListaEnlazada* lista)
 		 out << naturaleza->getNombre()<<",";
 	 }
 	 else {
-		 out << "nulo";
+		 out << "nulo"<<",";
 	 }
 	 	
 	 out << salud << ",";
