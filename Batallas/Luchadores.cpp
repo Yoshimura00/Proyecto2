@@ -32,10 +32,9 @@ Luchador::Luchador(istream& input, servicioNaturaleza* lista)
 {
 	
 	string nombreNaturaleza;
-	input >> nombre;
-	input.ignore();
+	getline(input, nombre, ',');
 	getline(input, nombreNaturaleza, ',');
-	if (nombreNaturaleza != "nulo") {
+	if (nombreNaturaleza != "nulo" && (lista->naturalezaVacia()!=true)) {
 		this->naturaleza = lista->consultarNaturaleza(nombreNaturaleza);
 	}
 	else {

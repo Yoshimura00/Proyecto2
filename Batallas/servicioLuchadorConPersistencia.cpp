@@ -3,7 +3,7 @@
 servicioLuchadorConPersistencia::servicioLuchadorConPersistencia(string rutaArchivo, servicioNaturaleza* lista)
 {
 	this->rutaArchivo = rutaArchivo;
-	this->deserializarLuchadores(lista);
+	
 }
 
 void servicioLuchadorConPersistencia::deserializarLuchadores(servicioNaturaleza* lista)
@@ -61,6 +61,6 @@ void servicioLuchadorConPersistencia::serializarLuchadores()
 }
 
 servicioLuchadorConPersistencia::~servicioLuchadorConPersistencia()
-{// se llama al serializar aca para aseguranos de que al finalizar se guardan los datos...
-	serializarLuchadores();
+{
+	// se llama al serializar aca para aseguranos de que al finalizar se guardan los datos...
 }

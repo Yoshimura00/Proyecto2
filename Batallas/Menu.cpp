@@ -171,8 +171,11 @@ void Menu::mostrar()
 				opcionGC = CargSalvDatos();
 				switch (opcionGC) {
 				case 1:
+					servicioL->serializarLuchadores();
 					break;
 				case 2:
+
+					servicioL->deserializarLuchadores(servicioN);
 					break;
 				case 3:
 					break;
