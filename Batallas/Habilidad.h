@@ -1,7 +1,7 @@
 #pragma once
 #include "Luchadores.h"
 #include "servicioNaturaleza.h"
-
+class Luchador;
 class Habilidad : public ObjetoBase {
 private: 
 	string nombre; 
