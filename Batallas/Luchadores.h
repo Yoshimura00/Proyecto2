@@ -19,6 +19,7 @@ public:
 	Luchador();
 	Luchador(string nombre, Naturaleza* naturaleza, int salud, int PHYATK, int PHYDEF, int MAGATK, int MAGDEF, int SPD);
 	Luchador(istream& input, servicioNaturaleza* lista);
+	
 	void setSalud(int salud);
 	void setPHYATK(int PHYATK);
 	void setPHYDEF(int PHYDEF);

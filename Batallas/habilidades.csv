@@ -1,2 +1,3 @@
-Ataque,of1,agua,0,1,50
-Ataque,of2,agua,0,1,50
+Ataque,atk1,Planta,0,1,100
+Ataque,atk2,Planta,0,1,150
+Alteracion,atk3,Planta,0,3,0

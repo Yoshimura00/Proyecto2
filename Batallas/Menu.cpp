@@ -175,8 +175,9 @@ void Menu::mostrar()
 				switch (opcionGC) {
 				case 1:
 					servicioN->serializarNaturalezas();
-					servicioH->serializarHabilidades();
 					servicioL->serializarLuchadores();
+					servicioH->serializarHabilidades();
+					
 					cout << "Datos salvados correctamente" << endl;
 					system("PAUSE");
 					system("cls");
@@ -184,8 +185,9 @@ void Menu::mostrar()
 
 				case 2:
 					servicioN->deserializarNaturalezas();
-					servicioH->deserializarHabilidades(servicioN);
 					servicioL->deserializarLuchadores(servicioN);
+					servicioH->deserializarHabilidades(servicioN);
+					servicioH->deserializarHabilidadesLuchador("luchadores.csv", servicioL);
 					cout << "Datos cargados correctamente" << endl;
 					system("PAUSE");
 					system("cls");

@@ -28,6 +28,11 @@ Luchador* ServicioLuchador::consultarLuchador(string nombre)
 	}
 	return nullptr;
 }
+Luchador* ServicioLuchador::consultarLuchadorPorPosicion(int pos)
+{
+	Luchador * actual = dynamic_cast <Luchador*>(Luchadores->consultarPorPosicion(pos));
+	return actual;
+}
 bool ServicioLuchador::contieneLuchador(Luchador* luchador)
 {
 	if (Luchadores->contiene(luchador)) {

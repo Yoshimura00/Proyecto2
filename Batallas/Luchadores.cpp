@@ -52,9 +52,12 @@ Luchador::Luchador(istream& input, servicioNaturaleza* lista)
 	input.ignore();
 	input >> SPD;
 	input.ignore();
+
 	this->habilidades = new ListaEnlazada();
 
 }
+
+
 
 void Luchador::setSalud(int salud)
 {
@@ -173,26 +176,28 @@ void Luchador::setHabilidades(ListaEnlazada* lista)
 	 out << PHYDEF << ",";
 	 out << MAGATK << ",";
 	 out << MAGDEF << ",";
-	 out << SPD ;
-	 int cantidad = 0;
-	 cantidad = this->habilidades->cantidad();
-	 if (cantidad > 0)
-	 {
-		 for (int i = 0; i < cantidad; i++) {
+	 out << SPD<< ",";
+	 int cantidad = 4;
+	
+		 for (int i = 0; i < cantidad ; i++) {
 			 Habilidad* actual = dynamic_cast <Habilidad*>(habilidades->consultarPorPosicion(i));
-			 if (i < cantidad - 1) {
-				 out << actual->getNombre() << ",";
+			 if (actual != nullptr) {
+				 if (i < cantidad - 1) {
+					 out << actual->getNombre() << ",";
+				 }
+				 else {
+					 out << actual->getNombre();
+				 }
 			 }
 			 else {
-				 out << actual->getNombre();
+				 if (i < cantidad - 1) {
+					 out << "sin asignar" << ",";
+				 }
+				 else {
+					 out << "sin asignar";
+				 }
 			 }
 		 }
-	 }
-	 else
-	 {
-		 out << "sin asignar";
-	 }
-	 //como SPD es el ultimo registro me parece que no lleva la coma al final!
 	 
 }
 

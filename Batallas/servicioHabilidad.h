@@ -4,6 +4,7 @@
 #include "Alterar.h"
 #include "Ataque.h"
 #include "Curacion.h"
+
 class servicioHabilidad {
 private: 
 	ListaEnlazada* Habilidades;

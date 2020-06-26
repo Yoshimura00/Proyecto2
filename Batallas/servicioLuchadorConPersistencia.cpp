@@ -19,6 +19,7 @@ void servicioLuchadorConPersistencia::deserializarLuchadores(servicioNaturaleza*
 			if (tipo == "Caballero")
 			{
 				nuevo = new Caballero(in, lista);
+				//nuevo->setHabilidades(Habilidades*)
 				ingresarLuchador(nuevo);
 			}
 			else if (tipo == "Ninja")
