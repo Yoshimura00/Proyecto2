@@ -1,6 +1,5 @@
 #pragma once
 #include "Luchadores.h"
-#include "Naturaleza.h"
 #include "servicioNaturaleza.h"
 
 class Habilidad : public ObjetoBase {
@@ -23,8 +22,5 @@ public:
 	virtual void ejecutar(Luchador* uno, Luchador * dos) = 0;
 	string toString();
 	virtual void serializar(ostream& out) = 0;
-
-
-
 
 };

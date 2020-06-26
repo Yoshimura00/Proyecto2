@@ -1,7 +1,4 @@
 #pragma once
-#include "Alterar.h"
-#include "Ataque.h"
-#include "Curacion.h"
 #include "servicioHabilidad.h"
 #include<fstream>
 
