@@ -19,7 +19,6 @@ void servicioLuchadorConPersistencia::deserializarLuchadores(servicioNaturaleza*
 			if (tipo == "Caballero")
 			{
 				nuevo = new Caballero(in, lista);
-				//nuevo->setHabilidades(Habilidades*)
 				ingresarLuchador(nuevo);
 			}
 			else if (tipo == "Ninja")
@@ -32,7 +31,6 @@ void servicioLuchadorConPersistencia::deserializarLuchadores(servicioNaturaleza*
 				nuevo = new Mago(in, lista);
 				ingresarLuchador(nuevo);
 			}
-			//ingresarLuchador(nuevo);
 		}
 		in.close();
 	}
@@ -63,5 +61,5 @@ void servicioLuchadorConPersistencia::serializarLuchadores()
 
 servicioLuchadorConPersistencia::~servicioLuchadorConPersistencia()
 {
-	// se llama al serializar aca para aseguranos de que al finalizar se guardan los datos...
+
 }

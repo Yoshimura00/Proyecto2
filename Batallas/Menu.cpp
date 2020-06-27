@@ -187,7 +187,6 @@ void Menu::mostrar()
 					servicioN->deserializarNaturalezas();
 					servicioL->deserializarLuchadores(servicioN);
 					servicioH->deserializarHabilidades(servicioN);
-					servicioH->deserializarHabilidadesLuchador("luchadores.csv", servicioL);
 					cout << "Datos cargados correctamente" << endl;
 					system("PAUSE");
 					system("cls");

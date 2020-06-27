@@ -78,5 +78,5 @@ void Habilidad::serializar(ostream& out)
 		out << "nulo"<<",";
 	}
 	out << uso << ",";
-	out << limiteDeUso << ",";
+	out << limiteDeUso<<",";
 }

@@ -147,7 +147,7 @@ string Luchador::toString()
 	s << "MAGATK: " << MAGATK << " %" << endl;
 	s << "MAGDEF: " << MAGDEF << " %" << endl;
 	s << "SPD: " << SPD << " %" << endl;
-	if (habilidades==nullptr) {
+	if (habilidades==nullptr||habilidades->cantidad()==0) {
 		s << "NO posee habilidades" << endl;
 	}
 	else {
@@ -176,28 +176,7 @@ void Luchador::setHabilidades(ListaEnlazada* lista)
 	 out << PHYDEF << ",";
 	 out << MAGATK << ",";
 	 out << MAGDEF << ",";
-	 out << SPD<< ",";
-	 int cantidad = 4;
-	
-		 for (int i = 0; i < cantidad ; i++) {
-			 Habilidad* actual = dynamic_cast <Habilidad*>(habilidades->consultarPorPosicion(i));
-			 if (actual != nullptr) {
-				 if (i < cantidad - 1) {
-					 out << actual->getNombre() << ",";
-				 }
-				 else {
-					 out << actual->getNombre();
-				 }
-			 }
-			 else {
-				 if (i < cantidad - 1) {
-					 out << "sin asignar" << ",";
-				 }
-				 else {
-					 out << "sin asignar";
-				 }
-			 }
-		 }
+	 out << SPD;
 	 
 }
 

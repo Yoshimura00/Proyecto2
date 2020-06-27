@@ -9,8 +9,6 @@ Naturaleza::Naturaleza()
 	this->inmunes = new ListaEnlazada();
 }
 
-
-
 Naturaleza::Naturaleza(string nombre, string tipo)
 {
 	this->nombre = nombre;

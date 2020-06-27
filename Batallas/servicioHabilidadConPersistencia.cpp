@@ -58,41 +58,4 @@ void servicioHabilidadConPersistencia::serializarHabilidades()
 
 }
 
-
-void servicioHabilidadConPersistencia::deserializarHabilidadesLuchador(string rutaArchivo, servicioLuchadorConPersistencia* s1)
-{
-	ifstream in(rutaArchivo, ios::in);
-	int cantidad = s1->cantidad();
-	if ((in.good())) {
-		for (int i = 0; i < cantidad; i++) {
-			ListaEnlazada* l1 = new ListaEnlazada();
-			string campo;
-			string nombreH1;
-			string nombreH2;
-			getline(in, campo, ',');
-			getline(in, campo, ',');
-			getline(in, campo, ',');
-			getline(in, campo, ',');
-			getline(in, campo, ',');
-			getline(in, campo, ',');
-			getline(in, campo, ',');
-			getline(in, campo, ',');
-			getline(in, campo, ',');
-			//
-
-			getline(in, nombreH1, ',');
-			while (nombreH1 != "sin asignar") {
-				l1->insertarAlFinal(consultarHabilidad(nombreH1));
-				getline(in, nombreH1, ',');
-			}
-			while (nombreH1 == "sin asignar") {
-				getline(in, nombreH1, ',');
-			}
-			s1->consultarLuchadorPorPosicion(i)->setHabilidades(l1);
-		}
-	}
-	in.close();
-	
-}
-	
 servicioHabilidadConPersistencia::~servicioHabilidadConPersistencia(){}

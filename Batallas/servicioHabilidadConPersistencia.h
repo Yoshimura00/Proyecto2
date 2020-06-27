@@ -12,8 +12,6 @@ public:
 	servicioHabilidadConPersistencia(string rutaArchivo);
 	void deserializarHabilidades(servicioNaturaleza* lista);
 	void serializarHabilidades();
-	void deserializarHabilidadesLuchador(string rutaArchivo,servicioLuchadorConPersistencia* s1);
-	
 	~servicioHabilidadConPersistencia();
 
 };
