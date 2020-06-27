@@ -1,8 +1,14 @@
 #include "Ataque.h"
 
-Ataque::Ataque(string nombre, Naturaleza* naturaleza, int uso, int daño) : Habilidad (nombre, naturaleza, uso, 2)
+Ataque::Ataque(string nombre, Naturaleza* naturaleza, int uso, int dañoBase) : Habilidad (nombre, naturaleza, uso, 1)
 {
-	this->daño = daño;
+	this->dañoBase = dañoBase;
+}
+
+Ataque::Ataque(istream& input, servicioNaturaleza* lista) : Habilidad(input, lista)
+{
+	input >> dañoBase;
+	input.ignore();
 }
 
 int Ataque::random()
@@ -13,39 +19,90 @@ int Ataque::random()
 	return random;
 }
 
+float Ataque::random2()
+{
+	float random;
+	srand(time(0));
+	random = 85 + (rand() % (100 + 1 - 85));
+	return random / 100;
+}
+
+float Ataque::calcDaño(Luchador* uno, Luchador* dos)
+{
+	
+	float r = random2();
+	float dañoTotal;
+	int ataque, defensa;
+	if (getNaturaleza()->getTipo() == "fisica") { ataque = uno->getPHYATK(); defensa = dos->getPHYDEF(); }
+	if (getNaturaleza()->getTipo() == "magica") { ataque = uno->getMAGATK(); defensa = dos->getMAGDEF(); }
+	dañoTotal = dañoBase * (ataque / defensa) * r;
+	return dañoTotal;
+}
+
+float Ataque::dañoFinal(Luchador* uno, Luchador* dos)
+{
+	float dañoFinal = calcDaño(uno, dos);
+	Naturaleza* nat = getNaturaleza();
+
+	if (dos->getNaturaleza()->comprobarDebiles(nat) == true) {
+		dañoFinal = dañoFinal * 2;
+		cout << "Daño aumentado por interaccion de naturalezas" << endl;
+		system("PAUSE");
+	}
+	if (dos->getNaturaleza()->comprobarResistentes(nat) == true) {
+		dañoFinal = dañoFinal / 2;
+		cout << "Daño reducido por interaccion de naturalezas" << endl;
+		system("PAUSE");
+	}
+	if (dos->getNaturaleza()->comprobarInmunes(nat) == true) {
+		dañoFinal = dañoFinal = 0;
+		cout << "Daño neutralizado por interaccion de naturalezas" << endl;
+		system("PAUSE");
+	}
+	
+      return dañoFinal;
+}
+
+
+
 void Ataque::ejecutar(Luchador* uno, Luchador* dos)
 {
-	if (daño == 50) {
-		if ((random() == 1) || (random() == 2) || (random() == 3) || (random() == 4)) {  
-			dos->setSalud(dos->getSalud() - 50);
-			cout << "Ataque ejecutado" << endl;
-		}
-		else { cout << "El ataque ha fallado" << endl; }
-	}
-	if (daño == 100) {
-		if ((random() == 1) || (random() == 2) || (random() == 3)) {
-			dos->setSalud(dos->getSalud() - 100);
-			cout << "Ataque ejecutado" << endl;
-		}
-		else { cout << "El ataque ha fallado" << endl; }
-	}
-	if (daño == 150) {
-		if ((random() == 1) || (random() == 2)) {
-			dos->setSalud(dos->getSalud() - 150);
-			cout << "Ataque ejecutado" << endl;
-		}
-		else { cout << "El ataque ha fallado" << endl; }
-	}
-	if (daño == 200) {
-		if ((random() == 1)) {
-			dos->setSalud(dos->getSalud() - 200);
-			cout << "Ataque ejecutado" << endl;
-		}
-		else { cout << "El ataque ha fallado" << endl; }
-	}
+	int Random = random();
+	float daño = dañoFinal(uno, dos);
 
-
-
+	if (dañoBase == 50) {
+		
+		if ((Random == 1) || (Random == 2) || (Random == 3) || (Random == 4)) {   //80% prob
+			dos->setSalud(dos->getSalud() - daño);
+			cout << "Ataque ejecutado" << endl;
+			cout << "Salud del oponente - :" << daño << endl;
+		}
+		else { cout << "El ataque ha fallado" << endl; }
+	}
+	if (dañoBase == 100) {
+		if ((Random == 1) || (Random == 2) || (Random == 3)) {            //60% prob
+			dos->setSalud(dos->getSalud() - daño);
+			cout << "Ataque ejecutado" << endl;
+			cout << "Salud del oponente - :" << daño << endl;
+		}
+		else { cout << "El ataque ha fallado" << endl; }
+	}
+	if (dañoBase == 150) {
+		if ((Random == 1) || (Random == 2)) {                       //40% prob
+			dos->setSalud(dos->getSalud() - daño);
+			cout << "Ataque ejecutado" << endl;
+			cout << "Salud del oponente - :" << daño << endl;
+		}
+		else { cout << "El ataque ha fallado" << endl; }
+	}
+	if (dañoBase == 200) {
+		if ((Random == 1)) {                                //20% prob
+			dos->setSalud(dos->getSalud() - daño);
+			cout << "Ataque ejecutado" << endl;
+			cout << "Salud del oponente - :" << daño << endl;
+		}
+		else { cout << "El ataque ha fallado" << endl; }
+	}
 
 
 }
@@ -54,6 +111,14 @@ string Ataque::toString()
 {
 	stringstream s;
 	s << "Habilidad de ataque" << endl;
-	s << Habilidad::toString() << endl;
+	s << Habilidad::toString();
+	s << "Daño base de la habilidad: "<<dañoBase<< endl;
 	return s.str();
+}
+
+void Ataque::serializar(ostream& out)
+{
+	out << "Ataque" << ",";
+	Habilidad::serializar(out);
+	out << dañoBase;
 }

@@ -1,7 +1,7 @@
 #pragma once
-#include "LIstaEnlazada.h"
-#include "Naturaleza.h"
-
+#include "servicioNaturaleza.h"
+#include "Habilidad.h"
+class Habilidad;
 class Luchador: public ObjetoBase {
 private:
 	string nombre;
@@ -17,6 +17,8 @@ private:
 public:
 	Luchador();
 	Luchador(string nombre, Naturaleza* naturaleza, int salud, int PHYATK, int PHYDEF, int MAGATK, int MAGDEF, int SPD);
+	Luchador(istream& input, servicioNaturaleza* lista);
+	
 	void setSalud(int salud);
 	void setPHYATK(int PHYATK);
 	void setPHYDEF(int PHYDEF);
@@ -32,8 +34,11 @@ public:
 	int getSPD();
 	Naturaleza* getNaturaleza();
 	ListaEnlazada* getHabilidades();
-	virtual int random() = 0;
-	virtual int random2() = 0;
-	virtual void especial(Luchador* uno, Luchador* dos) = 0;
+	virtual int random() =0 ;
+	virtual int random2()=0 ;
+	virtual void especial(Luchador* uno, Luchador* dos)=0;
 	string toString();
+	void setHabilidades(ListaEnlazada*lista);
+	virtual void serializar(ostream& out) = 0;
+	~Luchador();
 };

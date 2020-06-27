@@ -5,6 +5,11 @@ Caballero::Caballero(string nombre, Naturaleza* naturaleza, int salud, int PHYAT
 
 }
 
+Caballero::Caballero(istream& input, servicioNaturaleza* lista) : Luchador (input, lista)
+{
+
+}
+
 int Caballero::random()
 {
 	int random;
@@ -23,17 +28,21 @@ int Caballero::random2()
 
 void Caballero::especial(Luchador* uno, Luchador* dos)
 {
-	if (random() == 1) { //50%
-		cout << "Habilidad especial de caballero" << endl;
+	int Random = random();
+	int Random2 = random2();
+
+	if (Random == 1) { //50%
+		cout << "HABILIDAD ESPECIAL DE CABALLERO ACTIVADA" << endl;
 		uno->setPHYDEF(getPHYDEF()+35);
 		cout << "PHYDEF + 35%" << endl;
-
+		system("PAUSE");
 
 	}
-	if ((random2() == 1) || (random2() == 2)) { //40%
-		cout << "Habilidad especial de caballero" << endl;
+	if ((Random2 == 2) || (Random2 == 3)) { //40%
+		cout << "HABILIDAD 2 ESPECIAL DE CABALLERO ACTIVADA" << endl;
 		uno->setPHYATK(getPHYATK() + 30);
 		cout << "PHYATK + 30%" << endl;
+		system("PAUSE");
 	}
 }
 
@@ -44,4 +53,10 @@ string Caballero::toString()
 	s << Luchador::toString()<<endl;
 	return s.str();
 	
+}
+
+void Caballero::serializar(ostream& out)
+{
+	out << "Caballero" << ",";
+	Luchador::serializar(out);
 }

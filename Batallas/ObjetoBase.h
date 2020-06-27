@@ -9,4 +9,5 @@ class ObjetoBase
 {
 public:
 	virtual string toString() = 0;
+	virtual ~ObjetoBase() {};
 };

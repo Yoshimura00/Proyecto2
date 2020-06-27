@@ -31,14 +31,15 @@ string ListaEnlazada::toString()
 
 	while (actual != nullptr)
 	{
-		s << actual->getDato() << endl;
+		s << actual->getDato()->toString() << endl;
 		actual = actual->getSiguiente();
 	}
 
 	return s.str();
 }
 
-ObjetoBase* ListaEnlazada::consultar(int n)
+
+ObjetoBase* ListaEnlazada::consultarPorPosicion(int n)
 {
 	if (primero == nullptr)
 	{
@@ -77,7 +78,7 @@ void ListaEnlazada::eliminarPrimero()
 	}
 }
 
-void ListaEnlazada::eliminarNodo(int n)
+void ListaEnlazada::eliminarDato(int n)
 {
 	if (this->primero == nullptr) 
 	{
@@ -157,7 +158,14 @@ int ListaEnlazada::cantidad()
 	}
 	return total;
 }
-
+bool ListaEnlazada::listaVacia() {
+	if (primero == nullptr) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
 bool ListaEnlazada::contiene(ObjetoBase* elemento)
 {
 	Nodo* actual = this->primero;

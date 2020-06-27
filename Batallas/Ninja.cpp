@@ -5,6 +5,11 @@ Ninja::Ninja(string nombre, Naturaleza* naturaleza, int salud, int PHYATK, int P
 
 }
 
+Ninja::Ninja(istream& input, servicioNaturaleza* lista) : Luchador (input, lista)
+{
+	
+}
+
 int Ninja::random()
 {
 	int random;
@@ -24,20 +29,26 @@ int Ninja::random2()
 
 void Ninja::especial(Luchador* uno, Luchador* dos)
 {
-	if ((random() == 1) || (random() == 2) || (random() == 3) || (random() == 4) || (random() == 5) || (random() == 6) || (random() == 7)) { //35%
-		cout << "Habilidad especial de ninja" << endl;
+	int Random=random();
+	int Random2 = random2();
+
+	if ((Random == 1) || (Random == 2) || (Random == 3) || (Random == 4) || (Random == 5) || (Random == 6) || (Random == 7)) { //35%
+		cout << "HABILIDAD ESPECIAL DE NINJA ACTIVADA" << endl;
 		uno->setSPD(getSPD() + 80);  
 		cout << "SPD + 80%" << endl;
+		system("PAUSE");
 	}
-		if (random2() == 1) { //5%
-			cout << "Habilidad especial de ninja" << endl;
-			if (dos->getNaturaleza()->getTipo()=="fisico") {
+		if (Random2 == 8) { //5%
+			cout << "HABILIDAD ESPECIAL 2 DE NINJA ACTIVADA" << endl;
+			if (dos->getNaturaleza()->getTipo()=="fisica") {
 				uno->setPHYDEF(uno->getPHYDEF() + 80);
 				cout << "PHYDEF + 80" << endl;
+				system("PAUSE");
 			}
-			else {
+			if(dos->getNaturaleza()->getTipo() == "magica") {
 				uno->setMAGDEF(uno->getMAGDEF() + 80);
 				cout << "MAGDEF + 80" << endl;
+				system("PAUSE");
 			}
 		}
 }
@@ -48,4 +59,10 @@ string Ninja::toString()
 	s << "Luchador Ninja" << endl;
 	s << Luchador::toString() << endl;
 	return s.str();
+}
+
+void Ninja::serializar(ostream& out)
+{
+	out << "Ninja" << ",";
+	Luchador::serializar(out);
 }

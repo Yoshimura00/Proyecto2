@@ -8,8 +8,13 @@ public:
 	servicioNaturaleza();
 	void ingresarNaturaleza(Naturaleza* nuevo);
 	Naturaleza* consultarNaturaleza(string nombre);
+	bool contieneNaturaleza(Naturaleza* nat);
 	int cantidad();
 	string toString();
-	~servicioNaturaleza();
-
+	void pedirDatos();
+	void administrarNaturalezas();
+	ListaEnlazada* getNaturalezas();
+	bool naturalezaVacia();
+	string naturalezasEnLIsta();
+	virtual ~servicioNaturaleza();
 };

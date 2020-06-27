@@ -24,9 +24,40 @@ Luchador::Luchador(string nombre, Naturaleza* naturaleza, int salud, int PHYATK,
 	this->MAGATK = MAGATK;
 	this->MAGDEF = MAGDEF;
 	this->SPD = SPD;
-	
+	this->habilidades = new ListaEnlazada();
 	
 }
+
+Luchador::Luchador(istream& input, servicioNaturaleza* lista)
+{
+	
+	string nombreNaturaleza;
+	getline(input, nombre, ',');
+	getline(input, nombreNaturaleza, ',');
+	if (nombreNaturaleza != "nulo" && (lista->naturalezaVacia()!=true)) {
+		this->naturaleza = lista->consultarNaturaleza(nombreNaturaleza);
+	}
+	else {
+		this->naturaleza = nullptr;
+	}
+	input >> salud;
+	input.ignore();
+	input >> PHYATK;
+	input.ignore();
+	input >> PHYDEF;
+	input.ignore();
+	input >> MAGATK;
+	input.ignore();
+	input >> MAGDEF;
+	input.ignore();
+	input >> SPD;
+	input.ignore();
+
+	this->habilidades = new ListaEnlazada();
+
+}
+
+
 
 void Luchador::setSalud(int salud)
 {
@@ -103,17 +134,53 @@ ListaEnlazada* Luchador::getHabilidades()
 	return habilidades;
 }
 
+
 string Luchador::toString()
 {
 	stringstream s;
 	s << "Informacion del luchador: " << endl;
 	s << "Nombre: " <<nombre<< endl;
 	s << "Salud: " <<salud<<" %"<< endl;
-	s << "Naturaleza asociada: " << naturaleza << endl;
+	s << "Naturaleza asociada: " << naturaleza->getNombre() << endl;
 	s << "PHYATK: " << PHYATK << " %" << endl;
 	s << "PHYDEF: " << PHYDEF << " %" << endl;
 	s << "MAGATK: " << MAGATK << " %" << endl;
 	s << "MAGDEF: " << MAGDEF << " %" << endl;
 	s << "SPD: " << SPD << " %" << endl;
+	if (habilidades==nullptr||habilidades->cantidad()==0) {
+		s << "NO posee habilidades" << endl;
+	}
+	else {
+		s << "Habilidades del luchador: " << endl;
+		s << habilidades->toString() << endl;
+	}
 	return s.str();
 }
+
+void Luchador::setHabilidades(ListaEnlazada* lista)
+{
+	this->habilidades = lista;
+}
+
+ void Luchador::serializar(ostream& out) {
+	 out << nombre << ",";
+	 if (naturaleza != nullptr) {
+		 out << naturaleza->getNombre()<<",";
+	 }
+	 else {
+		 out << "nulo"<<",";
+	 }
+	 	
+	 out << salud << ",";
+	 out << PHYATK << ",";
+	 out << PHYDEF << ",";
+	 out << MAGATK << ",";
+	 out << MAGDEF << ",";
+	 out << SPD;
+	 
+}
+
+ Luchador::~Luchador()
+ {
+	 delete this->habilidades;
+ }
